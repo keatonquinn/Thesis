@@ -1,0 +1,196 @@
+\documentclass{amsart}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,stmaryrd,paralist,tikz,amsthm}
+\usepackage[mathscr]{euscript}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\RP}{\mathbb{R}\mathrm{P}}
+\newcommand{\CP}{\mathbb{C}\mathrm{P}}
+\renewcommand{\H}{\mathbb{H}}
+\let\oldS\S
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\s}{\mathbb{S}}
+
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{lem*}{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{prop*}{Proposition}
+\newtheorem{defn}{Definition}
+\newtheorem*{defn*}{Definition}
+\newtheorem{question}{Question}
+\newtheorem*{question*}{Question}
+
+
+\newcommand{\re}{\mathrm{Re}}
+\newcommand{\im}{\mathrm{Im}}
+\newcommand{\iprod}[1]{\left< #1 \right>}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\set}[1]{\left\{ #1 \right\} }
+\newcommand{\norm}[1]{ \left\| #1 \right\| }
+\newcommand{\del}{\nabla}
+\newcommand{\two}{I\!\!I}
+
+
+\usepackage{fancyhdr}
+ \pagestyle{fancy}
+ \chead{\sf DRAFT VERSION 1 --- {\today}}
+ \setlength{\headheight}{14pt}
+ \setlength{\footskip}{0.5in}
+ \lhead{} \rhead{} \lfoot{} \cfoot{\thepage} \rfoot{}
+ \renewcommand{\headrulewidth}{0pt}
+ \renewcommand{\footrulewidth}{0pt}
+
+
+
+\usepackage{color}
+\definecolor{verydarkblue}{rgb}{0,0,0.4}
+\usepackage{hyperref}
+\hypersetup{
+pdfauthor={Keaton Quinn},
+pdftitle={Asymptotically Poincar\'e surfaces in quasi-Fuchsian manifolds},
+colorlinks=true,linkcolor=verydarkblue,
+citecolor=verydarkblue,urlcolor=verydarkblue
+}
+
+
+
+\begin{document}
+
+\title{Amazing Thesis}
+
+\author{Keaton Quinn}
+
+\maketitle
+
+\begin{center} {\sf DRAFT VERSION 1 --- {\today} } \end{center}
+
+
+
+\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+
+\subsection{The Geometry of Surfaces}
+
+Let $S$ be a closed, oriented, smooth surface. 
+A Riemannian metric $g$ on $S$ is a smooth section of the symmetric tensor product of the cotangent bundle of $S$, i.e., $g \in \Gamma(\Sigma^2T^*S)$, such that $g(p): T_pS \times T_pS \to \R$ is an inner product.
+The non-degeneracy of $g$ at each point allows us to identity $TS$ with $T^*S$ via the map that sends $v \in T_pS$ to $g_p(\cdot  , v) \in T_p^*S$ and this extends to an identification of vector fields and 1-forms. 
+The Levi-Civita connection $\nabla$ of $g$ on $S$ is the unique torsion-free, metric connection on $S$ 
+\[
+T^\nabla = 0 \text{ and } \nabla g = 0.
+\]
+
+Suppose $(M,\tilde{g})$ is a 3-dimensional Riemannian manifold. 
+When $f: S \to M$ is an immersion, the pullback tensor $I = f^*\tilde{g}$ is a Riemannian metric on $S$ that we call the First Fundamental Form. 
+If we regard $f$ as an identification of $S$ with its image in $M$, then we may also identify $T_pS$ with its image in $T_{f(p)}M$.
+We therefore have a $\tilde{g}$-orthogonal splitting
+\[
+T_pM = T_pS \oplus N_pS.
+\]
+Here, $N_pS$ is the normal space to the surface in $M$ given by all vectors orthogonal to $S$ at $p$.
+The disjoint union of the normal spaces forms a vector bundle (in this case a line bundle) called the Normal Bundle of $S$.
+By our assumptions, there is a unit normal vector field $n$ so that $S$ is co-oriented in $M$.
+
+Let $\widetilde{\nabla}$ be the Levi-Civita connection of $\tilde{g}$ on $M$.
+By extending vector fields $X$ and $Y$ on $S$ to a neighborhood of $S$ in $M$, we may take $\widetilde{\nabla}_X Y$.
+This resulting vector field is not necessarily also tangent to $S$ and so we may decompose it into its tangential part $(\widetilde{\nabla}_X Y)^\top$ and its normal part $(\widetilde{\nabla}_X Y)^\perp$.
+The Gauss Formula tells us $(\widetilde{\nabla}_X Y)^\top = \nabla_X Y$ and since the normal bundle is spanned by $n$ we have $(\widetilde{\nabla}_X Y)^\perp = \two(X,Y)n$ for a symmetric 2-tensor field $\two \in \Gamma(\Sigma^2T^*S)$.
+This $\two$ we call the Second Fundamental Form.
+
+ 
+Given a torsion-free connection $\nabla$ on $S$ and a $q$-form $\omega$ with values on $TS$, the exterior covariant derivative of $\omega$ is 
+\[
+d^\nabla \omega = \mathrm{Alt}(\nabla \omega).
+\]
+By considering vector fields as 0-forms with values in $TS$ we define the Riemann Curvature Endomorphism of $\nabla$ as the 2-form with values in $\mathrm{End}(TS)$ given by  
+\[
+R^{\nabla}(X,Y)Z 
+= (d^\nabla \circ d^\nabla Z)(X,Y)
+= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z.
+\]
+The Riemann Curvature Tensor is then 
+\[
+Rm(X,Y,Z,W) = g(R^{\nabla}(X,Y)Z,W).
+\]
+and the Gaussian curvature of $S$ at a point $p$ is the function $K(g)$ defined by 
+\[
+K(g)(p) = \frac{Rm(v,w,w,v)}{\|v\|^2\|w\|^2 - g(v,w)}
+\]
+where $v,w$ is any basis for $T_pS$.
+One dimension upwards in $M$, the Sectional Curvature of $\tilde{g}$ is a function on 2-planes in the tangent bundle $sec: \mathrm{Gr}_2(TM) \to \R$ whose value on $\Pi \leq T_pM$ is the Gaussian curvature at $p$ of the image of $\Pi$ in $M$ under the exponential map.
+
+The Gauss Equation relates the Gaussian curvature $K$ of $S$ to the sectional curvature of the ambient manifold $M$ via the first and second fundamental forms.
+Since $\two$ is symmetric and since $I$ is non-degenerate, we may form the shape operator $I^{-1}\two: TM \to TM$.
+The Gauss Equations states
+\[
+K(I) = sec(TS) + \det(I^{-1}\two).
+\]
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Asymptotically Poincar\'e Families}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{$k$-surfaces}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Constant Mean Curvature Surfaces}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Future Directions}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
