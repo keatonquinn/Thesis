@@ -33,7 +33,8 @@
 \newtheorem*{defn*}{Definition}
 \newtheorem{question}{Question}
 \newtheorem*{question*}{Question}
-
+\newtheorem{conj}{Conjecture}
+\newtheorem*{conj*}{Conjecture}
 
 \newcommand{\re}{\mathrm{Re}}
 \newcommand{\im}{\mathrm{Im}}
@@ -70,60 +71,53 @@ citecolor=verydarkblue,urlcolor=verydarkblue
 
 \begin{document}
 
-\title{Amazing Thesis}
+\title{Super Cool Thesis}
 
 \author{Keaton Quinn}
 
 \maketitle
 
-\begin{center} {\sf DRAFT VERSION 1 --- {\today} } \end{center}
+\begin{center} {\sf DRAFT VERSION 2 --- {\today} } \end{center}
 
 
 
 \section{Introduction}
 
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%&&&
 \section{Preliminaries}
 
+
+%%%%%%%%%%%
 \subsection{The Geometry of Surfaces}
+%%%%%%%%%%%
 
 Let $S$ be a closed, oriented, smooth surface. 
-A Riemannian metric $g$ on $S$ is a smooth section of the symmetric tensor product of the cotangent bundle of $S$, i.e., $g \in \Gamma(\Sigma^2T^*S)$, such that $g(p): T_pS \times T_pS \to \R$ is an inner product.
+A Riemannian metric $g$ on $S$ is a smooth section of the symmetric tensor product of the cotangent bundle of $S$, i.e., $g \in \Gamma(\Sigma^2T^*S)$, such that at each point, the associated symmetric bilinear map  $g(p): T_pS \times T_pS \to \R$ is an inner product.
 The non-degeneracy of $g$ at each point allows us to identity $TS$ with $T^*S$ via the map that sends $v \in T_pS$ to $g_p(\cdot  , v) \in T_p^*S$ and this extends to an identification of vector fields and 1-forms. 
-The Levi-Civita connection $\nabla$ of $g$ on $S$ is the unique torsion-free, metric connection on $S$ 
+We will abuse notation and write $g: TS \to T^*S$ for this map and $g^{-1}: T^*S \to TS$ for its inverse. 
+A Riemannian metric induces a (pointwise) norm on vector field in the familiar way by $|X| = g(X,X)^{1/2}$. 
+It induces metrics and norms on all tensor products of $TS$ and $T^*S$. It also distinguishes a volume form $dVol(g)$ on $S$ that evaluates to $+1$ on all oriented orthonormal frames. 
+Therefore the integral of a smooth function $f$ is well defined by $\int_S f \ dVol(g)$.
+
+
+The Levi-Civita connection $\nabla$ of $g$ on $S$ is the unique torsion-free, metric connection on $TS$ and it induces connections on $T^*S$ and tensor products of the two. 
+We will denote all induced connections by $\nabla$., i.e., 
 \[
 T^\nabla = 0 \text{ and } \nabla g = 0.
 \]
 
-Suppose $(M,\tilde{g})$ is a 3-dimensional Riemannian manifold. 
-When $f: S \to M$ is an immersion, the pullback tensor $I = f^*\tilde{g}$ is a Riemannian metric on $S$ that we call the First Fundamental Form. 
-If we regard $f$ as an identification of $S$ with its image in $M$, then we may also identify $T_pS$ with its image in $T_{f(p)}M$.
-We therefore have a $\tilde{g}$-orthogonal splitting
-\[
-T_pM = T_pS \oplus N_pS.
-\]
-Here, $N_pS$ is the normal space to the surface in $M$ given by all vectors orthogonal to $S$ at $p$.
-The disjoint union of the normal spaces forms a vector bundle (in this case a line bundle) called the Normal Bundle of $S$.
-By our assumptions, there is a unit normal vector field $n$ so that $S$ is co-oriented in $M$.
 
-Let $\widetilde{\nabla}$ be the Levi-Civita connection of $\tilde{g}$ on $M$.
-By extending vector fields $X$ and $Y$ on $S$ to a neighborhood of $S$ in $M$, we may take $\widetilde{\nabla}_X Y$.
-This resulting vector field is not necessarily also tangent to $S$ and so we may decompose it into its tangential part $(\widetilde{\nabla}_X Y)^\top$ and its normal part $(\widetilde{\nabla}_X Y)^\perp$.
-The Gauss Formula tells us $(\widetilde{\nabla}_X Y)^\top = \nabla_X Y$ and since the normal bundle is spanned by $n$ we have $(\widetilde{\nabla}_X Y)^\perp = \two(X,Y)n$ for a symmetric 2-tensor field $\two \in \Gamma(\Sigma^2T^*S)$.
-This $\two$ we call the Second Fundamental Form.
-
- 
-Given a torsion-free connection $\nabla$ on $S$ and a $q$-form $\omega$ with values on $TS$, the exterior covariant derivative of $\omega$ is 
+Given a torsion-free connection $\nabla$ on $S$ and a $q$-form $\omega$ with values in $TS$, the exterior covariant derivative of $\omega$ is 
 \[
 d^\nabla \omega = \mathrm{Alt}(\nabla \omega).
 \]
-By considering vector fields as 0-forms with values in $TS$ we define the Riemann Curvature Endomorphism of $\nabla$ as the 2-form with values in $\mathrm{End}(TS)$ given by  
+By considering vector fields as 0-forms with values in $TS$ we define the Riemann curvature endomorphism of $\nabla$ as the 2-form with values in $\mathrm{End}(TS)$ given by  
 \[
 R^{\nabla}(X,Y)Z 
-= (d^\nabla \circ d^\nabla Z)(X,Y)
+= (d^\nabla)^2 Z \, (X,Y)
 = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z.
 \]
-The Riemann Curvature Tensor is then 
+The Riemann curvature tensor is then 
 \[
 Rm(X,Y,Z,W) = g(R^{\nabla}(X,Y)Z,W).
 \]
@@ -132,59 +126,1382 @@ and the Gaussian curvature of $S$ at a point $p$ is the function $K(g)$ defined 
 K(g)(p) = \frac{Rm(v,w,w,v)}{\|v\|^2\|w\|^2 - g(v,w)}
 \]
 where $v,w$ is any basis for $T_pS$.
-One dimension upwards in $M$, the Sectional Curvature of $\tilde{g}$ is a function on 2-planes in the tangent bundle $sec: \mathrm{Gr}_2(TM) \to \R$ whose value on $\Pi \leq T_pM$ is the Gaussian curvature at $p$ of the image of $\Pi$ in $M$ under the exponential map.
+In the 3 dimensional setting of $M$, the sectional curvature of $\tilde{g}$ is a function on 2-planes in the tangent bundle, i.e., a map $sec: \mathrm{Gr}_2(TM) \to \R$ whose value on a plane $\Pi \leq T_pM$ is the Gaussian curvature at $p$ of the image of $\Pi$ in $M$ under the exponential map. 
+It may be computed with the above formula with $v$ and $w$ now a basis for $\Pi$.
 
+Suppose $(M,\tilde{g})$ is a 3-dimensional Riemannian manifold. 
+When $f: S \to M$ is an immersion, the pullback tensor $I = f^*\tilde{g}$ is a Riemannian metric on $S$ called the First Fundamental Form. 
+If we regard $f$ as an identification of $S$ with its image in $M$, then we may also identify $T_pS$ with its image in $T_{f(p)}M$.
+We therefore have a $\tilde{g}$-orthogonal splitting
+\[
+T_pM = T_pS \oplus N_pS.
+\]
+Here, $N_pS$ is the normal space to the surface in $M$ given by all vectors orthogonal to $S$ at $p$.
+The disjoint union of the normal spaces forms a vector bundle (in this case a line bundle) called the Normal Bundle of $S$. 
+By our assumptions, there is a unit normal vector field $n$, that is $n \in \Gamma(NS)$, so that $S$ is co-oriented in $M$.
+
+Let $\widetilde{\nabla}$ be the Levi-Civita connection of $\tilde{g}$ on $M$.
+By extending vector fields $X$ and $Y$ on $S$ to a neighborhood of $S$ in $M$, we may take the covariant derivative $\widetilde{\nabla}_X Y$.
+This resulting vector field is not necessarily also tangent to $S$ and so we may decompose it into its tangential part $(\widetilde{\nabla}_X Y)^\top$ and its normal part $(\widetilde{\nabla}_X Y)^\perp$.
+The Gauss Formula tells us $(\widetilde{\nabla}_X Y)^\top = \nabla_X Y$ and since the normal bundle is spanned by $n$ we have $(\widetilde{\nabla}_X Y)^\perp = \two(X,Y)n$ for a symmetric 2-tensor field $\two \in \Gamma(\Sigma^2T^*S)$.
+This $\two$ is called the Second Fundamental Form.
+
+ 
 The Gauss Equation relates the Gaussian curvature $K$ of $S$ to the sectional curvature of the ambient manifold $M$ via the first and second fundamental forms.
 Since $\two$ is symmetric and since $I$ is non-degenerate, we may form the shape operator $I^{-1}\two: TM \to TM$.
-The Gauss Equations states
+The Gauss Equation states
 \[
 K(I) = sec(TS) + \det(I^{-1}\two).
 \]
+If $M$ has constant sectional curvature, then the second fundamental form satisfies the Codazzi Equation $d^\nabla (I^{-1} \two) = 0$. 
+Together the Gauss and Codazzi Equations form the integrability conditions for simply connected surfaces in constant curvature 3-manifolds:
+
+
+\begin{thm}[Bonnet, Fundamental Theorem of Surface Theory]
+Suppose $S$ is a simply connected surface, $I$ a Riemannian metric on $S$, and $\two$ a 2-tensor on $S$ such that $I$ and $\two$ satisfy the Gauss-Codazzi equations
+\begin{align*}
+K(I) &= \kappa + \det(I^{-1}\two) \\
+d^\nabla (I^{-1}\two) &= 0.
+\end{align*}
+Then there is an isometric immersion $S \to \mathbb{M}_\kappa^3$ into the simply connected 3-manifold $\mathbb{M}^3_{\kappa}$ of constant sectional curvature $\kappa$, such that the second fundamental form of the immersion is $\two$. And this immersion is unique up to composition with an isometry of $\mathbb{M}_\kappa^3$.
+\end{thm}
+
+Since our main interest is the hyperbolic setting $\mathbb{M}_\kappa^3 = \H^3$, we note that the Gauss Equation reads
+\[
+K(I) = -1 + \det(I^{-1}\two).
+\]
+We also record here the definition of mean curvature. 
+As opposed to the Gaussian curvature, this depends on the immersion $f: S \to M$ and is defined by 
+\[
+H(f) = \frac{1}{2} \mathrm{tr}(I^{-1}\two).
+\]
+The Gaussian curvature is related to the global topology of $S$ in the following sense. 
+\begin{thm}[Gauss-Bonnet]
+Let $S$ be a closed, oriented, smooth surface, and $g$ a Riemannian metric on $S$ with Gaussian curvature $K(g)$. 
+Then 
+\[
+\int_S K(g) \ dVol(g) = 2 \pi \chi(S).
+\]
+\end{thm}
+The Gauss-Bonnet Theorem implies that if $S$ has genus at least 2 (so that $\chi(S) < 0$), then there is no metric with curvature identically 0 or $+1$ on $S$.
+
+
+
+%%%%%%%%%%%
+\subsection{The Teichm\"uller Space of a Surface}
+%%%%%%%%%%%
+
+
+
+A complex structure on the topological surface $S$ is a maximal atlas of charts to $\C$ whose transition functions are holomorphic. 
+The surface $S$ with a complex structure is called a Riemann surface and is a 1-dimensional complex manifold. 
+Two Riemann surfaces $X$ and $Y$ with the same underlying smooth manifold $S$ will be called equivalent if there is an $f \in \mathrm{Diff}_0(S)$ that is a biholomorphim $f: X \to Y$. 
+
+The space of equivalence classes of Riemann surface structures on $S$ is called the Teichm\"uller space of $S$ and is denoted by $\mathcal{T}(S)$. 
+This space is itself a complex manifold with complex dimension $3\cdot \text{genus}(S) - 3$. 
+The cotangent space $T^*_{[X]}\mathcal{T}(S)$ is naturally identified with the space of all symmetric 2-tensors $\phi$ on $S$ which, in a holomorphic chart $z$ on $X$, may be written as $\phi = q dz^2$ for $q$ a holomorphic function (on the domain of $z$). 
+Such tensors are called holomorphic quadratic differentials and we denote the space of them by $Q(X)$. 
+
+Given a Riemann surface $X$, there are distinguished Riemannian metrics on $S$---called conformal metrics---defined by the property that in complex chart $z$  they may be written as $\sigma = e^{2\eta} |dz|^2$, for $\eta$ a smooth function. 
+We will denote the space of conformal metrics on $X$ by $\mathrm{Conf}(X)$. 
+A Riemann surface that is simply connected and biholomoprhic to a proper subset of $\C$ has a unique hyperbolic metric, called the Poincar\'e metric of $\Omega$, that is conformal. 
+The universal cover $\tilde{X}$ of a Riemann surface $X$ with genus at least 2 is such a Riemann surface. 
+Its Poincar\'e metric is invariant under the action of $\pi_1(X)$ (by uniqueness) and so induces a hyperbolic metric on $X$. Hence, for a fixed $X$ of genus at least 2, there exists a unique hyperbolic conformal metric which we will usually denote by $h$. 
+We therefore assume from now on that the genus of $S$ is greater than or equal to 2. 
+
+A definition of Teichm\"uller space may be given solely in terms of conformal metrics. 
+Indeed, any other conformal metric can be written as $\sigma = e^{2u}h$ for $u$ a smooth function on $X$. 
+This is to say, conformal metrics are those that are conformally equivalent to $h$. 
+This leads us to consider the action of smooth positive functions on the set of Riemannian metrics on $S$, i.e., $P(S)$ acting on $\mathrm{Met}(S)$. 
+The action of $\mathrm{Diff}_0(S)$ on $\mathrm{Met}(S)$ may be packaged together with that of $P(S)$ as the action of the semi-direct product $\mathrm{Diff}_0(S) \times P(S)$. 
+The quotient space is another model of Teichm\"uller space
+\[
+\mathrm{Met}(S)/(\mathrm{Diff}_0(S) \times P(S)) = \mathcal{T}(S).
+\]
+
+We have so far proceeded formally and we will continue doing so for the rest of this section. 
+But a word of warning: the space $\mathrm{Met}(S)$ of smooth Riemannian metrics on $S$ is an infinite dimensional Fr\'echet manifold and we are dealing with an action on it by an infinite dimensional Lie group $\mathrm{Diff}_0(S)$. 
+There are many subtleties here that are best dealt with by using Sobolev spaces and universal properties. 
+We will do this in later sections when they become relevant. 
+
+The set $\mathrm{Met}(S)$ is an open cone in the vector space of symmetric 2-tensors on $S$ and hence is a manifold (of infinite dimension). 
+The tangent space to $\mathrm{Met}(S)$ at a metric $g$ is then naturally identified with this vector space. 
+Given two tensors $\sigma_1$ and $\sigma_2$ in $T_g \mathrm{Met}(S)$, we may turn them into endomorphisms $g^{-1}\sigma_1$ and $g^{-1}\sigma_2$ and take their Frobenius inner product $\mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2)$, which is a function on $S$. 
+Using integration we can define a Riemannian metric on $\mathrm{Met}(S)$ by 
+\[
+\left< \sigma_1, \sigma_2 \right>_g = \int_S \mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2) \ dVol(g)
+\]
+(this metric induces a multiple of the Weil-Petersson metric on the quotient, but we will not use this (see \cite{tromba1992})).
+
+Using this metric we may decompose the tangent space to $\mathrm{Met}(S)$ as the direct sum of the tangent space to the $\mathrm{Diff}_0(S) \times P(S)$-orbit and its orthogonal complement. 
+We have
+\[
+T_g \mathrm{Met}(S) = \{ \dot{g} \ | \ \mathrm{tr}_g(\dot{g}) = 0 = \mathrm{div}_g(\dot{g})\} \oplus \{ \mathcal{L}_X g + fg \ | \ f \in C^\infty(S) \text{ and } X \in \Gamma(TS) \}.
+\]
+Here $\mathrm{div}_g(\dot{g})$ is the divergence of $\dot{g}$ given by $\mathrm{tr}_g(\nabla \dot{g})$. 
+The right summand is tangent to the group orbit at $g$. 
+The left summand is its orthogonal complement and consists of trace-free and divergence-free symmetric 2-tensors, which are referred to as transverse-traceless tensors. 
+Since they are orthogonal to the group orbit, they may be identified with the tangent space to the quotient
+\[
+T_{[g]} \mathcal{T}(S) = T_g \mathrm{Met}(S)/T_g(\mathrm{Diff}_0(S) \times P(S) \cdot g) \simeq \{ \dot{g} \ | \ \mathrm{tr}_g(\dot{g}) = 0 = \mathrm{div}_g(\dot{g})\},
+\]
+and the derivative of the projection $\pi: \mathrm{Met}(S) \to \mathcal{T}(S)$ at $g$ is given by the orthogonal projection onto these transverse-traceless tensors. 
+
+There is a more useful description of transverse-traceless tensors than their definition. 
+It turns out (see \cite{tromba1992}), the trace-free condition implies that they are the real part of quadratic differentials and the divergence-free condition says the quadratic differential is holomorphic (with respect to the complex structure for which $g$ is conformal). 
+We have 
+
+\begin{lem}[\cite{tromba1992}] \label{tangent-teich}
+Let $X$ the a Riemann surface and $g$ a conformal metric on $X$. 
+If $\phi$ is a holomorphic quadratic differential, then $\mathrm{Re}(\phi)$ is a $g$-transverse-traceless tensor. 
+That is 
+\[
+T_{[g]}\mathcal{T}(S) = \{\mathrm{Re}(\phi) \ | \ \phi \in Q(X) \}.
+\]
+\end{lem}
+
+
+
+%%%%%%%%%%%
+\subsection{Complex Projective Structures}
+%%%%%%%%%%%
+
+
+
+A complex projective structure on a surface $S$ is a geometric structure with group $\mathrm{PSL}_2 \C$ and topological space $\CP^1$.
+That is, it is a maximal atlas of charts to $\CP^1$ whose transition functions are the restrictions of M\"obius transformations.
+The surface $S$ together with a complex projective structure we will call a complex projective surface, or just a projective surface for short. 
+In particular, a projective surface does not refer to a submanifold of $\CP^n$.
+Since M\"obius transformations are holomorphic, a projective structure also induces a complex structure on the surface $S$.
+We now describe a parametrization of the set of all projective structures with the same underlying complex structure using the space of quadratic differentials on $S$ that are holomorphic with respect to the fixed underlying complex structure. 
+See \cite{thurstonyear} and \cite{dumas2009} for more details.
+
+
+Suppose $U$ is an open subset of the complex plane $\C$ and suppose $f: U \to \C$ is a locally injective holomorphic function.
+For each $z \in U$, there is a unique M\"obius transformation $M_f(z) \in \mathrm{PSL}_2\C$ that agrees with $f$ at $z$ to second order:
+\[
+f(w) = M_f(z) \cdot w + o( (w-z)^2).
+\]
+This defines a map $M_f: U \to \mathrm{PSL}_2\C$ called the osculating M\"obius transformation of $f$.
+Intuitively, the derivative of $M_f$ is a measure of how far $f$ is from being M\"obius.
+
+More precisely, the differential $d M_f: TU \to T \mathrm{PSL}_2\C$ takes values in the tangent bundle of $\mathrm{PSL}_2\C$, which is trivialized by left multiplication. 
+By composing with left multiplication we can consider the Darboux derivative of $M_f$, a 1-form on $U$ with values in $\mathrm{Lie}(\mathrm{PSL}_2\C) = \mathfrak{sl}_2 \C$. See \cite{sharpeyear} for details.
+An explicit computation gives
+\[
+M_f(z)^{-1} d(M_f)_z = \frac{1}{2} \left( \left( \frac{f''(z)}{f'(z)} \right)' - \frac{1}{2} \left( \frac{f''(z)}{f'(z)} \right)^2 \right)
+\begin{pmatrix}
+-z & z^2 \\
+-1 & z 
+\end{pmatrix}
+dz.
+\]
+The coefficient of the matrix in the Darboux derivative transforms as a quadratic differential. 
+Hence, the Schwarzian Derivative of a locally injective holomorphic function is defined as 
+\[
+S(f)(z) = \left( \left( \frac{f''(z)}{f'(z)} \right)' - \frac{1}{2} \left( \frac{f''(z)}{f'(z)} \right)^2 \right) dz^2.
+\]
+We see from its appearance in the Darboux derivative that $f$ is locally a M\"obius transformation if and only if $S(f) = 0$.
+Furthermore, a computation shows the Schwarzian chain rule is given by
+\[
+S(f \circ g) = g^* S(f) + S(g).
+\]
+
+
+A complex projective structure on a surface allows us to extend the Schwarzian derivative to holomorphic functions defined on the surface.
+Indeed, suppose $z: U \to \C$ is a projective chart on $S$, we can define the Schwarzian of $f:S \to \C$ on $U$ by $z^*S(f \circ z^{-1})$.
+When $w$ is another projective chart overlapping with $z$, we have
+\begin{align*}
+z^*S(f \circ z^{-1})
+&= z^* S(f \circ w^{-1} \circ (w \circ z^{-1})) \\
+&= w^*S(f \circ w^{-1}) + z^*S(w \circ z^{-1}).
+\end{align*}
+And since $z$ and $w$ are two compatible projective charts, the second term on the right vanishes, and the local Schwarzian derivative of $f$ patches together to a global holomorphic quadratic differential.
+For a map $f: Z \to W$ from one projective surface to another, we may define its Schwarzian derivative in charts and show in the same manner that they patch together to a global object on $Z$.
+
+So, the Schwarzian derivative of a map between projective surfaces is a holomorphic quadratic differential that we think of as measuring how far the map is from being a projective transformation between the surfaces. 
+If we restrict ourselves to projective structures $Z$ and $W$ with the same underlying complex structure $X$, we can consider the identity map $Id: Z \to W$ and take its Schwarzian as a measure of how compatible the two atlases are. 
+We define the difference of the two projective structures as this measure of compatability
+\[
+Z - W := S(Id).
+\]
+Indeed, if $Z$ and $W$ are the same projective structure, then the identity map is a projective transformation and its Schwarzian derivative is zero.
+By fixing a projective structure $Z_0$ on $X$, we see the set of projective structures with the same underlying complex structure $X$ is an affine space modeled on $Q(X)$, the map given by $Z \mapsto Z-Z_0 \in Q(X)$.
+
+There is a convenient choice for $Z_0$. 
+Since $X$ is a compact Riemann surface of genus at least 2, there is a unique hyperbolic metric in its conformal class and hence we can present $X$ as $\H/\Gamma_F$, a quotient of the upper half plane by a Fuchsian group $\Gamma_F$. 
+This hyperbolic structure is also a complex projective structure $Z_F$ that is called the standard Fuchsian projective structure on $X$. 
+Under this identification the identity map between $Z$ and $Z_F$ lifts to a Riemann map between $\tilde{X}$ and  $\H$ and we may take its Schwarzian derivative to obtain a holomorphic quadratic differential $\tilde{\phi}$ on $\tilde{X}$. 
+This quadratic differential is $\Gamma$ invariant since it is the Schwarzian of a lift of a map $Z \to Z_F$. 
+The quadratic differential induced by this $\tilde{\phi}$ is the desired $S(Id) = Z-Z_F$.
+
+
+
+%%%%%%%%%%%
+\subsection{Schwarzian Derivatives of Conformal Metrics}
+%%%%%%%%%%%
+
+
+
+Osgood and Stowe in \cite{osgood-stowe1992} define a tensor generalizing the Schwarzian derivative in the setting of conformal changes to Riemannian metrics. 
+For two metrics related by $\sigma_2 = e^{2u} \sigma_1$ on a manifold of dimension $n$, they define the Schwarzian tensor as the trace-free part of $\mathrm{Hess}(u) - du \otimes du$, i.e., as
+\[
+\mathrm{Hess}(u) - du \otimes du - \frac{1}{n}\left( \Delta u - \| \nabla u \|^2\right)\sigma_1,
+\]
+with all relevant quantities taken with respect to $\sigma_1$. 
+In the Riemann surface setting $(n=2)$, we define the Schwarzian derivative of the conformal metric $\sigma_2$ with respect to the conformal metric $\sigma_1$, $B(\sigma_1,\sigma_2)$, as the $(2,0)$ part of Osgood and Stowe's Schwarzian tensor: $B(\sigma_1,\sigma_2) = \left(\mathrm{Hess}(u) - du \otimes du\right)_{(2,0)}$. 
+In a coordinate chart $z$  write $\sigma_i = e^{2\eta_i} |dz|^2$, then the Schwarzian derivative is the quadratic differential 
+ \[
+ B(\sigma_1,\sigma_2) = \left( (\eta_2)_{zz} - (\eta_2)_z^2 - (\eta_1)_{zz} + (\eta_1)_z^2 \right) dz^2.
+ \]
+As opposed to the Schwarzian derivative of a function, this need not be holomorphic. 
+However, when $f$ is locally injective and holomorphic we have
+ \[
+ \mathcal{S}(f) = 2B(|dz|^2,f^*|dz|^2).
+ \]
+ 
+ 
+We also have a cocycle property $B(\sigma_1,\sigma_3) = B(\sigma_1,\sigma_2) + B(\sigma_2,\sigma_3)$ and naturality $f^*B(\sigma_1,\sigma_2) = B(f^*\sigma_1,f^*\sigma_2)$ (again, for $f$ holomorphic). 
+When $\sigma$ is a conformal metric on a domain in $\C$ and $B(|dz|^2,\sigma) = 0$, there exists a constant $a > 0$ and $A \in \text{SL}(2,\C)$ such that $aA^*\sigma$ is the restriction of either the hyperbolic metric on the unit disk, the Euclidean metric on $\C$, or the spherical metric on $\CP^1$. 
+Any such metric $\sigma$ is called a M\"obius flat metric and we will denote it by $g_{\CP^1}$. 
+Working in an affine coordinate chart $z$ for $\CP^1$, the cocycle property gives us that the Schwarzian derivative of $\sigma = e^{2\eta}|dz|^2$ relative to any M\"obius flat metric may be computed by
+ \[
+ B(g_{\CP^1},\sigma) = (\eta_{zz} - \eta_{z}^2 )dz^2.
+ \]
+
+
+Suppose we have a complex projective surface $Z$ whose underlying complex structure is $X$. 
+Then we may compute the holomorphic quadratic differential $\phi = Z - Z_F$ corresponding to $Z$ using the Schwarzian derivative of conformal metrics. 
+Indeed, we know $\phi$ is induced by $\tilde{\phi} = S(f)$, the quadratic differential on $\tilde{X}$ that is the Schwarzian of the Riemann map $\tilde{X} \to \H$. 
+Then, noting that the Poincar\'e metric $h$ of $\tilde{X}$ is the pullback of the standard Poincar\'e metric $\rho$ on $\H$ by $f$, we can compute
+\begin{align*}
+\tilde{\phi}
+= S(f)
+= 2B(|dz|^2,f^*|dz|^2)
+&= 2B(|dz|^2,f^*\rho) + 2B(f^*\rho,f^*|dz|^2) \\
+&= 2B(|dz|^2,h) + 2f^*B(\rho,|dz|^2)
+= 2B(g_{\CP^1},h).
+\end{align*}
+That is, $\phi$ is induced by the Schwarzian derivative of the Poincar\'e metric of $\tilde{X}$ relative to any M\"obius flat metric $g_{\CP^1}$.
+
+
+
+%%%%%%%%%%%
+\subsection{Quasi-Fuchsian Manifolds}
+%%%%%%%%%%%
+
+
+
+A quasi-Fuchsian structure on $S \times (0,1)$ is a choice of complete hyperbolic metric $g$ such that there exists a non-empty, compact, geodesically convex subset. 
+We will call $S \times (0,1)$ with a quasi-Fuchsian metric $g$ a quasi-Fuchsian manifold and say two quasi-Fuchsian manifolds $M = (S \times (0,1), g_1)$ and $N = (S \times (0,1), g_2)$ are equivalent if there exists an $f \in \mathrm{Diff}_0(S \times(0,1))$ that is an isometry $f: M \to N$.
+The space of equivalence classes of quasi-Fuchsian structures on $S \times (0,1)$ will be denoted by $\mathcal{QF}(S)$
+
+
+A quasi-Fuchsian manifold $M$ is naturally compactified by two copies of $S$ with one having the opposite orientation. 
+These are called the surfaces at infinity and are in bijection with the ends of $M$. 
+The smallest non-empty, compact, geodesically convex subset of $M$ is called the convex core. 
+The fundamental group $\pi_1(M) \simeq \pi_1(S)$ considered as the group of deck transformations is a discrete subgroup $\Gamma < \mathrm{PSL}_2\C$ acting properly discontinuously on $\H^3$. 
+A group $\Gamma$ obtained in this way is called a quasi-Fuchsian group.
+
+
+The action of $\mathrm{PSL}_2\C$ on $\H^3$ extends to an action on $\CP^1$ by M\"obius transformation. 
+The limit set $\Lambda$ of a quasi-Fuchsian group $\Gamma$ is the smallest non-empty, closed, $\Gamma$-invariant subset of $\CP^1$ and, in this setting, is a Jordan Curve. 
+The convex hull of $\Lambda$ in $\H^3$ is also $\Gamma$-invariant and its quotient in $M$ is the convex core. 
+The complement of $\Lambda$ in $\CP^1$ is called the domain of discontinuity and consists of two domains $\Omega_\pm$, each $\Gamma$-invariant. 
+The quotients $\Omega_\pm /\Gamma$ are the surfaces at infinity of $M$.
+
+
+The following description applies to both ends of $M$ and so we focus on one, calling the corresponding component of the domain of discontinuity $\Omega$. 
+Since $\Omega$ is an open subset of $\CP^1$, it is trivially a complex manifold. 
+Since $\Gamma$ acts on $\Omega$ by M\"obius transformations, which are holomorphic, the quotient $\Omega/\Gamma$ (i.e., the surface at infinity) inherits a Riemann surface structure $X$. 
+This surface $X$ is then a compact Riemann surface of genus $\mathrm{genus}(S)$ and thus defines a point in $\mathcal{T}(S)$. 
+Hence, given a quasi-Fuchsian manifold, we obtain two Riemann surfaces as its surfaces at infinity. 
+Bers showed that this procedure is invertible. 
+
+\begin{thm}[Bers' Simultaneous Uniformization \cite{bers1960}]
+Given two Riemann surfaces $X$ and $Y$ diffeomorphic to $S$, there exists an isomorphism $\rho: \pi_1(S) \to \Gamma < \mathrm{PSL}_2\C$ such that $\H^3/\Gamma$ is a quasi-Fuchsian manifold with surfaces at infinity $\Omega_+/\Gamma = X$ and $\Omega_- / \Gamma = \bar{Y}$, where $\bar{Y}$ is the complex conjugate of $Y$, which is diffeomorphic to $\bar{S}$, the surface with the opposite orientation.
+
+Moreover, the space of equivalence classes of quasi-Fuchsian structures on $S \times \R$ is isomorphic to the product of two copies of Teichm\"uller space
+\[
+\mathcal{QF}(S) \cong \mathcal{T}(S) \times \mathcal{T}(\bar{S}).
+\]
+\end{thm}
+
+\noindent (The presence of the complex conjugate is due to the surfaces at infinity having opposite orientation.)
+
+The universal cover of $X$ is identified with $\Omega$, which again is an open subset of $\CP^1$. 
+Hence $\Omega$ also has a trivial complex projective structure. Since $\Gamma$ is acting on $\Omega$ by M\"obius transformations this projective structure descends to a projective structure $Z_M$ on the surface at infinity $\Omega/\Gamma$ and has underlying complex structure $X$. 
+We therefore have a holomorphic quadratic differential $\phi$ on $X$ parametrizing this structure $\phi = Z_M - Z_F$. 
+Recall that $\phi$ is induced by the Schwarzian derivative of the Riemann map $\Omega \to \H$. 
+It may also be computed as $2B(g_{\CP^1},h)$, for $h$ the Poincar\'e metric of $\Omega$, as described above. 
+This $\phi$ is called the holomorphic quadratic differential at infinity (for the given end of $M$).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Epstein Surfaces}
+
+
+
+%%%%%%%%%%%
+\subsection{The Visual Metric Construction}
+%%%%%%%%%%%
+
+
+A natural trivialization of the unit tangent bundle of hyperbolic space $U\H^3$ is given as
+\[
+U\H^3 \to \H^3 \times \CP^1
+\quad \text{ by } \quad
+(p,v) \mapsto (p, \lim_{t \to \infty} \exp_p (tv) ).
+\]
+That is we map $(p,v)$ to the ideal endpoint of the geodesic through $p$ in the direction $v$. 
+Restricting to a point $p$ and using the diffeomorphism $U_p\H^3 \to \CP^1$, we can push forward to $\CP^1$ the induced metric on $U_p\H^3$ considered as a submanifold of $T_p\H^3$ with metric given by the inner product $g_{\H^3}(p)$. 
+The resulting metric $V_p$ on $\CP^1$ is called the visual metric from $p$.
+As an example, the visual metric from the origin in the ball model $V_0$ is just the spherical metric $\overset{\circ}{\sigma}$ on $S^2$ (which is identified with $\CP^1$ in this model). 
+In general, if $M \in \mathrm{PSL}_2\C$ is an isometry taking $0$ to the point $p$, then $V_p = M_*V_0$. 
+
+As the spherical metric belongs to the conformal class of $\CP^1$, we have that $V_0$ is a conformal metric. 
+Since M\"obius transformations are biholomorphisms of $\CP^1$, each $V_p$ is also a conformal metric. 
+If we work in the ball model of hyperbolic space $\H^3 \cong \mathbb{B}^3$ we can actually be explicit regarding the conformal factor between $V_p$ and $\overset{\circ}{\sigma}$ using the affine parameter of a horosphere. 
+If $H$ is a horosphere, then its affine parameter is the signed hyperbolic distance from $0 \in \H^3$ to $H$, positive if $0$ is outside $H$ and negative if inside. 
+Then for $p \in \H^3$ there is a unique horosphere based at $z \in \CP^1$ that contains $p$. 
+Denote by $[p,z]$ the affine parameter of this horosphere. 
+Then
+\[
+V_p(z) = e^{2[p,z]}\overset{\circ}{\sigma}(z).
+\]
+
+We now describe the Visual Metric Construction. 
+This is a process that, given a strictly convex surface $S$ in $\H^3$, gives a domain $\Omega$ in $\CP^1$ and a conformal metric $\sigma$ on $\Omega$.
+The idea is this: Given $S$, we have its image under the Gauss map on $\CP^1$. 
+That is, given a unit normal vector field $n$ on $S$ for which $S$ is strictly convex, define
+\[
+\mathcal{G}:S \to \CP^1 \text{ by } \mathcal{G}(p) = \lim_{t \to \infty} \exp_p(t n(p)).
+\]
+The strict convexity of $S$ guarantees the map $\mathcal{G}$ be a homeomorphism. 
+The image surface also comes equipped with a metric $\sigma$ by defining $\sigma(\mathcal{G}(p)) = V_p(\mathcal{G}(p))$. 
+Since for each $p$, the visual metric from $p$ is a conformal metric on $\CP^1$ we have $\sigma$ itself is a conformal metric. 
+
+Charles Epstein in \cite{epstein1984} describes an inverse process to the visual metric construction, which we describe below.
+
+
+
+%%%%%%%%%%%
+\subsection{The Epstein Map}
+%%%%%%%%%%%
+
+
+
+An inverse to the visual metric construction would take a domain $\Omega$ in $\CP^1$ and a conformal metric $\sigma$ on $\Omega$ and return a strictly convex surface in $\H^3$. 
+That is we would get a map $f: \Omega \to \H^3$ such that the image surface $S$ has a unit normal vector field $n$ with respect to which the second fundamental form of $S$ is positive definite, and so that for all $z \in \Omega$ we have $V_{f(z)}(z) = \sigma(z)$. 
+Expanding upon this last condition and using the affine parameter discussed above, we see that 
+\[
+\sigma(z) = V_{f(z)}(z) = e^{2 [f(z),z]} \overset{\circ}{\sigma}(z),
+\]
+or that $f(z)$ lies on the horosphere based at $z$ with affine parameter
+\[
+[f(z),z] = \frac{1}{2} \log \left( \frac{\sigma(z)}{\overset{\circ}{\sigma}(z)} \right) =: \rho(z)
+\]
+Hence, we know which horosphere based at $z$ that $f(z)$ must lie on. 
+
+There is a convenient choice of normal vector field. 
+At $f(z)$, the geodesic in the direction $n(f(z))$ must end at $z$ in order for $f$ to be an inverse to the visual metric construction. 
+The normal vectors to a horosphere pointing to its base have this property, so we define $n(f(z))$ to be the normal vector to the horosphere based at $z$ with affine parameter $\rho(z)$. 
+Since $n$ must be normal to the image surface $S = f(\Omega)$, this identifies the tangent spaces to the sought-after $S$ with the tangent spaces to the horospheres. 
+And this identifies the surface $S$ with the envelope of the family of horospheres
+\[
+\mathcal{H}(\Omega,\sigma) = \{ \text{Horosphere based at $z$ with parameter $\rho(z)$} \ | \ z \in \Omega \}.
+\]
+
+
+In \cite{epstein1984}, Epstein derives an equation for such an envelope. 
+Working in the ball model and taking $z$ both as a point in $\CP^1$ as well as a unit vector in $\R^3$, he shows the desired map is 
+\[
+\mathrm{Ep}_\sigma(z) = \frac{|\overset{\circ}{\nabla}\rho(z)|^2 + e^{2\rho(z)} - 1}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} z + \frac{2}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} \overset{\circ}{\nabla}\rho(z),
+\]
+where $\overset{\circ}{\nabla}\rho$ is the sphereical gradient of $\rho$. 
+This construction leads to the following theorem. 
+
+
+\begin{thm}[Epstein \cite{epstein1984}]
+Let $\Omega$ be a domain in $\CP^1$  and $\sigma$ a $C^k$ conformal metric on $\Omega$, then there exists a unique $C^{k-1}$ map $\mathrm{Ep}_\sigma : \Omega \to \H^3$, called the Epstein map of $\Omega$ for the metric $\sigma$, such that for all $z \in \Omega$,
+\[
+V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z).
+\]
+Moreover, the image of a point $z$ depends only on the 1-jet of $\sigma$ at $z$.
+\label{epstein-map-def}
+\end{thm}
+
+Epstein's original construction uses the ball model of hyperbolic space to define the Epstein map. 
+In \cite{dumas2017}, Dumas gives a model independent definition of the map using an $\text{SL}_2\C$-frame field. 
+It proceeds as follows. 
+Choose an affine chart $z$ on $\CP^1$ that distinguishes a point $0 \in \Omega$ and $\infty \notin \Omega$. 
+Then, on the geodesic in $\H^3$ with ideal endpoints $0$ and $\infty$, there exists a unique point $p$ such that the visual metric from $p$ at $0$ is the Euclidean metric of this affine chart, $V_p(0) = |dz|^2$. 
+The Epstein map is an $\mathrm{SL}_2\C$-frame orbit of this point.     
+
+
+\begin{prop}[\cite{dumas2017}]
+On a domain $\Omega$ in $\CP^1$ write $\sigma = e^{2\eta}|dz|^2$. Define the $\mathrm{SL}_2,\C$-frame field $\widetilde{\mathrm{Ep}}_\sigma: \Omega \to \mathrm{SL}_2\C$ by 
+\[
+\widetilde{\mathrm{Ep}}_\sigma(z) =
+\begin{pmatrix}
+1 & z \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+\eta_z & 1
+\end{pmatrix}
+\begin{pmatrix}
+e^{-\eta/2} & 0 \\
+0 & e^{\eta/2}
+\end{pmatrix},
+\]
+then the Epstein map is given by 
+\[
+\mathrm{Ep}_\sigma(z) = \widetilde{\mathrm{Ep}}_\sigma(z) \cdot p.
+\]
+\end{prop}
+
+ 
+
+Even though we call the image an Epstein surface, the Epstein map need not be an immersion. 
+Indeed, if $\sigma$ is itself a visual metric then the Epstein map for $\sigma$ is constant. 
+However, the lift of $\mathrm{Ep}_\sigma$ from $\Omega$ to the unit tangent bundle of hyperbolic space given by 
+\[
+\widehat{\mathrm{Ep}}_\sigma(z) = (\text{Ep}_\sigma(z),z) 
+\] 
+is an immersion (here we are using the trivialization $U\H^3 \simeq \H^3 \times \CP^1$ defined above). 
+This lift can be thought of as providing a unit ``normal'' vector field for the Epstein surface even when the Epstein map is not an immersion. 
+Indeed, this lift agrees with a unit normal vector field when the surface is immersed and so we will simply refer to it as the normal field from now on. 
+
+Because the Epstein map is unique, it is natural with respect to the action of $\mathrm{SL}_2\C$ in the following sense. 
+Suppose $M \in \mathrm{SL}_2\C$, then the following diagram commutes:
+\[
+\begin{tikzpicture}[scale=0.7]
+\node (1) at (0,2) {$(\Omega,\sigma)$};
+\node (2) at (3,2) {$(M(\Omega),M_*\sigma)$};
+\node (3) at (0,0) {$\H^3$};
+\node (4) at (3,0) {$\H^3$};
+
+
+\draw[->] (1) to node [above] {$M$} (2);
+\draw[->] (1) to node [left] {$\mathrm{Ep}$} (3);
+\draw[->] (3) to node [above] {$M$} (4);
+\draw[->] (2) to node [right] {$\mathrm{Ep}$} (4);
+
+\end{tikzpicture}
+\]
+That is, $\mathrm{Ep}_{M_*\sigma}(M(z)) = M( \mathrm{Ep}_{\sigma}(z))$. 
+This is because both $M \circ \mathrm{Ep}_\sigma$ and $\mathrm{Ep}_{M_*\sigma} \circ M$ as maps on $\Omega$ satisfy the visual metric condition from Theorem \ref{epstein-map-def} (see \cite{anderson1998} for more details ).
+
+This allows us to define Epstein maps on certain quotients. 
+Suppose in general that $\Gamma$ is a subgroup of $\mathrm{SL}_2\C$ acting freely and properly discontinuously on $\H^3 \cup \CP^1$ leaving a domain $\Omega$ invariant. 
+Then $\Omega/\Gamma$ inherits a Riemann surface structure. 
+Call this structure $X$ and let $\sigma$ be a conformal metric  on $X$.
+Lift this to $\tilde{\sigma}$ on $\Omega$, which is $\Gamma$-invariant. 
+Then $\mathrm{Ep}_{\tilde{\sigma}}: \Omega \to \H^3$ is $\Gamma$-equivariant and therefore descends to a map $\mathrm{Ep}_\sigma : X \to \H^3/ \Gamma$. 
+In particular, when $\Gamma$ is a quasi-Fuchsian group and $\Omega$ a component of the domain of discontinuity, each conformal metric $\sigma$ on the surface at infinity $X$ gives rise to a map from $X$ into the quasi-Fuchsian manifold $M$.
+
+Uniqueness also shows us that the surfaces parallel to an Epstein surface are themselves Epstein surfaces. 
+More specifically, let $g^t : U \H^3 \to \H^3$ denote the time-$t$ geodesic flow projected down to $\H^3$.
+Thus for a unit tangent vector $v$ on $\H^3$ we have $g^t(v) = \exp_p(tv)$.
+Using the lift of an Epstein surface to $U\H^3$ described above, each Epstein surface gives rise to a family of surfaces by applying the geodesic flow (and projecting to $\H^3$). 
+That is, we have the flowed surfaces $g^t \circ \widehat{\mathrm{Ep}}_\sigma(\Omega)$. 
+These surfaces are themselves Epstein surfaces corresponding to scalar multiples of $\sigma$. 
+Indeed, since the parallel flow of a horosphere is a horosphere, we know $[g^t(\widehat{\mathrm{Ep}}_\sigma(z)),z] = [\mathrm{Ep}_\sigma(z),z] + t$. 
+This shows us
+\[
+V_{g^t(\widehat{\mathrm{Ep}}_\sigma(z))}(z) = e^{2[g^t(\widehat{\mathrm{Ep}}_\sigma(z)),z]}\overset{\circ}{\sigma}(z) = e^{2t}e^{2[\mathrm{Ep}_\sigma(z),z]}\overset{\circ}{\sigma}(z) = e^{2t}\sigma(z).
+\]
+But the unique map that satisfies this equality is $\mathrm{Ep}_{e^{2t}\sigma}$. 
+In summary, we have the following lemma, attributed to Thurston (unpublished work) by Epstein in \cite{epstein1984}.
+\begin{lem}[Thurston, see \cite{epstein1984}]
+\label{epstein-flow}
+Let $\Omega$ be a domain in $\CP^1$ and $\sigma$ a conformal metric on $\Omega$.
+Then 
+\[
+g^t \circ \widehat{\mathrm{Ep}}_\sigma  = \mathrm{Ep}_{e^{2t} \sigma}.
+\]
+That is, flowing the Epstein surface for $\sigma$ for time $t$ in the normal direction corresponds to taking the Epstein surface for the metric $e^{2t}\sigma$.
+\end{lem}
+
+
+
+%%%%%%%%%%%
+\subsection{Geometry of Epstein Surfaces}\label{epstein-geometry}
+%%%%%%%%%%%
+
+
+
+The first fundamental form of the Epstein surface for the metric $\sigma$ is given by $I(\sigma) = \mathrm{Ep}_\sigma^*(g_{\H^3})$ for $g_{\H^3}$ the metric of $\H^3$. 
+It is given by 
+\[
+I(\sigma) = \frac{4}{\sigma}|B(g_{\CP^1},\sigma)|^2 + \frac{1}{4}(1-K(\sigma))^2\sigma + 2(1-K(\sigma))\text{Re}(B(g_{\CP^1},\sigma)).
+\]
+The second fundamental form (relative to the normal lift $\widehat{\mathrm{Ep}}_\sigma$) is 
+\[
+\two(\sigma)
+= \frac{4}{\sigma}|B(g_{\CP^1},\sigma)|^2 - \frac{1}{4} (1 - K(\sigma)^2)\sigma - 2 K(\sigma) \text{Re}(B(g_{\CP^1},\sigma))
+\]
+(see \cite[Eqns.~3.2-3.3]{dumas2017}).
+Here $K(\sigma)$ is the Gaussian curvature of $\sigma$ and $B(g_{\CP^1},\sigma)$ the Schwarzian derivative of $\sigma$ with respect to a M\"obius flat metric. 
+A computation gives the ratio between the determinant of $I(\sigma)$ and the determinant of $\sigma$:
+\[
+\det(I(\sigma)) = \left( (1-K(\sigma))^2 - 16 \frac{|B(g_{\CP^1},\sigma)|^2}{\sigma^2} \right)^2 \det(\sigma).
+\]
+Also we can compute the Gaussian curvature by $K(I(\sigma)) = -1 + \det(I(\sigma)^{-1}\two(\sigma))$ and the mean curvature by $H(\mathrm{Ep}_\sigma) = \frac{1}{2}\mathrm{tr}(I(\sigma)^{-1}\two(\sigma))$. 
+We obtain
+\[
+K(I(\sigma))
+= \frac{4K(\sigma)}{(1-K(\sigma))^2 - 16 \frac{|B(g_{\CP^1},\sigma)|^2}{\sigma^2}}
+\]
+and
+\[
+H(\mathrm{Ep}_\sigma)
+= \frac{K(\sigma)^2 - 1 - 16 \frac{|B(g_{\CP^1},\sigma)|^2}{\sigma^2}}{(K(\sigma) - 1)^2 - 16 \frac{|B(g_{\CP^1},\sigma)|^2}{\sigma^2}}.
+\]
+
+ 
+In the quasi-Fuchsian setting, if $\sigma$ is a $\Gamma$-invariant conformal metric on $\Omega$ then each term in the above equations is also $\Gamma$-invariant. 
+This is maybe less clear for the quadratic differential $B(g_{\CP^1},\sigma)$ since the M\"obius flat metric $g_{\CP^1}$ is not itself $\Gamma$-invariant. 
+However, we see that for $\gamma \in \Gamma$ we have $\gamma^*B(g_{\CP^1},\sigma) = B(\gamma^*g_{\CP^1},\gamma^*\sigma) = B(\gamma^* g_{\CP^1},\sigma)$, by naturality of Schwarzian derivatives of conformal metrics. 
+The metric $\gamma^* g_{\CP^1}$ is still a M\"obius flat metric, and so $B(\gamma^* g_{\CP^1},\sigma) = B(g_{\CP^1},\sigma)$, implying $B(g_{\CP^1}, \sigma)$ is $\Gamma$-invariant. 
+Therefore, $B(g_{\CP^1},\sigma)$ induces a quadratic differential on $X$, which we will denote by $B(\sigma)$.
+
+In summary of the above, we have the following Gaussian and mean curvatures of the Epstein surfaces in $M$.
+\begin{lem}
+\label{curvature-epstein}
+The Gaussian curvature for the Epstein surface $\mathrm{Ep}_\sigma : X \to M$ is given by
+\[
+K(I(\sigma))
+= \frac{4K(\sigma)}{(1-K(\sigma))^2 - 16 \frac{|B(\sigma)|^2}{\sigma^2}},
+\]
+and the mean curvature by 
+\[
+\pushQED{\qed}
+H(\mathrm{Ep}_\sigma)
+= \frac{K(\sigma)^2 - 1 - 16 \frac{|B(\sigma)|^2}{\sigma^2}}{(1-K(\sigma))^2 - 16 \frac{|B(\sigma)|^2}{\sigma^2}}.
+\qedhere
+\popQED
+\]
+\end{lem}
+These are now equations on the compact Riemann surface $X$.
 
 
 
 
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Asymptotically Poincar\'e Families}
 
-%%%%%%%%%%%%%%%%%%%%
+
+
+
+Previously, we have discussed Epstein surfaces for domains and for quotients. 
+Generalizing this, we say a closed surface $i : S \to M$ of genus greater than one is an Epstein surface of $X$ if there exists a $\Gamma$-invariant conformal metric $\tilde{\sigma}$ on $\Omega$ and a diffeomorphism $\varphi : X \to S$ such that the diagram 
+\[
+\begin{tikzpicture}[scale=0.7]
+\node (1) at (0,2) {$\Omega$};
+\node (2) at (3,2) {$\H^3$};
+\node (3) at (0,0) {$S$};
+\node (4) at (3,0) {$M$};
+
+
+\draw[->] (1) to node [above] {$\mathrm{Ep}_{\tilde{\sigma}}$} (2);
+\draw[->] (1) to node [left] {$\varphi \circ \pi_X$} (3);
+\draw[->] (3) to node [above] {$i$} (4);
+\draw[->] (2) to node [right] {$\pi_M$} (4);
+
+\end{tikzpicture}
+\]
+commutes. 
+Here the $\pi_X$ and $\pi_M$ are the respective quotient maps $\Omega \to X$ and $\H^3 \to M$.
+When $S$ is an Epstein surface of $X$, the conformal metric $\tilde{\sigma}$ induces a conformal metric $\sigma$ on $X$ that we call the conformal metric at infinity. 
+We have $\mathrm{Ep}_{\sigma} = \varphi \circ i$. 
+The Epstein surface $S$ will then refer to the embedded image of $\mathrm{Ep}_{\sigma}: X \to M$. 
+
+Since $X$ is a closed surface of genus at least 2, it possesses a unique hyperbolic conformal metric $h$. 
+Hence, there is a distinguished Epstein surface in $M$. 
+
+\begin{defn}
+The Poincar\'e surface of $X$ is the Epstein induced by the Poincar\'e metric of $\Omega$. 
+Since the Poincar\'e metric induces the hyperbolic metric $h$ on $X$, the Poincar\'e surface of $X$ is the Epstein surface $\mathrm{Ep}_h: X \to M$.
+\end{defn}
+
+
+Again, we call this a surface but it need not be immersed. 
+In fact, we can identify cases when it is not. 
+When $\sigma = h$ we know $K(h) = -1$ and $B(h) = \frac{1}{2}\phi$. 
+Then using the formula for determinant of $I(h)$ given in Section \ref{epstein-geometry}, we compute
+\[
+\det(I(h)) = 16 \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
+\]
+And so we see $\mathrm{Ep}_h$ is not an immersion at points in $X$ where $\frac{|\phi|^2}{h^2} =1$. 
+However, by parallel flowing of the Poincar\'e surface we eventually obtain an immersed (embedded, actually) surface, which we now discuss. 
+
+
+The Poincar\'e surface together with its parallel copies forms a family of surfaces we call the Poincar\'e Family. 
+Recall from Lemma \ref{epstein-flow} that the parallel copies are given as the Epstein surfaces $\mathrm{Ep}_{e^{2t}h}: X \to M$ for $t \geq 0$. 
+The surfaces in the Poincar\'e family are eventually embedded as was shown by Anderson\cite{anderson1998} and \cite{bromgerg-brock-bridgeman2019}(BBB). 
+We omit the proof here as we will show a more general result in Proposition \ref{asym-family-prop}. 
+Although we will show a bound for $t$ after which the Epstein surface for $e^{2t}\sigma$ is immersed. 
+Denote by $\|B(\sigma)\|_\sigma$ and $\|K(\sigma)\|$ the supremums over $X$ of the functions $|B(\sigma)|/\sigma$ and $K(\sigma)$, then we have the following.
+
+\begin{lem}\label{parallel-family-immersed}
+Let $\sigma$ be a conformal metric on $X$. 
+If 
+\[
+t > \ln  \sqrt{ 4 \|B(\sigma)\|_\sigma + \|K(\sigma)\|},
+\]
+then $\mathrm{Ep}_\sigma: X \to M$ is an immersion.
+\end{lem}
+
+\begin{proof}
+If $t$ satisfies this bound then we have
+\[
+e^{2t} > 4 \|B(\sigma)\|_\sigma + \|K(\sigma)\| > 4 \frac{|B(\sigma)|}{\sigma} + K(\sigma)
+\]
+Rearranging and simplifying, this implies that 
+\[
+(e^{2t} - K(\sigma))^2 - 16\frac{|B(\sigma)|^2}{\sigma^2} > 0.
+\]
+It then follows that $\det(I(e^{2t}\sigma)) > 0$ so that $I(e^{2t}\sigma)$ is positive definite. 
+\end{proof}
+
+In the Poincar\'e case the bound becomes $t > \ln \sqrt{2\|\phi\|_h + 1}$, which is the bound obtained by \cite{anderson} \cite{others?}, although we do not get embeddedness from this lemma. 
+
+So, the Poincar\'e family is the family of Epstein surfaces for the conformal metrics at infinity $\rho_t = e^{2t}h$ and for $t$ sufficiently large these surfaces are embedded. 
+We now discuss their asymptotic behavior. 
+In order to consider derivatives more easily, let us reparametrize the Poincar\'e family using $\epsilon = e^{-2t}$, so that $\rho_\epsilon = h/\epsilon$. 
+We are interested in the behavior as $\epsilon \to 0^+$. 
+
+Using the formula for the first fundamental form of an Epstein surface we can compute
+\[
+I(\rho_\epsilon) = \frac{1}{4\epsilon} h + \frac{1}{2} h + \mathrm{Re}(\phi) + \epsilon \left( \frac{1}{4} h + \mathrm{Re}(\phi) + \frac{|\phi|^2}{h} \right).
+\]
+We can therefore consider the Poincar\'e family as a path in the space of metrics $\mathrm{Met}(S)$. 
+The following arguments are formal; they will be made precise in the next section. 
+We see the family of first fundamental forms diverges as $\epsilon \to 0$. 
+However, rescaling gives
+\[
+4\epsilon I(\rho_\epsilon) = h + 4\epsilon \left( \frac{1}{2}h + \mathrm{Re}(\phi) \right) + O(\epsilon^2).
+\]
+And so, if we project to the quotient, we can consider the Poincar\'e family as a path in Teichm\"uller space that converges: $[I(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$. 
+Moreover, differentiating at $0$ yields
+\[
+\left. \frac{d}{d\epsilon} \right|_{\epsilon = 0} \ 4\epsilon I(\rho_\epsilon) = 2h + 4 \mathrm{Re}(\phi).
+\]
+Since $2 h $ is pure-trace (with respect to $h$) and since $\mathrm{Re}(\phi)$ is an $h$-transverse-traceless tensor by Lemma \ref{tangent-teich}, we see the tangent vector to this path in Teichm\"uller space at $[h]$ is $\dot{[I(\rho_\epsilon)]} = d \pi_h (2h + 4 \mathrm{Re}(\phi)) = 4 \mathrm{Re}(\phi)$. Similar computations apply to $\two(\rho_\epsilon)$ and show that $[\two(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$ with tangent vector given by $\dot{[\two(\rho_\epsilon)]} = 0$. 
+
+Summarizing: The Poincar\'e family has the property that the surfaces form a parallel family foliating the end of $M$ such that the paths $[I(\rho_\epsilon)] \to [h]$ and $[\two(\rho_\epsilon)] \to [h]$ in Teichm\"uller space as $\epsilon \to 0$, and $\dot{[I(\rho_\epsilon)]} = 4 \mathrm{Re}(\phi)$ and $\dot{[\two(\rho_\epsilon)]} = 0$. 
+It turns out the only thing needed about the the Poincar\'e family to obtain these results is that there is a function $f$ so that $f(\epsilon)\rho_\epsilon \to h$ as $\epsilon \to 0$. 
+The function here is the identity $f(\epsilon) = \epsilon$. 
+In the next section we introduce a generalization of the Poincar\'e family and discuss the corresponding results that are true for this generalization.
+
+
+
+%%%%%%%%%%%
+\subsection{Asymptotically Poincar\'e Families}
+%%%%%%%%%%%
+
+
+
+The key property of the Poincar\'e family we wish to generalize is that $f(\epsilon)\rho_\epsilon \to h$ for $f(\epsilon) = \epsilon$ as $\epsilon \to 0$. 
+We consider, then, families of Epstein surfaces whose conformal metrics at infinity $\sigma(\epsilon)$ satisfy $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ where now $f$ is any positive smooth function with the same behavior to first order at $0$, i.e., that $f(0) = 0$, and $f'(0) \neq 0$. 
+Up until now we have proceeded formally with respect to the topology on the space of smooth tensors. 
+We will now be precise by using Sobolev spaces of tensors and the fact that $C^\infty$ is the intersection over all Sobolev exponents of the Sobolev spaces. 
+We will also add regularity designations, e.g, the space of smooth metrics on $X$ will be denoted by $\mathrm{Met}^\infty(X)$, while the Sobolev class of metrics on $H^s$ we will be $\mathrm{Met}^s(X)$.
+
+
+
+\begin{defn}
+\label{asym-def}
+Let $S_\epsilon$ for $\epsilon$ in $(0,1)$ be a family of embedded Epstein surfaces with conformal metrics at infinity $\sigma(\epsilon)$. 
+We call this family \textit{asymptotically Poincar\'e} if 
+\begin{enumerate}
+    \item there exists a scaling function $f:[0,1) \to [0,\infty)$ so that the path 
+    \[
+f\sigma:(0,1) \to \mathrm{Met}^\infty(X)
+\]
+is differentiable and converges to the hyperbolic metric on $X$ as $\epsilon \to 0$, that is, $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$,
+    \item the function $f$ is smooth and has simple zero at 0, and
+    \item the continuous extension $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ of $f \sigma$ is differentiable.
+\end{enumerate}
+
+\end{defn}
+
+
+The surfaces in the Poincar\'e family are parallel to one another. The surfaces in an asymptotically Poincar\'e family are asymptotically parallel in the sense of the following lemma. 
+ 
+
+
+
+
+\begin{lem}\label{asym-parallel-lemma}
+Suppose $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces. 
+Let $t > 0$. 
+If $g^t$ is the geodesic flow operator defined above, then  
+\[
+d_M \left(g^t (\widehat{\mathrm{Ep}}_{\sigma(\epsilon)}(z)), \mathrm{Ep}_{\sigma(e^{-2t} \epsilon)}(z) \right) \to 0
+\quad \text{ as } \epsilon \to 0
+\]
+uniformly in $z$. 
+That is, the distance between the surface $S_\epsilon$ flowed for time $t$ and the surface $S_{e^{-2t}\epsilon}$ tends towards zero as $\epsilon$ does. 
+\end{lem}
+
+
+\begin{proof}
+We work with the universal covers. 
+In general, a straight forward computation using the $\mathrm{SL}_2\C$-frame definition of the Epstein  map $\Omega \to \H^3$ gives the distance between the image of $z$ under the Epstein map for the metrics $\sigma = e^{2\eta}|dz|^2$ and $\tau =e^{2\lambda}|dz|^2$ as
+\begin{align*}
+d_{\H^3} \left( \mathrm{Ep}_{\sigma}(z), \mathrm{Ep}_{\tau}(z) \right)
+&= 2 \mathrm{arctanh} \left(\sqrt{ \frac{(e^\eta - e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}{(e^\eta + e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}} \right)
+\end{align*}
+where all functions are evaluated at $z$, which we have suppressed for brevity.
+
+In our case, lift $\sigma(\epsilon)$ to $\tilde{\sigma}(\epsilon)$ and $\gamma(\epsilon) = f(\epsilon)\sigma(\epsilon)$ to $\tilde{\gamma}(\epsilon)$ on $\Omega$. 
+Write $\tilde{\sigma}(\epsilon) = e^{2\eta(\epsilon)}|dz|^2$ and $\tilde{\gamma}(\epsilon) = e^{2\lambda(\epsilon)}|dz|^2$, then $\eta(\epsilon) = \lambda(\epsilon) - (1/2)\ln(f(\epsilon))$. 
+Recall from Lemma \ref{epstein-flow} that $g^t \circ \widehat{\mathrm{Ep}}_{\tilde{\sigma}(\epsilon)} = \mathrm{Ep}_{e^{2t}\tilde{\sigma}(\epsilon)}$.
+For ease of notation, let $c = e^{-2t}$. 
+Then we have the distance between $\mathrm{Ep}_{c^{-1} \tilde{\sigma}(\epsilon)}$ and $\mathrm{Ep}_{\tilde{\sigma}(c\epsilon)}$ can be simplified to
+\[
+2 \mathrm{arctanh} \left(\sqrt{ 
+\frac
+{(1 - \sqrt{\frac{c f(\epsilon)}{f(c \epsilon)}}e^{\lambda(c\epsilon) - \lambda(\epsilon)})^2 + 4 c f(\epsilon)e^{-2\lambda(\epsilon)}|\lambda_z(c\epsilon) - \lambda_z(\epsilon)|^2}
+{(1 + \sqrt{\frac{c f(\epsilon)}{f(c \epsilon)}}e^{\lambda(c\epsilon) - \lambda(\epsilon)})^2 + 4 c f(\epsilon)e^{-2\lambda(\epsilon)}|\lambda_z(c\epsilon) - \lambda_z(\epsilon)|^2}
+} \right).
+\] 
+Since $\tilde{\gamma}(\epsilon)$ converges in $\mathrm{Met}^\infty(X)$, the function $\lambda$ has a $C^2$ limit as $\epsilon \to 0$. 
+Therefore, the argument of $\mathrm{arctanh}$ converges to zero uniformly in $z$.
+
+Since the distance between the surfaces in the universal cover is converging to zero, and since the quotient map $\H^3 \to M$ is a local isometry, we get the Lemma. 
+\end{proof}
+
+
+
+We have required that an asymptotically Poincar\'e family consist of embedded surfaces.
+The next proposition gives a useful condition for a family of conformal metrics to give rise to an asymptotically Poincar\'e family of surfaces. 
+
+
+
+
+\begin{prop}
+\label{asym-family-prop}
+Let $\sigma: (0,1) \to \mathrm{Conf}^\infty(X)$ be a family of conformal metrics on $X$. 
+Suppose there exists a smooth function $f:[0,1) \to [0,\infty)$ with simple zero at $0$, such that $f\sigma \to h$ as $\epsilon \to 0$ and such that the extension $\gamma: [0,1) \to \mathrm{Conf}^\infty(X)$ is differentiable.
+Then there exists an $\epsilon_0 >0$ so that for $\epsilon < \epsilon_0$, the Epstein map $\mathrm{Ep}_{\sigma(\epsilon)}$ is an embedding. 
+Hence, the Epstein surfaces $\mathrm{Ep}_{\sigma(\epsilon)}:X \to M$, for $\epsilon < \epsilon_0$, form an asymptotically Poincar\'e family. 
+\end{prop}
+
+\begin{proof} 
+Let $\tilde{\sigma}:(0,1) \to \mathrm{Conf}^\infty(\Omega)$ be the lift of the family $\sigma$. 
+Define the Epstein family map $\mathrm{Ep}_{\tilde{\sigma}}: \Omega \times (0,1) \to \H^3$ by $\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = \mathrm{Ep}_{\tilde{\sigma}(\epsilon)}(z)$. 
+It follows from the $\mathrm{SL}_2\C$-frame definition of the Epstein map that in the upper half space model $\H^3 \cong \C \times \R^+$, the family map is given by 
+\[
+\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = (z,0) + \frac{2}{e^{2\eta} + 4 |\eta_z|^2}\left(2 \eta_{\bar{z}}, e^\eta \right).
+\]
+Writing $\tilde{\sigma}(\epsilon) = e^{2 \eta(z,\epsilon)}|dz|^2$ and $\tilde{\gamma}(\epsilon) = e^{2 \lambda(z,\epsilon)}|dz|^2$, the condition $\tilde{\gamma}(\epsilon) = f(\epsilon)\tilde{\sigma}(\epsilon)$ becomes $\eta(z,\epsilon) = \lambda(z,\epsilon) - (1/2) \ln(f(\epsilon))$.
+Note that $\lambda(z,\epsilon) \to \rho(z)$ as $\epsilon \to 0$, uniformly in $z$, where $\rho$ is the log density of the Poincar\'e metric of $\Omega$. 
+Hence we can rewrite $\mathrm{Ep}_{\tilde{\sigma}}$ as 
+\[
+\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = (z,0)  + \frac{2}{e^{2\lambda} + 4 f(\epsilon) |\lambda_z|^2} \left( 2 f(\epsilon) \lambda_{\bar{z}},  \sqrt{f(\epsilon)}e^{\lambda} \right)
+\]
+and see that
+\[
+\lim_{\epsilon \to 0} \mathrm{Ep}_{\tilde{\sigma}} (z,\epsilon) = (z,0).
+\]
+So we may extend $\mathrm{Ep}_{\tilde{\sigma}}$ to a map $\Omega \times [0,1) \to \H^3 \sqcup \Omega$, which is the identity on the boundary $\Omega \times \{0\} \to \Omega$. 
+
+While this map is not differentiable at $\epsilon = 0$ (due to the $\sqrt{f(\epsilon)}$), the map $F: \Omega \times [0,1) \to \H^3 \sqcup \Omega$ given by $F(z,\epsilon) = \mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon^2)$ satisfies $F(z,0) = (z,0)$, is differentiable at $\epsilon = 0$, and has derivative  
+\[
+d F_{(z,0)} = 
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2 \sqrt{f'(0)} e^{-\rho(z)}
+\end{pmatrix}.
+\]
+Since this is invertible, $F$ is a local $C^1$-diffeomorphism at the boundary of $\Omega \times [0,1) \to \H^3 \sqcup \Omega$.
+
+Define $\bar{M} = ( \H^3 \sqcup \Omega ) /\Gamma = M \sqcup X$.
+Then $\bar{M}$ is a smooth manifold with compact boundary $X$. 
+By $\Gamma$-equivariance of $\mathrm{Ep}_{\tilde{\sigma}}$, $F$ descends to a map $X \times[0,1) \to \bar{M}$ that is the identity on the boundary $\partial(X \times [0,1)) \to \partial{\bar{M}} = X$ and that is a local diffeomorphism there. 
+We now show this implies the restriction of $F$ to $X \times [0, \delta)$, for some small enough $\delta$, is a diffeomorphism onto a collar neighborhood of $\partial \bar{M} = X$. 
+
+Given $(z,0)$ there exists neighborhoods $U_{(z,0)}$ and $V_{(z,0)}$ such that $F: U_{(z,0)} \to V_{(z,0)}$ is a diffeomorphism. 
+By compactness of $X$ we may take a finite number $U_i$ and $V_i$ such that $X \times \{0\} \subset \cup U_i$. Call $\cup_i U_i = U$ and $\cup_i V_i = V$. Then $F: U \to V$ is a local diffeomorphism and $X \times \{0\} \subset U, V$. 
+In fact, we have 
+\begin{lem*}
+There exists $\epsilon,\delta > 0$ such that $X \times [0,\delta] \subset U$, and $X \times [0,\epsilon] \subset V$ and such that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$.
+\end{lem*}
+\begin{proof}
+By construction of $U$ there exists a $\delta'$ such that $X \times [0,\delta') \subset U$. So choose $\delta = \delta'/2$. Then $X \times [0, \delta] \subset U$.
+We show that there is an $\epsilon > 0$ so that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$, as if this is true, we may replace $\epsilon$ with $\epsilon/2$ to get $X \times [0,\epsilon] \subset V$.
+
+Now, suppose no such $\epsilon$ exists. 
+Take a sequence $\epsilon_n \to 0$. 
+Then for each $n$ there exists $(w_n, t_n) \in X \times [0, \epsilon_n)$ such that $(w_n,t_n) \notin F(X \times [0,\delta))$. 
+But $t_n < \epsilon_n \to 0$. 
+Moreover, by compactness of $X$ there exists a subsequence (which we still call) $w_n$ that converges to, say, $w \in X$. 
+Then $(w_n,t_n) \to (w,0)$. 
+Since $F$ is a local diffeomorphism, there is a neighborhood $W$ of $(w,0)$, which we may assume is a subset of $X \times [0,\delta)$ by taking intersections if needed, that is diffeomorphic to a neighborhood $F(W)$ of $(w,0)$. 
+Since $(w_n, t_n) \to (w,0)$, for large enough $n$ we get $(w_n,t_n) \in F(W) \subset F(X \times [0,\delta))$. 
+This is a contradiction. 
+Hence, we get an $\epsilon >0$ so that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$.
+\end{proof}
+
+\begin{cor*}
+$X \times [0,\epsilon] \subset F(X \times [0,\delta])$
+\end{cor*}
+
+\begin{lem*}
+$F: X \times [0,\delta] \to F(X \times [0,\delta])$ is a covering. 
+\end{lem*}
+
+\begin{proof}
+$F$ is a local diffeomorphism since $X \times [0,\delta] \subset U$ and $X \times [0,\epsilon] \subset V$ and since $F: U \to V$ is a local diffeomorphism. 
+Since $X \times [0,\delta]$ is compact, $F$ is a proper mapping and proper local diffeomorphisms are coverings. 
+\end{proof}
+
+\begin{lem*}
+The covering is trivial. 
+\end{lem*}
+
+\begin{proof}
+Note that the cardinality of the fibers of $F: X \times [0,\delta] \to F(X \times [0,\delta])$ are constant since everything is connected. 
+Also note that $F( X \times (0,\delta]) \subset X \times (0,1)$ and $F: X \times \{0\} \to X \times \{0\}$ is the identity. In particular $F^{-1}(\{(w,0)\}) = \{(w,0)\}$. 
+Hence, $F: X \times [0,\delta] \to F(X \times [0,\delta])$ is injective. 
+\end{proof}
+
+\begin{cor*}
+$F: X \times [0,\delta] \to F(X \times [0,\delta])$ is injective and contains a neighborhood of $X \times \{0\}$.
+\end{cor*}
+
+
+
+Unraveling, we get that $\mathrm{Ep}_{\sigma}$ is a diffeomorphism from a collar neighborhood $X \times (0,\sqrt{\delta})$ to a neighborhood of infinity of $M$.
+In particular, each Epstein surface $\mathrm{Ep}_\sigma(\cdot, \epsilon) = \mathrm{Ep}_{\sigma(\epsilon)}$, for $\epsilon < \sqrt{\delta}$, is an immersion and injective with compact domain $X$. 
+Hence each Epstein surface, for $\epsilon < \sqrt{\delta}$, is embedded.
+To complete the proof take $\epsilon_0 = \sqrt{\delta}$.
+
+\end{proof}
+
+
+The Poincar\'e family foliates the end of $M$ since they are parallel. 
+In the preceding proof, we have the map $F: X \times [0,\delta) \to \bar{M}$ is a diffeomorphism onto its image. 
+Hence we have the following result for asymptotically Poincar\'e families.
+
+\begin{cor}
+\label{foliation}
+If $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces, then there exists an $\epsilon_0 > 0$ such that for $\epsilon < \epsilon_0$ the surfaces $S_\epsilon$ form a foliation of the end of $M$ whose surface at infinity is $X$.
+\qed
+\end{cor}
+
+
+
+We soon turn to our main result, but first note that the co-orientation on an Epstein surface we are using is that induced by the lift $\widehat{\mathrm{Ep}}_\sigma$, which points towards the surface at infinity $X$.
+This implies that $\two(\sigma)$ is negative definite (for small enough $\epsilon$), and so $-\two(\sigma)$ is a smooth Riemannian metric. 
+Also recall we are using the Riemannian model of Teichm\"uller space. 
+That is, we use 
+\[
+\mathcal{T}(X) = \mathrm{Met}^\infty(X)/  \mathrm{Diff}_0^\infty(X) \rtimes P^\infty(X),
+\]
+where $P^\infty(X)$ is the set of smooth positive functions on $X$ and $\mathrm{Diff}_0^\infty(X)$ is the group of smooth diffeomorphisms isotopic to the identity (see \cite{tromba1992} for details). 
+The smooth topology, however, is difficult to work with directly. 
+So, we work in the Sobolev setting tensors and functions.
+
+
+
+%%%%%%%%%%%
+\subsection{Sobolev Spaces on Manifolds}
+%%%%%%%%%%%
+
+
+
+Smooth classes of functions and tensors are difficult to work with because the $C^\infty$ setting lacks a robust inverse and implicit function theorem (among other reasons). 
+The Sobolev setting is useful because they form Banach spaces, which enjoy the standard tools of analysis. 
+
+To define the relevant Sobolev spaces on the closed surface $S$ we need to fix a background Riemannian metric, the natural choice being the hyperbolic metric $h$. 
+Let $\nabla$ be its Levi-Civita connection. 
+Both $h$ and $\nabla$ extend to metrics and connections on all the tensor bundles on $S$ made from $TS$ and $T^*S$. 
+Hence all tensor bundles have a norm induced by $h$. 
+Let $\mathscr{T}^{(k,l)}(S)$ be the space of smooth $(k,l)$-tensor fields on $S$. 
+The space $W^{s,p}(\mathscr{T}^{(k,l)}(S))$ will denote the space of Sobolev tensors. 
+It is the completion of $\mathscr{T}^{(k,l)}(S)$ under the norm
+\[
+\|T\|_{s,p} = \left( \sum_{j = 0}^s \int_S | \nabla^j T|^p \ dVol(h) \right)^{1/p}.
+\]
+Here $\nabla^j$ is the iterated covariant derivative ($j$-times). 
+
+Compactness of $S$ is vital here as it guarantees this norm is finite. 
+These Sobolev spaces are Banach spaces and when $p = 2$ they are Hilbert spaces. 
+We will denote them by $H^s(\mathscr{T}^{(k,l)}(S))$ (note: this is not cohomology). 
+The spaces in which we will be most interested are the Sobolev spaces of real-valued functions $H^s(S,\R)$, metrics $\mathrm{Met}^s(S)$, and conformal metrics $\mathrm{Conf}^s(X)$.
+
+Sobolev functions (or tensors) that satisfy an equation in the sense of distributions are called weak solutions to the equation. 
+On $S$, where the dimension is 2, the Sobolev Embedding Theorem on smooth surfaces guarantees that weak solutions in $H^s$ for $s \geq 3$ are actually strong solutions, being $C^{2,\alpha}$-regular \cite{aubin1982}. 
+We will therefore assume $s \geq 3$ from now on. 
+We also note that $C^\infty = \cap_s H^s$.
+
+
+
+\subsection{Main Results}
+So, we work in the Sobolev setting of functions $H^s(X)$ and tensors $\mathrm{Met}^s(X)$ and $\mathrm{Conf}^s(X)$.
+Since $K$ and $B$ are smooth functions of $\sigma$ and its derivatives we have that they both extend to functions on Sobolev classes of metrics.
+Hence if $\sigma \in \mathrm{Conf}^s(X)$ then $I(\sigma)$ and $-\two(\sigma)$ belongs to $\mathrm{Met}^{s-2}(X)$.
+We will obtain results with these extensions and then argue our results are independent of the chosen $s$. 
+
+
+
+\begin{prop}
+\label{thm-in-sobolev}
+Suppose $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces. 
+Let $\gamma : [0,1) \to \mathrm{Met}^s(X)$ be the extension of $f\sigma$ thought of as taking values in a class of Sobolev metrics for a fixed $s > 3$. 
+Then the first and second fundamental forms $I \circ \sigma: (0,1) \to \mathrm{Met}^{s-2}(X)$ and  $\two \circ \sigma: (0,1) \to \mathrm{Met}^{s-2}(X)$ satisfy
+\[
+I_\epsilon = 4 f'(0) \epsilon I(\sigma(\epsilon)) \to h
+\quad \text{ and } \quad
+\two_\epsilon =  - 4 f'(0) \epsilon \two(\sigma(\epsilon)) \to h
+\quad \text{ as } \epsilon \to 0.
+\]
+Moreover, $I_\epsilon$ and $\two_\epsilon$ are differentiable at $\epsilon = 0$ and their tangent vectors are given by 
+\[
+\dot{I_\epsilon} = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)
+\quad \text{ and } \quad
+\dot{\two_\epsilon} = \dot{\gamma}
+\]
+\end{prop}
+
+\begin{proof}
+We have that $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ is continuous and differentiable at $\epsilon = 0$. 
+Therefore, as $\mathrm{Met}^\infty(X) = \cap_{s > 3} \mathrm{Met}^s(X)$ we also have that $\gamma$ is continuous to $\mathrm{Met}^s$ and differentiable at $\epsilon = 0$. 
+
+Then, we have $I(\sigma(\epsilon)) = I(\frac{1}{f(\epsilon)} \gamma(\epsilon))$ is equal to 
+\[
+4 f(\epsilon) \frac{|B(\gamma(\epsilon))|^2}{\gamma(\epsilon)} + \frac{1}{4 f(\epsilon)}(1 - f(\epsilon) K(\gamma(\epsilon)))^2 \gamma(\epsilon) + 2(1 - f(\epsilon)K(\gamma(\epsilon)))\mathrm{Re}(B(\gamma(\epsilon))),
+\]
+which is a smooth tensor independent of $s$. 
+Since $f:[0,1) \to \R$ and $\gamma:[0,1) \to \mathrm{Met}^s(X)$ are differentiable at 0 and since $K: \mathrm{Met}^s(X) \to H^{s-2}(X)$ and $B: \mathrm{Conf}^s(X) \to \Gamma^{s-2}(\Sigma^{2}(X))$ are differentiable at the hyperbolic metric $h$, we can write 
+\begin{align*}
+f(\epsilon) = \epsilon f'(0) + O(\epsilon^2), \quad
+K(\gamma(\epsilon)) = -1 + O(\epsilon), \quad 
+B(\gamma(\epsilon)) = \frac{1}{2} \phi + O(\epsilon).
+\end{align*}
+
+Substitution and some simplification gives 
+\[
+I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \frac{1}{2} h + \mathrm{Re}(\phi) + O(\epsilon).
+\]
+Consequently, 
+\[
+I_\epsilon =  h + \epsilon(\dot{\gamma} + 2 f'(0)h + 4 f'(0) \mathrm{Re}(\phi)) + O(\epsilon^2).
+\]
+The same reasoning will give 
+\[
+\two_\epsilon = h + \epsilon \dot{\gamma} + O(\epsilon^2).
+\]
+The result then follows.
+\end{proof}
+
+Recall the tangent space to $\mathrm{Met}^s(X)$ at $g$ may be decomposed as the orthogonal sum
+\[
+T_g \mathrm{Met}^s(X) = \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \} \oplus \{\mathcal{L}_X g + fg \ |\ f \in H^s \text{ and } X \in \Gamma(TX) \},
+\] 
+where $\mathrm{div}_g(\dot{g})$ is the divergence of the 1-1 tensor $g^{-1}\dot{g}$. 
+The second summand is tangent to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $g$ and the first summand is the transverse traceless tensors consisting of elements that are smooth, trace-free, and divergence-free (see \cite{fischer-marsden1975} for more details). 
+Since the transverse traceless tensors are orthogonal to the group orbit they may be identified with the tangent space $T_{[g]} \left( \mathrm{Met}^s(X)/ \mathrm{Diff}_0^s(X) \rtimes P^s(X) \right)$ to the quotient at $[g]$. 
+Moreover transverse traceless tensors are a set of smooth tensors that are $L^2$ orthogonal to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit \textit{for any} $s$. 
+Consequently, they may be identified with the tangent space to the quotient $\mathrm{Met}^\infty(X)/(\mathrm{Diff}_0^\infty(X) \rtimes P^\infty(X))$. 
+That is, they may be naturally identified with the tangent space to Teichm\"uller space at $[g]$:
+\[
+T_{[g]} \mathcal{T}(X) = \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \}.
+\]
+Under this identification, the action of the derivative of the projection $\pi: \mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ at $g$ is given by orthogonal projection onto the transverse traceless tensors $T_g \mathrm{Met}^\infty(X) \to \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \}$.
+
+We now prove our main result, Theorem \ref{big-thm-intro} from the Introduction. 
+Recall that $[\two]$ denotes the point in Teichm\"uller space corresponding to the conformal class of $-\two$.
+
+
+\begin{thm}\label{main-result}
+Let $S_\epsilon$ for $\epsilon \in (0,1)$ be an asymptotically Poincar\'e family of surfaces with metrics at infinity $\sigma(\epsilon)$. 
+If $h$ is the hyperbolic metric of $X$ and $\phi$  the holomorphic quadratic differential at infinity, then in Teichm\"uller space $\mathcal{T}(X)$ we have 
+\[
+[I(\sigma(\epsilon))] \to [h]
+\quad \text{ and } \quad
+[\two(\sigma(\epsilon))] \to [h]
+\quad \text{ as } \epsilon \to 0.
+\]
+Moreover, the tangent vectors in $T_{[h]} \mathcal{T}(X)$ are given by 
+\[
+\dot{[I(\sigma(\epsilon))]}  = 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{[\two(\sigma(\epsilon))]} = 0.
+\]
+\end{thm}
+
+\begin{proof}
+Using the notation from  Proposition \ref{thm-in-sobolev}, for each $s > 3$ we have that $I_\epsilon$ and $\two_\epsilon$, which are paths through smooth tensors, converge in $\mathrm{Met}^s(X)$ to the hyperbolic metric $h$. 
+Since $\mathrm{Met}^\infty(X)  = \cap \mathrm{Met}^s(X)$ we know that $I_\epsilon$ and $\two_\epsilon$ converge to $h$ in $\mathrm{Met}^\infty(X)$. 
+Moreover, since the projection $\mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ is continuous, and since $[I(\sigma(\epsilon))] = [I_\epsilon]$ and $[\two(\sigma(\epsilon))] = [\two_\epsilon]$, we have that
+\[
+[I(\sigma(\epsilon))] \to [h]
+\quad \text{ and } \quad 
+[\two(\sigma(\epsilon))] \to [h]
+\quad \text{ as } \epsilon \to 0.
+\]
+Since both paths converge to $[h]$ at $\epsilon = 0$ we can extend them to continuous paths $[0,1) \to \mathcal{T}(S)$. 
+Since $[I(\sigma(\epsilon))]$ and  $[\two(\sigma(\epsilon))]$ agree with $[I_\epsilon]$ and $[\two_\epsilon]$, respectively, we also have they are differentiable at $\epsilon = 0$.
+
+From Proposition \ref{thm-in-sobolev} we know that 
+\[
+\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{\two_\epsilon} = \dot{\gamma}.
+\]
+Since $\phi$ is holomorphic, $4 f'(0) \mathrm{Re}(\phi)$ is trace-free and divergence-free. 
+On the other hand, $2 f'(0) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
+Hence, the derivative of the projection at $h$ removes this term.
+Similarly, $\gamma$ is a path in the group orbit of $h$ and so $\dot{\gamma}$ projects to 0. 
+We then have
+\begin{align*}
+\dot{[I(\sigma(\epsilon))]}
+= \dot{[I_\epsilon]}
+= d \pi_h (\dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)) 
+= 4 f'(0) \mathrm{Re}(\phi)
+\end{align*}
+and
+\[
+\dot{[\two(\sigma(\epsilon))]} = \dot{\two_\epsilon} = d \pi_h (\dot{\gamma}) = 0,
+\]
+as claimed.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{$k$-surfaces}
 
-%%%%%%%%%%%%%%%%%%%%
-\section{Constant Mean Curvature Surfaces}
 
-%%%%%%%%%%%%%%%%%%%%
+
+
+In this section we discuss some applications of Theorem \ref{main-result}. 
+
+
+
+%%%%%%%%%%%
+\subsection{A Conjecture of Labourie}
+%%%%%%%%%%%
+
+
+
+Labourie proved in \cite{labourie1991} that geometrically finite ends of hyperbolic 3-manifolds admit foliations by surfaces of constant Gaussian curvature. 
+These he called $k$-surfaces since for each $k \in (-1,0)$ there exists a unique surface in the foliation whose curvature is identically $k$.
+Both ends of a quasi-Fuchsian manifold are geometrically finite, hence this foliation result applies in the quasi-Fuchsian case.
+
+Focusing on one end of the quasi-Fuchsian manifold with surface at infinity $X$, in \cite{labourie1992} Labourie discusses how the conformal classes $[I_k]$ and $[\two_k]$ of the first and second fundamental forms of the $k$-surfaces behave as paths in the Teichm\"uller space of $X$. 
+When $k \to -1$, he proves that $[\two_k]$ approaches the point at infinity of $\mathcal{T}(X)$ corresponding to the measured geodesic lamination on the convex core of the quasi-Fuchsian manifold. 
+When $k \to 0$, he showed both $[I_k]$ and $[\two_k]$ converge to the same point: the complex structure $X$ on the surface at infinity; or in metric terms, converge to the class of the hyperbolic metric $[h]$.
+He conjectures that the tangent vector to these paths is related to the holomorphic quadratic differential at infinity $\phi$. 
+
+His conjecture is correct as shown in Theorem \ref{labourie-conjecture-proof}. 
+Indeed, Labourie's $k$-surfaces form an asymptotically Poincar\'e family (as we will show). 
+Therefore, our main result Theorem \ref{main-result} applies, describing the asymptotic behavior of the $k$-surfaces as $k \to 0$. 
+In the process, our work gives an alternative proof to Labourie's theorem on the existence of $k$-surfaces (at least for $k$ near 0), in this case for quasi-Fuchsian manifolds: see Theorem \ref{k-surfaces-existence}.
+
+
+
+%%%%%%%%%%%
+\subsection{The $k$-surface equation}
+%%%%%%%%%%%
+
+
+
+We now prove that $k$-surfaces form an asymptotically Poincar\'e family of surfaces. 
+To do this we derive an equation for a conformal metric that implies its Epstein surface is a $k$-surface and we show this equation has a unique smooth solution for each $k$ near zero. 
+In the proof of existence of solutions we will see that these conformal metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}. 
+
+
+
+Finding a metric $\sigma$ whose Epstein surface has constant Gaussian curvature $k$ is finding a metric $\sigma$ that solves $K(I(\sigma)) = k$, which from Lemma \ref{curvature-epstein} is solving
+\[
+\frac{4K(\sigma)}{(1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2} = k.
+\]
+For now we will focus on solving
+\begin{equation}
+\label{k-surface-equation}
+4K(\sigma) = k \left((1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2 \right),
+\end{equation}
+as we will see that for small enough $k$, $K(I(\sigma)) = k$.
+
+We are interested in obtaining solutions to (\ref{k-surface-equation}) for $k$ near zero. 
+This is hampered by the fact that there are no solutions to (\ref{k-surface-equation}) when $k = 0$. 
+Indeed we would be asking for $K(\sigma)=0$, which is impossible on a surface with genus bigger than 1. 
+In an attempt to obtain better asymptotics we consider the case when $\Gamma$ is Fuchsian. 
+Here we have explicit solutions to the $k$-surface equation (\ref{k-surface-equation}).
+Indeed, the $k$-surfaces are the Poincar\'e family. 
+Working in the universal covers, $\mathrm{Ep}_h : \Omega \to \H^3$ gives a totally geodesic copy of $\H^2$ in $\H^3$ with constant curvature $-1$. 
+For $-1<k<0$  the $k$-surfaces are given by equidistant copies of this $\H^2$. 
+The conformal metric whose Epstein surface is the $k$-surface is then $c(k)h$ for some function of $k$ satisfying $K(I(c(k)h)) = k$. 
+Since $B(g_{\CP^1},c(k)h) = 0$ we get the defining equation of $c$ as $4K(c(k)h) = k(1 - K(c(k)h))^2$.
+More explicitly $c$ is given by
+\[
+c(k) = \frac{1+\sqrt{1+k}}{1-\sqrt{1+k}}.
+\]
+
+
+Suppose we have solution metrics $\sigma_k$  on $X$ that give Epstein surfaces with constant Gaussian curvature $k$. 
+As we just saw, in the Fuchsian case we have $\sigma_k = c(k) h$.  
+In the general quasi-Fuchsian case, define $f(k)$ by 
+\[
+f(k) = c(k)^{-1} = \frac{1-\sqrt{1+k}}{1+\sqrt{1+k}}
+\] 
+and $\tau_k$ by $\tau_k = f(k)\sigma_k$, so that in the Fuchsian case the metric $\tau_k$ is the hyperbolic metric for all $k$. 
+Since $\sigma_k$ solves (\ref{k-surface-equation}), by substitution and some simplification we get that $\tau = \tau_k$ solves the equation 
+\begin{equation}
+\label{scaled-equation}
+(2+k)(1+K(\tau))^2 + 2\sqrt{1+k}\left(1-K(\tau)^2\right) + 16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2} = 0.
+\end{equation}
+
+
+In the limiting case $k=0$ we see that the hyperbolic metric $h$ on $X$ solves (\ref{scaled-equation}). 
+Solutions actually exists in a neighborhood of $(k,\tau) = (0,h)$ as we will show.
+To apply PDE theory we define the function $F : U \times \mathrm{Conf}^\infty(X) \to C^\infty(X)$ given by 
+\[
+F(k,\tau) = (2+k)(1+K(\tau))^2 + 2\sqrt{1+k}\left(1-K(\tau)^2 \right) +16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2}.
+\]
+Here, $U$ is an open interval around $0$ small enough not to contain $-1$ so that $F$ is smooth on its domain. 
+Points $(k,\tau)$ where $F(k,\tau) = 0$ are solutions to the scaled equation (\ref{scaled-equation}); we have already found $F(0,h) = 0$.
+ 
+ 
+ 
+%%%%%%%%%%%
+\subsection{Solutions to the $k$-Surface Equation} 
+%%%%%%%%%%%
+
+
+
+We will use the Implicit Function Theorem in the Banach space setting to obtain solutions to $F(k,\tau) = 0$ and so we first work with $\mathrm{Conf}^s(X) = \{ p h \ |\ p \in H^s(X,\R^+)\}$, where $H^s(X,\R^+)$ is the Sobolev space of functions on $X$ taking positive values.
+With the norm $\|\tau\|_s := \| \tau/h\|_s$, the set $\mathrm{Conf}^s(X)$ is naturally identified with an open subset of the Banach space $H^s(X) = H^{s}(X,\R)$.
+As stated above, we work with Sobolev spaces of a fixed regularity $s > 3$.
+Recall the function $F$ is defined on $U \times \mathrm{Conf}^\infty(X)$ and maps to $C^\infty(X)$. 
+Extend $F$ to a function $U \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ so that $F$ is then defined on an open subset of a Banach space. 
+
+We still have $F(0,h) = 0$ and we can now get solutions near $0$ as well.
+
+
+
+\begin{thm}
+\label{weak-solutions}
+There is a neighborhood $V$ of $0$ such that for each $k \in V$, there exists a unique $\tau \in \mathrm{Conf}^s(X)$ such that $F(k,\tau) = 0$.
+\end{thm}
+
+\begin{proof} 
+Note that since the constituent parts of $F$ are smooth on $U$, $F$ is smooth. 
+Furthermore, $D_2F_{(0,h)} : H^s(X) \to H^{s-2}(X)$ is an isomorphism, where $D_2F$ is the partial derivative of $F$ with respect to its second argument. 
+Indeed, a direct computation of the derivative of $F$ at $(0,h)$ yields 
+\[
+DF_{(0,h)}(\dot{k},\dot{\tau}) = 4 \, D K_h(\dot{\tau}).
+\]
+Note that $D_1F_{(0,h)} = 0$ and that $D_2F_{(0,h)} = 4 \, DK_h$. 
+The differential of the curvature function $D K_h$ is given by a formula of Lichnerowicz: 
+\[
+ 4\, DK_h(\dot{\tau}) = -2(\Delta_h - Id)\frac{\dot{\tau}}{h},
+\]
+which is an isomorphism $H^s(X) \to H^{s-2}(X)$ (see \cite[Page 33]{tromba1992}).
+
+Consequently, by the Banach Implicit Function Theorem (see \cite[Theorem 17.6]{gilbarg-trudinger2001}) there exists a neighborhood $V$ of $0$ and a curve $\gamma : V \to \mathrm{Conf}^s(X)$ with $\gamma(0) = h$ and $F(k, \gamma(k)) = 0$. 
+Moreover, these are the only solutions to $F(k,\tau) = 0$ in $V$, and $\gamma$ is smooth since $F$ is.
+\end{proof}
+
+
+
+%%%%%%%%%%%
+\subsection{Regularity of Solutions}
+%%%%%%%%%%%
+
+
+
+Theorem \ref{weak-solutions} furnishes weak solutions $\gamma(k)$ that vary smoothly as a map $V \to \mathrm{Conf}^s(X)$. 
+The Sobolev Embedding Theorem immediately strengthens the regularity of the individual $\gamma(k)$ to at least $C^{2,\alpha}$, for each $k$ (see \cite{aubin1982}), and so we have strong solutions $F(k,\gamma(k)) = 0$.
+
+ 
+A nonlinear equation $A(u) = 0$ is said to be elliptic at $u$ if the derivative of $A$ at $u$, $DA_u$, is an elliptic linear operator. 
+When $A$ is smooth, solutions $u$ where $A$ is elliptic are also smooth (\cite[Lemma 17.16]{gilbarg-trudinger2001}). 
+In our case, since $D_2F_{(0,h)} = -2(\Delta_h - Id)$ is an elliptic operator we have $F(0, \tau) = 0$ is elliptic at $\tau = h$. 
+Moreover, ellipticity is an open condition in $\R \times C^2(X)$, so there exists an open interval $(-\delta,\delta)$ such that the linearization $D_2F(k,\gamma(k))$ is elliptic for all $k \in (-\delta,\delta)$.
+This has two consequences.
+First, it shows the solutions given by Theorem \ref{weak-solutions} are individually smooth conformal metrics.
+We conclude the following theorem.
+
+\begin{thm}
+\label{k-surfaces-existence}
+There exists an $\delta > 0$ such that for all $-\delta < k < 0$ there exists a unique smooth metric $\sigma_k$ whose Epstein surface is a $k$-surface.
+\end{thm}
+
+\begin{proof}
+We have a curve $\gamma$ defined on an interval $(-\delta, \delta)$ such that the smooth metric $\gamma(k)$ satisfies $F(k,\gamma(k)) = 0$. 
+This means that $\gamma(k)$ solves the scaled equation (\ref{scaled-equation}) and so 
+\[
+\sigma_k = f(k)^{-1} \gamma(k) =  \frac{1 + \sqrt{1+k}}{1 - \sqrt{1+k}} \, \gamma(k),
+\]
+defined for $k \in (-\delta,0)$, solves the $k$-surface equation (\ref{k-surface-equation}). 
+
+Finally, we must show that $(1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2$ in (\ref{k-surface-equation}) is everywhere nonzero so that (\ref{k-surface-equation}) is equivalent to the desired Guassian curvature condition.
+But this follows from Nehari's Theorem (see \cite[Theorem 1.3]{lehto-1987}, or the original paper \cite{nehari-1949}), which gives an a priori bound on $|B(h)|^2/h^2$ (recall $B(h)$ is the Schwarzian derivative of an injective holomorphic map), implying that $|B(\sigma_k)|^2/\sigma_k^2 \to 0$ as $k \to 0$. 
+Hence by shrinking $\delta$ if necessary to make $k$ small enough, this expression is nonzero and so we may rearrange $(\ref{k-surface-equation})$ to get that $\sigma_k$ produces a $k$-surface: $K(I(\sigma_k)) = k$.
+\end{proof}
+
+Second, ellipticity also implies the family $\gamma(k)$ varies smoothly in $k$ in the $C^\infty$ topology. 
+
+\begin{prop}
+There exists a neighborhood $U$ of $0$ and a smooth path $\gamma: U \to \mathrm{Conf}^\infty(X)$ such that $F(k,\gamma(k)) = 0$ for all $k \in U$. 
+\end{prop}
+
+\begin{proof}
+Since $\mathrm{Conf}^\infty(X) = \cap \mathrm{Conf}^s(X)$, it suffices to show there exits a neighborhood $U$ of 0 and a function $\gamma: U \to \mathrm{Conf}^\infty(X)$ such that for all sufficiently large $s$, the function $\gamma: U \to \mathrm{Conf}^s(X)$ is a smooth path.
+
+To this end, apply The Implicit Function Theorem to the smooth function $F: (-1,1) \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ at $(0,h)$ to get a solution interval $U_s$ around $0$ and a unique smooth path $\gamma_s: U_s \to \mathrm{Conf}^s(X)$ such that $F(k, \gamma_s(k))=0$ for all $k \in U_s$. 
+The partial derivative $D_2F(0,h)$ is elliptic, so there exists a neighborhood $U'$ of 0 such that for all $k \in U'$, $D_2F(k,\gamma_s(k))$ is elliptic. 
+Define $U = U_s \cap U'$.
+
+Fix $t > s$. 
+The partial derivative $D_2F(0,h): H^t(X) \to H^{t-2}(X)$ is still an isomorphism and so the Implicit Function Theorem may be applied again to get a solution interval and path. 
+Let $U_t$ be the maximal interval around $0$ such that a solution path $\gamma_t: U_t \to \mathrm{Conf}^t(X)$ exists and is smooth, and such that $D_2F(k,\gamma_t(k))$ is elliptic. 
+We have $U_t \subset U$ with $\gamma_t = \gamma_s$ on $U_t$ by uniqueness. 
+We want $U_t = U$. 
+
+Assume towards a contradiction that $U_t$ is a proper subset of $U$ and that the supremum of $U_t$ is an element of $U$, call it $k$. 
+Then \textit{if} we can show $D_2F(k,\gamma_s(k)) : H^t(X) \to H^{t-2}(X)$ is an isomorphism, then we may apply the Implicit Function Theorem to get an interval $V$ around $k$ and a smooth curve $\alpha: V \to \mathrm{Conf}^t(X)$ that agrees with $\gamma_t$ to the left of $k$. 
+By uniqueness we may extend $\gamma_t$ using $\alpha$ to $U_t \cup V$. 
+This contradicts maximality of $U_t$. 
+Hence the supremum of $U_t$ does not belong to $U$. 
+A similar argument can be made regarding the infimum of $U_t$ to show it does not belong to U. 
+Hence, since both $U_t$ and $U$ are intervals, we must have $U_t = U$.
+Again, this is provided we can show $D_2F(k,\gamma_s(k)) : H^t(X) \to H^{t-2}(X)$ is an isomorphism.
+We do this now. 
+
+Since $k \in U$ we know $D_2F(k,\gamma_s(k))$ is an elliptic operator. 
+Hence it is a Fredholm operator from $H^t(X) \to H^{t-2}(X)$. 
+If a Fredholm operator has trivial kernel and index 0, then it is an isomorphism. 
+Note that the index of a family of Fredholm operators is constant on connected components of the domain of the parameter of the family \cite{lawson-michelsohn1989}. 
+Since $U$ is connected, the index of $D_2F(k,\gamma_s(k))$ is the same as the index of $D_2F(0,h)$. 
+The latter is an isomorphism and so has index 0. 
+Thus $D_2F(k,\gamma_s(k))$ has index zero. 
+To show it has trivial kernel, suppose there exists a function $f \in H^t(X)$ such that $D_2F(k,\gamma_s(X))f = 0$. 
+Then since $f \in H^s(X)$ we also have $f$ is in the kernel of the map $D_2F(k,\gamma_s(k)): H^s(X) \to H^{s-2}(X)$. 
+But $k$ is in $U$ so $D_2F(k,\gamma_s(k))$ is an isomorphism from $H^s(X) \to H^{s-2}(X)$. 
+Thus, we get $D_2F(k,\gamma_s(k))$ has trivial kernel and index 0 as a map $H^t(X) \to H^{t-2}(X)$ and therefore it is an isomorphism. 
+
+\end{proof}
+
+
+\begin{cor}
+\label{k-surfaces-parallel}
+The family of $k$-surfaces forms an asymptotically Poincar\'e family of surfaces. 
+\label{k-surfaces-cor}
+\end{cor}
+
+\begin{proof}
+We show that $\tilde{\sigma}(\epsilon) = \sigma_{-\epsilon}$ satisfies the hypotheses of Proposition \ref{asym-family-prop}. 
+Since $\mathrm{Conf}^\infty(X) = \cap \mathrm{Conf}^s(X)$ and since $\gamma$ is smooth on $(-\delta,\delta)$ into $\mathrm{Conf}^s(X)$ for all $s > 3$, we have the $\gamma$ is smooth into $\mathrm{Conf}^\infty(X)$.
+Now, define $\tilde{f}(\epsilon) = f(- \epsilon)$ and $\tilde{\gamma}(\epsilon) = \gamma(-\epsilon)$ for $\epsilon \in (0,\delta)$. 
+Then the Corollary follows from Proposition \ref{asym-family-prop} since $\tilde{f}$ is smooth on $[0,\delta)$ with derivative $\tilde{f}'(0) = 1/4$, since $\tilde{\gamma}$ is differentiable, and since $\tilde{f}(\epsilon) \tilde{\sigma}(\epsilon) = \tilde{\gamma}(\epsilon) = \gamma(k) \to h$ as $\epsilon \to 0$.
+\end{proof}
+
+
+Our Theorem \ref{k-surfaces-existence} is another proof of the existence of these $k$-surfaces, at least for $k$ close to zero. 
+By the uniqueness result of Theorem 1.10 in \cite{labourie1992}, given an end of $M$ and $k \in (-1,0)$, there exists a unique immersed incompressible $k$-surface. 
+Since Epstein surfaces are incompressible, the $k$-surfaces produced by our Theorem \ref{k-surfaces-existence} are the $k$-surfaces Labourie obtains. 
+Our approach here is more concrete than the methods used by Labourie. 
+In return for sacrificing the generality of Labourie's pseudoholomorphic methods, a proof of Labourie's conjecture follows easily. 
+Corollary \ref{k-surfaces-parallel} gives that, for $k$ near zero, these $k$-surfaces form an asymptotically Poincar\'e family, and so by Theorem \ref{main-result} we know how the tangent vectors to the families relate to the holomorphic quadratic differential at infinity. 
+
+\begin{thm} \label{labourie-conjecture-proof}
+Let $I_k$ and $\two_k$ be the first and second fundamental forms of the $k$-surface. 
+Let $\phi$ be the holomorphic quadratic differential at infinity of $M$. 
+Then, as $k \to 0$, Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"uller space are given by 
+\[
+\dot{[I_k]} = - \mathrm{Re}(\phi) \quad \text{and } \quad   \dot{[\two_k]} = 0.
+\]
+\end{thm}
+
+\begin{proof}
+We take $\epsilon = -k$. 
+The derivative $f'(0) = -1/4$ can be computed directly. 
+Theorem \ref{main-result} now gives the theorem.
+\end{proof}
+
+
+
+%%%%%%%%%%%
+\subsection{Constant Mean Curvature Surfaces}
+%%%%%%%%%%%
+
+
+
+As another application of our asymptotically Poincar\'e families, we obtain results regarding the asymptotic behavior of the constant mean curvature family constructed by Mazzeo and Pacard in \cite{mazzeo-pacard2011}. 
+More specifically, we prove that there exists an asymptotically Poincar\'e family of surfaces $S_k$ for $k$ near zero, such that the mean curvature of the surface $S_k$ is $-\sqrt{1+k}$. 
+This is done similarly to the previous section: we derive an equation for a conformal metric that implies its Epstein surface has mean curvature $-\sqrt{1+k}$ and we show this equation has a unique smooth solution for each $k$ near zero. 
+The proof of existence of solutions will show that these conformal metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}.
+
+
+Recall from Lemma \ref{curvature-epstein} that the mean curvature of $\mathrm{Ep}_\sigma: X \to M$ is given by 
+\[
+H(\mathrm{Ep}_\sigma)
+= \frac{K(\sigma)^2 - 1 - 16 \frac{|B(\sigma)|^2}{\sigma^2}}{(1-K(\sigma))^2 - 16 \frac{|B(\sigma)|^2}{\sigma^2}},
+\]
+which, again, is an equation on the compact Riemann surface $X$.
+To find a metric whose Epstein surface has constant mean curvature $-\sqrt{1+k}$ we must solve the equation $H(\mathrm{Ep}_\sigma) = -\sqrt{1+k}$, which simplifies to
+\begin{equation}
+\label{mean-curvature-equation}
+1-K(\sigma)^2 - \sqrt{1+k}(1-K(\sigma))^2 + (1 + \sqrt{1+k})\frac{16}{\sigma^2}|B(\sigma)|^2 = 0.
+\end{equation}
+As in the $k$-surfaces case it suffices to solve (\ref{mean-curvature-equation}) since $(K(\sigma) - 1)^2 - \frac{16}{\sigma^2}|B(\sigma)|^2$ will eventually be nonzero.
+Furthermore, we scale the equation by assuming $\sigma_k$ solves (\ref{mean-curvature-equation}) and defining $\tau_k = f(k) \sigma_k$ for $f(k) = \frac{1-\sqrt{1+k}}{1+\sqrt{1+k}}$ the function defined above. 
+If $\sigma_k$ solves (\ref{mean-curvature-equation}) then $\tau = \tau_k$ solves $G(k,\tau) = 0$ for $G: U \times \mathrm{Conf}^\infty(X) \to C^\infty(X)$ defined by 
+\[
+G(k,\tau) = 1+\sqrt{1+k} + 2\sqrt{1+k}K(\tau) + (-1 + \sqrt{1+k})(K(\tau)^2 - \frac{16}{\tau^2}|B(\tau)|^2).
+\]
+Here $U$ is a small enough open set around zero not containing $-1$ so that $G$ is smooth on its domain.
+To find solutions to (\ref{mean-curvature-equation}) we find solutions to $G(k,\tau) = 0$ and then scale them by $f(k)^{-1}$. 
+Notice that $G(0,h) = 0$ is a solution. 
+
+\begin{thm}
+There exists a neighborhood $W$ of 0 so that for each $k \in W$, there exists a unique $\tau \in \mathrm{Conf}^\infty(X)$ so that $G(k,\tau) = 0$.
+\end{thm}
+
+\begin{proof}
+Extend $G$ to a map $U \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ for $s > 3$. 
+When $k = 0$ we have the hyperbolic metric $h$ as solution $G(0,h) = 0$. 
+The map $G$ is smooth. 
+The derivative of $G$ at $(0,h)$ is given by 
+\[
+dG_{(0,h))}(\dot{k},\dot{\tau}) = -4 \frac{|\phi|^2}{h^2} \dot{k} + 2 D K_h(\dot{\tau}).
+\]
+Notice that $D_2 G_{(0,h)} = D K_h$, which---as in the proof of Theorem \ref{weak-solutions}---is an isomorphism $H^s(X) \to H^{s-2}(X)$.
+Hence, by the Banach Implicit Function Theorem there exists an open set $W$ and a smooth curve $\gamma: W \to \mathrm{Conf}^{s}(X)$ such that $G(k,\gamma(k)) = k$. 
+Moreover, these are the only solutions to $G(k,\tau) = 0$ in $W$.
+
+The same regularity arguments apply here as in the $k$-surface case and imply the existence of an $\delta > 0$ so that when $k \in (-\delta,\delta)$, each metric $\gamma(k)$ is smooth and the family $\gamma$ varies smoothly in $k$ in the $C^\infty$ topology. 
+\end{proof}
+
+
+This implies that the mean curvature surfaces form an asymptotically Poincar\'e family of surfaces. 
+
+\begin{cor}
+There exists an $\delta > 0$ so that for $k \in (-\delta, 0)$ the family of surfaces $S_k$ where $S_k$ has constant mean curvature $-\sqrt{1+k}$ forms an asymptotically Poincar\'e family of surfaces. 
+\end{cor}
+
+\begin{proof}
+Since $\gamma(k)$ solves $G(k,\gamma(k)) = 0$ for $k \in (-\delta,\delta)$, the metric $\gamma(k)$ solves the scaled mean curvature equation. 
+So, defining $\sigma_k = \frac{1 + \sqrt{1+k}}{1 - \sqrt{1+k}} \ \gamma(k)$ for $k \in (-\delta,0)$, we see that $\sigma_k$ solves the mean curvature equation (\ref{mean-curvature-equation}), which implies that $\mathrm{Ep}_{\sigma_k}$ has constant mean curvature $-\sqrt{1+k}$.
+
+The same arguments as in Corollary \ref{k-surfaces-cor} show that these metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}.
+So, the surfaces $S_k = \mathrm{Ep}_{\sigma_{k}}(X)$ form an asymptotically Poincar\'e family of surfaces. 
+\end{proof}
+
+Consequently, we obtain Theorem \ref{cmc-intro}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Directions}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
