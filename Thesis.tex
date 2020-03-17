@@ -51,7 +51,7 @@
 
 \usepackage{fancyhdr}
  \pagestyle{fancy}
- \chead{\sf DRAFT VERSION 3 --- {\today}}
+ \chead{\sf DRAFT VERSION 4 --- {\today}}
  \setlength{\headheight}{14pt}
  \setlength{\footskip}{0.5in}
  \lhead{} \rhead{} \lfoot{} \cfoot{\thepage} \rfoot{}
@@ -80,19 +80,43 @@ citecolor=verydarkblue,urlcolor=verydarkblue
 
 \maketitle
 
-\begin{center} {\sf DRAFT VERSION 3 --- {\today} } \end{center}
+\begin{center} {\sf DRAFT VERSION 4 --- {\today} } \end{center}
 
 \begin{abstract}
-In this work we study the asymptotic behavior of certain foliations of ends of quasi-Fuchsian manifolds. 
-These foliations we call asymptotically Poincar\'e familes as they are asymptotic to the Poincar\'e family as the surfaces leave the end of the manifold.
-We prove the limiting behavior of an asymptotically Poincar\'e family ties together the geometry of the quasi-Fuchsian manifold $M$ with the conformal structure on the ideal boundary of (the end of ) $M$. 
+We study the asymptotic behavior of certain foliations of ends of quasi-Fuchsian manifolds. 
+We introduce a class of such foliations, which we call asymptotically Poincar\'e familes as they are asymptotic to a family of surfaces determined naturally by the Poincar\'e metric on the Riemann surface at infinity.
+We prove the limiting behavior of any asymptotically Poincar\'e family is completely determined by the geometry of the quasi-Fuchsian manifold $M$ and the conformal structure on the ideal boundary of $M$. 
 Specifically, the conformal classes of the first and second fundamental forms $[I_\epsilon]$ and $[\two_\epsilon]$ of the surfaces in an asymptotically Poincar\'e family converge in Teichm\"uller space as $\epsilon \to 0$ to the conformal structure of the surface at infinity of the end of $M$.
-At $\epsilon  = 0$, the tangent vectors $\dot{[I_\epsilon]} = c \mathrm{Re}(\phi)$ and $\dot{[\two_\epsilon]} = 0$ where $\phi$ is the holomorphic quadratic differential that parametrizes the complex projective structure on the conformal boundary and $c$ a positive constant. 
+At $\epsilon  = 0$, the tangent vectors satisfy $\dot{[I_\epsilon]} = c \mathrm{Re}(\phi)$ and $\dot{[\two_\epsilon]} = 0$ where $\phi$ is the holomorphic quadratic differential of the complex projective structure at infinity and $c$ a constant that depends on the foliation. 
 
 As an application of these results we establish a conjecture of Labourie regarding the asymptotic behavior of the $k$-surface foliation he constructs in \cite{labourie1992}.
-We show the constant mean curvature foliation of Mazzeo and Pacard \cite{mazzeo-pacard2011} forms an asymptotically Poincar\'e family and so we can describe their asymptotics as well. 
+We also show that the constant mean curvature foliation of Mazzeo and Pacard \cite{mazzeo-pacard2011} forms an asymptotically Poincar\'e family and so we can describe its asymptotics as well. 
 \end{abstract}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgments}
+
+
+I would like to start by thanking my advisor David Dumas.
+I thank him for suggesting this project, for indulging my preferred mathematical viewpoints, for his many comments and suggestions on drafts of my mathematical papers, and for his guidance.
+
+I gratefully acknowledge the support of the National Science Foundation. Specifically, my research was partially funded by DMS-1246844, RTG: Algebraic and Arithmetic Geometry, at the University of Illinois at Chicago and DMS-1709877, Character Varieties and Locally Homogeneous Geometric Structures. 
+I also acknowledge support from U.S. National Science Foundation grants DMS 1107452, 1107263, 1107367 "RNMS: Geometric Structures and Representation Varieties" (the GEAR Network).
+The GEAR network funded my trip to the University of Luxembourg where I met with Jean-Marc Schlenker. 
+I thank him for helpful conversations and research suggestions.
+I also thank his graduate students, including Filippo Mazzoli, for their hospitality.  
+
+I would also like to thank the mathematics graduate students for making the University of Illinois at Chicago an enjoyable place to learn. 
+I am grateful for GGTDS, grateful to Sam Dodds for our many rambling mathematical musings, and thankful to Hunter Chase for commiserating with me. 
+Special thanks go to Charles Alley, J\=anis Lazovskis, and Nathan Lopez for their friendship and support, for our weekly research seminar, and for their inspiration.
+In particular, I thank Charles for keeping me grounded in reality, I thank Nathan for his companionship, and I thank J\=anis for putting up with me as a roommate for five years. 
+Thanks also go to the administrative staff of the Department of Mathematics, Statistics, and Computer Science for keeping everything running. This includes but is not limited to Maureen Madden, Lisa Jones, and Eloy Reyes.
+
+I thank Hanni Nichols for inspiring me to pursue mathematics, for prodding me towards graduate school, for reassuring me, for believing in me, and for her friendship.
+I also thank my family, Keith Quinn, Sandra Quinn, Taylor Quinn and Rom\'an Rampinini, who have been nothing but supportive. 
+And finally, thank you to Irving Daniel Sandoval Gonzalez, who has been so inspiring, motivating, supportive, and understanding, and who helped me make it to the end.
 
 
 
@@ -101,49 +125,48 @@ We show the constant mean curvature foliation of Mazzeo and Pacard \cite{mazzeo-
 
 
 In \cite{epstein1984} Epstein describes a way of taking geometric data on the ideal boundary of hyperbolic space and obtaining a strictly convex surface in hyperbolic space. 
-These geometric data take the form of conformal metrics on $\partial^\infty \H^3 = \CP^1$, and given such a metric $\sigma$ on a domain $\Omega \subset \CP^1$ he constructs a map $\mathrm{Ep}_\sigma: \Omega \to \H^3$ whose image is called an Epstein surface.
-This Epstein map enjoys an equivariance property with respect to the action of $\mathrm{PSL}_2\C$ which allows one to define Epstein surfaces on certain quotients by subgroups $\Gamma < \mathrm{PSL}_2\C$.
-We are concerned with Epstein surfaces in quasi-Fuchsian manifolds: 3-manifolds that for now we think of as quotients $\H^3/\Gamma$ of hyperbolic space by quasi-Fuchsian groups. 
+In the case of dimension 3, these geometric data take the form of conformal metrics on $\partial^\infty \H^3 = \CP^1$, and given such a metric $\sigma$ on a domain $\Omega \subset \CP^1$ he constructs a map $\mathrm{Ep}_\sigma: \Omega \to \H^3$ whose image is called an Epstein surface.
+This Epstein map enjoys an equivariance property with respect to the action of $\mathrm{PSL}_2\C$ which allows one to define Epstein surfaces on quotients by subgroups $\Gamma < \mathrm{PSL}_2\C$.
+We are concerned with Epstein surfaces in quasi-Fuchsian manifolds, which are certain hyperbolic structures on $S \times (0,1)$ for $S$ an oriented closed surface of genus at least 2. 
 
-A quasi-Fuchsian manifold has two ends, each diffeomorphic to $S \times [0,1)$ for $S$ a closed surface of genus at least 2.
-Each end is compactified by a copy of $S$, which is called the surface at infinity (for the end), and this copy inherits a complex projective structure $Z$ and hence a conformal structure $X$. 
-The Epstein construction takes a conformal metric $\sigma$ on $X$ and returns a surface in the quasi-Fuchsian manifold.
-When $h$ is the unique hyperbolic metric on $X$, the corresponding Epstein surface we called the Poincar\'e surface of $X$. 
+Each end of a quasi-Fuchsian manifold is compactified by a copy of $S$, which is called the surface at infinity (for the end), and each such surface at infinity inherits a complex projective structure $Z$ and hence a conformal structure $X$. 
+Applying the Epstein construction in this setting, we obtain a map that takes a conformal metric $\sigma$ on $X$ and returns a surface in the quasi-Fuchsian manifold.
+When $h$ is the unique hyperbolic metric on $X$, the corresponding Epstein surface we call the Poincar\'e surface of $X$. 
 The Epstein surface for the multiple $\rho_t = e^{2t}h$ may be obtained by parallel flowing the Poincar\'e surface in the normal direction a distance $t$. 
-The Poincar\'e surface with its parallel copies form a family we call the Poincar\'e family and this collection of surfaces forms a foliation of the end of the quasi-Fuchsian manifold. 
+The Poincar\'e surface with its parallel copies form a family we call the Poincar\'e family and, after restricting to sufficiently large $t$, we obtain a foliation of the end of the quasi-Fuchsian manifold. 
 
-The Poincar\'e family has been used by many to study the geometry of projective surfaces and hyperbolic 3-manifolds. 
+The Poincar\'e family has been used by several other others to study the geometry of projective structures and hyperbolic 3-manifolds. 
 For example, in \cite{anderson1998} Anderson used them when developing a bound on Thurson's projective metric in terms of the Kobayashi metic. 
 Bromberg used this family in \cite{bromberg2004} when studying hyperbolic cone manifolds. 
 And Krasnov and Schlenker gave an alternative definition of the renormalized volume using the Poincar\'e family in \cite{krasnov-schlenker2008} for the case of convex co-compact hyperbolic 3-manifolds. 
 
 After re-parametrizing by $\epsilon = e^{-2t}$, the conformal metrics $\rho_\epsilon$ inducing the Poincar\'e family have the property that $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$. 
-We study in this thesis families of Epstein surfaces for conformal metrics $\sigma(\epsilon)$ such that there is a scaling function $f$ which satisfies $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ (see Definition \ref{asym-def} in Section \ref{asym-def-section} for the precise conditions). 
-These families are, in a sense, $C^\infty$-asymptotic to the Poincar\'e family and so we name the \emph{Asymptotically Poincar\'e Families}. 
+Analogously, in this thesis we study families of Epstein surfaces for conformal metrics $\sigma(\epsilon)$ such that there is a scaling function $f$ which satisfies $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ (see Definition \ref{asym-def} in Section \ref{asym-def-section} for the precise conditions). 
+These families are, in a sense, $C^\infty$-asymptotic to the Poincar\'e family and so we name them \emph{Asymptotically Poincar\'e Families}. 
 These families also form foliations of the end of the quasi-Fuchsian manifold  (Corollary \ref{foliation}) and the goal of this thesis is to study the behavior of these foliations as $ \epsilon \to 0$, which corresponds to the surfaces leaving the end of the manifold. 
 
 The first fundamental form (i.e., the induced metric) $I_\epsilon$ of the Epstein surface for $\sigma(\epsilon)$ is a Riemannian metric on $X \cong S$ and so its conformal class $[I_\epsilon]$ may be considered as a point in $\mathcal{T}(S)$, the Teichm\"uller space of $S$. 
-Since Epstein surfaces are strictly convex, the second fundamental form $\two_\epsilon$ is positive definite and so a Riemannian metric, giving another point $[\two_\epsilon]$ in $\mathcal{T}(S)$.
+Since Epstein surfaces are strictly convex, the second fundamental form $\two_\epsilon$ is negative definite (negative due to our choice of normal vector field), and so $-\two_\epsilon$ is a Riemannian metric, giving another point $[\two_\epsilon]$ in $\mathcal{T}(S)$.
 Our main theorem relates the infinitesimal behavior of $[I_\epsilon]$ and $[\two_\epsilon]$ to the projective structure on the surface at infinity.
 Indeed, let $\phi$ be the holomorphic quadratic differential on $X$ that parametrizes the induced complex projective structure $Z$.
 Then we have the following result. 
 
 \begin{bigthm}
 \label{main-thm-intro}
-In a quasi-Fuchsian manifold, let $S_\epsilon$, for $\epsilon \in (0,1)$, be an asymptotically Poincar\'e family of surfaces with surface at infinity $X$.
+In a quasi-Fuchsian manifold, let $S_\epsilon$, for $\epsilon \in (0,1)$, be an asymptotically Poincar\'e family in an end with Riemann surface at infinity $X$.
 If $I_\epsilon$ and $\two_\epsilon$ are the corresponding first and second fundamental forms then 
 \[
 [I_\epsilon] \to [h] 
 \quad \text{ and } \quad 
 [\two_\epsilon] \to [h]
-\quad \text{ as } \epsilon \to 0
+\quad \text{ as } \quad \epsilon \to 0
 \] 
 and the tangent vector to $[\two_\epsilon]$ at $[h]$ vanishes while the tangent vector to $[I_\epsilon]$ is determined by the holomorphic quadratic differential $\phi$ that measures the difference between the induced projective structure and the Fuchsian projective structure on $X$.
 That is,
 \[
 \dot{[I_\epsilon]} = c \, \mathrm{Re}(\phi) \quad \text{and } \quad \dot{[\two_\epsilon]} = 0
 \]
-for a positive constant $c$.
+for a constant $c$ depending on the family.
 \end{bigthm} 
 We apply Theorem \ref{main-thm-intro} to foliations by constant curvature surfaces to characterize their behavior. 
 Indeed, in the case of constant Gaussian curvature, Theorem \ref{main-thm-intro} answers a conjecture of Labourie. 
@@ -165,7 +188,7 @@ Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"ull
 \end{bigthm}
 
 Our Theorem \ref{main-thm-intro} applies to the work of Mazzeo and Pacard in the setting of constant mean curvature surfaces.
-In \cite{mazzeo-pacard2011} they show that the ends of a quasi-Fuchsian manifold admits a unique foliation by surfaces of constant mean curvature. 
+In \cite{mazzeo-pacard2011} they show that an end of a quasi-Fuchsian manifold admits a unique foliation by surfaces of constant mean curvature. 
 We prove that this family of surfaces forms an asymptotically Poincar\'e family of surfaces by constructing, for each negative $k$ near zero, an Epstein surface whose mean curvature is identically $-\sqrt{1+k}$.
 Since asymptotically Poincar\'e surfaces foliate an end of $M$, by the uniqueness result of \cite{mazzeo-pacard2011} these surfaces are those shown to exist by Mazzeo and Pacard.
 Therefore, Theorem \ref{main-thm-intro} describes the behavior of this family in Teichm\"uller space.  
@@ -179,7 +202,7 @@ Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"ull
 \]
 \end{bigthm}
 
-The rest of this thesis is outlined as follows. 
+The rest of this thesis is organized as follows. 
 Chapter \ref{preliminaries} consists of the relevant preliminary material needed for these results. 
 It constitutes a reminder on the Riemannian, complex, and complex projective geometry of surfaces and their relationship with quasi-Fuchsian manifolds, as well as sets the choice of definitions we will be using for these objects. 
 Chapter \ref{epstein-surfaces} develops the theory of Epstein surfaces.
@@ -210,8 +233,8 @@ Let $g$ be a Riemannian metric on $S$.
 The non-degeneracy of $g$ at each point allows us to identity $TS$ with $T^*S$ via the map that sends $v \in T_pS$ to $g_p(\cdot  , v) \in T_p^*S$ and this extends to an identification of vector fields and 1-forms. 
 We will abuse notation and write $g: TS \to T^*S$ for this map and $g^{-1}: T^*S \to TS$ for its inverse. 
 The Riemannian metric $g$ induces a (pointwise) norm on vector fields in the familiar way: $|X| = g(X,X)^{1/2}$. 
-It induces metrics and norms on all tensor products of $TS$ and $T^*S$. It also distinguishes a volume form $dVol(g)$ on $S$ that evaluates to $+1$ on all oriented orthonormal frames. 
-Therefore the integral of a smooth function $f$ is well defined by $\int_S f \ dVol(g)$.
+It induces metrics and norms on all tensor products of $TS$ and $T^*S$. It also distinguishes a volume form $d\mathrm{Vol}(g)$ on $S$ that evaluates to $+1$ on all oriented orthonormal frames. 
+The integral of a smooth function $f$ is defined by $\int_S f \ d\mathrm{Vol}(g)$.
 
 
 The Levi-Civita connection $\nabla$ of $g$ is the unique torsion-free, metric connection on $TS$. 
@@ -233,7 +256,7 @@ Rm(X,Y,Z,W) = g(R(X,Y)Z,W).
 \]
 and the Gaussian curvature of $S$ at a point $p$ is the function $K(g)$ defined by 
 \[
-K(g)(p) = \frac{Rm(v,w,w,v)}{\|v\|^2\|w\|^2 - g(v,w)}
+K(g)(p) = \frac{Rm(v,w,w,v)}{|v|^2|w|^2 - g(v,w)}
 \]
 where $v,w$ is any basis for $T_pS$.
 Suppose $(M,\tilde{g})$ is a 3-dimensional Riemannian manifold. 
@@ -245,7 +268,7 @@ When $f: S \to M$ is an immersion, the pullback tensor $I = f^*\tilde{g}$ is a R
 Moreover, since $f$ is an immersion we have an embedding of $TS$ in the pullback bundle $f^*TM$ on $S$.
 Using the metric $\tilde{g}$, the normal bundle $NS$ of $S$ may be defined as the orthogonal complement of $TS$ in $f^*TM$, and this induces a splitting $f^*TM \cong TS \oplus NS$. 
 In our setting the normal bundle is a line bundle and a section is called a normal vector field on $S$. 
-For the rest of this section we assume there is a unit normal vector field $n$ on $S$. 
+For the rest of this section we assume there is a smooth unit normal vector field $n$ on $S$. 
 
 
 
@@ -276,13 +299,13 @@ d^\nabla (I^{-1}\two) &= 0.
 Then there is an isometric immersion $S \to \mathbb{M}_\kappa^3$ into the simply connected 3-manifold $\mathbb{M}^3_{\kappa}$ of constant sectional curvature $\kappa$, such that the second fundamental form of the immersion is $\two$. And this immersion is unique up to composition with an isometry of $\mathbb{M}_\kappa^3$.
 \end{thm}
 
-Since our main interest is the hyperbolic setting $\mathbb{M}_\kappa^3 = \H^3$, we note that the Gauss Equation reads
+Since our main interest is the hyperbolic setting $\mathbb{M}_\kappa^3 = \H^3$, we note that the Gauss Equation in this case reads
 \[
 K(I) = -1 + \det(I^{-1}\two).
 \]
 The Gauss-Bonnet Theorem implies that if $S$ has genus at least 2 (so that $\chi(S) < 0$), then there is no metric with curvature identically 0 or $+1$ on $S$.
 We also record here the definition of mean curvature. 
-As opposed to the Gaussian curvature, this depends on the immersion $f: S \to M$ and is defined by 
+As opposed to the Gaussian curvature, this depends on the immersion $f: S \to M$ and cannot be defined entirely in terms of $I$; it is given by 
 \[
 H(f) = \frac{1}{2} \mathrm{tr}(I^{-1}\two).
 \]
@@ -321,14 +344,14 @@ As a set, the quotient space is another model of Teichm\"uller space
 \mathrm{Met}(S)/(\mathrm{Diff}_0(S) \ltimes P(S)) = \mathcal{T}(S).
 \]
 
-This set-theoretic model can be improved to a model of Teichm\"uller space as a quotient manifold. To do so it is necessary to impose add some regularity hypothesis on the space of symmetric 2-tensors that makes them into a Hilbert space. While this is done in Section \ref{sobolev} (following \cite{tromba1992}) here we will simply assume this regularity has been imposed.  
+This set-theoretic model can be improved to a model of Teichm\"uller space as a quotient manifold. To do so it is necessary to impose some regularity hypothesis on the space of symmetric 2-tensors that makes them into a Hilbert space. While this is done in Section \ref{sobolev} (following \cite{tromba1992}) here we will simply assume this regularity has been imposed.  
 
 The set $\mathrm{Met}(S)$ is an open cone in the vector space of symmetric 2-tensors on $S$ and hence is a manifold (of infinite dimension). 
 The tangent space to $\mathrm{Met}(S)$ at a metric $g$ is then naturally identified with this vector space. 
 Given two tensors $\sigma_1$ and $\sigma_2$ in $T_g \mathrm{Met}(S)$, we may turn them into endomorphisms $g^{-1}\sigma_1$ and $g^{-1}\sigma_2$ and take their Frobenius inner product $\mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2)$, which is a function on $S$. 
 Using integration we can define a Riemannian metric on $\mathrm{Met}(S)$ by 
 \[
-\left< \sigma_1, \sigma_2 \right>_g = \int_S \mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2) \ dVol(g)
+\left< \sigma_1, \sigma_2 \right>_g = \int_S \mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2) \ d\mathrm{Vol}(g)
 \]
 (this metric is related to the Weil-Petersson metric on the quotient, but we will not use this, see \cite{tromba1992}). By our regularity assumptions, for each $g$ the inner product $\left< \cdot, \cdot \right>_g$ turns $T_g\mathrm{Met}(S)$ into a Hilbert space. 
 
@@ -338,7 +361,7 @@ We have
 T_g \mathrm{Met}(S) = \{ \dot{g} \ | \ \mathrm{tr}_g(\dot{g}) = 0 = \mathrm{div}_g(\dot{g})\} \oplus \{ \mathcal{L}_X g + fg \ | \ f \in C^\infty(S) \text{ and } X \in \Gamma(TS) \}.
 \]
 Here $\mathrm{div}_g(\dot{g})$ is the divergence of $\dot{g}$ given by $\mathrm{tr}_g(\nabla \dot{g})$. 
-The right summand is tangent to the group orbit at $g$. 
+The right summand is tangent to the group orbit of $g$. 
 The left summand is its orthogonal complement and consists of trace-free and divergence-free symmetric 2-tensors, which are referred to as transverse-traceless tensors. 
 Since they are orthogonal to the group orbit, they may be identified with the tangent space to the quotient
 \[
@@ -348,7 +371,7 @@ and the derivative of the projection $\pi: \mathrm{Met}(S) \to \mathcal{T}(S)$ a
 
 There is a more useful description of transverse-traceless tensors than their definition. 
 It turns out (see \cite{tromba1992}), the trace-free condition implies that they are the real part of quadratic differentials and the divergence-free condition says the quadratic differential is holomorphic (with respect to the complex structure for which $g$ is conformal). 
-We have 
+We have an isomorphism described by the following lemma.
 
 \begin{lem}[\cite{tromba1992}] \label{tangent-teich}
 Let $X$ the a Riemann surface and $g$ a conformal metric on $X$. 
@@ -420,7 +443,7 @@ For a map $f: Z \to W$ from one projective surface to another, we may define its
 
 So, the Schwarzian derivative of a map between projective surfaces is a holomorphic quadratic differential that we think of as measuring how far the map is from being a projective transformation between the surfaces. 
 If we restrict ourselves to projective structures $Z$ and $W$ with the same underlying complex structure $X$, we can consider the identity map $Id: Z \to W$ and take its Schwarzian as a measure of how compatible the two atlases are. 
-Following \cite{dumas2009}, we define the difference of the two projective structures as this measure of compatability
+The the difference of the two projective structures is defined as this measure of compatability
 \[
 Z - W := S(Id).
 \]
@@ -491,7 +514,7 @@ That is, $\phi$ is induced by the Schwarzian derivative of the Poincar\'e metric
 
 
 
-A quasi-Fuchsian structure on $S \times (0,1)$ is a choice of complete hyperbolic metric $g$ such that there exists a non-empty, compact, geodesically convex subset. 
+A quasi-Fuchsian structure on $S \times (0,1)$ is a complete hyperbolic metric $g$ such that there exists a non-empty, compact, geodesically convex subset. 
 We will call $S \times (0,1)$ with a quasi-Fuchsian metric $g$ a quasi-Fuchsian manifold and say two quasi-Fuchsian manifolds $M = (S \times (0,1), g_1)$ and $N = (S \times (0,1), g_2)$ are equivalent if there exists an $f \in \mathrm{Diff}_0(S \times(0,1))$ that is an isometry $f: M \to N$.
 The space of equivalence classes of quasi-Fuchsian structures on $S \times (0,1)$ will be denoted by $\mathcal{QF}(S)$
 
@@ -615,7 +638,7 @@ Working in the ball model and taking $z$ both as a point in $\CP^1$ as well as a
 \[
 \mathrm{Ep}_\sigma(z) = \frac{|\overset{\circ}{\nabla}\rho(z)|^2 + e^{2\rho(z)} - 1}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} z + \frac{2}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} \overset{\circ}{\nabla}\rho(z),
 \]
-where $\overset{\circ}{\nabla}\rho$ is the sphereical gradient of $\rho$. 
+where $\overset{\circ}{\nabla}\rho$ is the spherical gradient of $\rho$. 
 This construction leads to the following theorem. 
 
 
@@ -631,7 +654,7 @@ Moreover, the image of a point $z$ depends only on the 1-jet of $\sigma$ at $z$.
 Epstein's original construction uses the ball model of hyperbolic space to define the Epstein map. 
 In \cite{dumas2017}, Dumas gives a model independent definition of the map using an $\text{SL}_2\C$-frame field. 
 It proceeds as follows. 
-Choose an affine chart $z$ on $\CP^1$ that distinguishes a point $0 \in \Omega$ and $\infty \notin \Omega$. 
+Choose an affine coordinate chart $z$ on $\CP^1$ that distinguishes a point $0 \in \Omega$ and $\infty \notin \Omega$. 
 Then, on the geodesic in $\H^3$ with ideal endpoints $0$ and $\infty$, there exists a unique point $p$ such that the visual metric from $p$ at $0$ is the Euclidean metric of this affine chart, $V_p(0) = |dz|^2$. 
 The Epstein map is an $\mathrm{SL}_2\C$-frame orbit of this point.     
 
@@ -738,16 +761,16 @@ I(\sigma) = 4|B(g_{\CP^1},\sigma)|^2\sigma^{-1} + \frac{1}{4}(1-K(\sigma))^2\sig
 The second fundamental form (relative to the normal lift $\widehat{\mathrm{Ep}}_\sigma$) is 
 \[
 \two(\sigma)
-= 4|B(g_{\CP^1},\sigma)|^2\sigma^{-1} - \frac{1}{4} (1 - K(\sigma)^2)\sigma - 2 K(\sigma) \text{Re}(B(g_{\CP^1},\sigma))
+= 4|B(g_{\CP^1},\sigma)|^2\sigma^{-1} - \frac{1}{4} (1 - K(\sigma)^2)\sigma - 2 K(\sigma) \text{Re}(B(g_{\CP^1},\sigma)).
 \]
-(see \cite[Eqns.~3.2-3.3]{dumas2017}).
+These formulas are derived in \cite[Eqns.~3.2-3.3]{dumas2017}.
 Here $K(\sigma)$ is the Gaussian curvature of $\sigma$ and $B(g_{\CP^1},\sigma)$ the Schwarzian derivative of $\sigma$ with respect to a M\"obius flat metric. 
 We note that when the Epstein surface is embedded, its second fundamental form is negative definite due to our convenient choice of normal vector field.
 Writing $\det(g)$ for the determinant of the matrix representation of $g$ relative to some local frame for the tangent bundle, the metrics on $\sigma$ and $I(\sigma)$ on $S$ have determinants related by
 \[
 \det(I(\sigma)) = \left( (1-K(\sigma))^2 - 16 |B(g_{\CP^1},\sigma)|^2\sigma^{-2} \right)^2 \det(\sigma).
 \]
-This equation is independent of the frame and has in intrinsic meaning, namely the ratio of the volume forms, which is given by taking square roots. 
+This equation is independent of the frame and has in intrinsic meaning, namely it describes the ratio of volume forms of these two metrics. 
 We can compute the Gaussian curvature by $K(I(\sigma)) = -1 + \det(I(\sigma)^{-1}\two(\sigma))$ and the mean curvature by $H(\mathrm{Ep}_\sigma) = \frac{1}{2}\mathrm{tr}(I(\sigma)^{-1}\two(\sigma))$. 
 We obtain
 \[
@@ -951,7 +974,7 @@ That is, the distance between the surface $S_\epsilon$ flowed for time $t$ and t
 
 \begin{proof}
 We work with the universal covers. 
-In general, a straight forward computation using the $\mathrm{SL}_2\C$-frame definition of the Epstein  map $\Omega \to \H^3$ gives the distance between the image of $z$ under the Epstein map for the metrics $\sigma = e^{2\eta}|dz|^2$ and $\tau =e^{2\lambda}|dz|^2$ as
+In general, a straightforward computation using the $\mathrm{SL}_2\C$-frame definition of the Epstein  map $\Omega \to \H^3$ gives the distance between the image of $z$ under the Epstein map for the metrics $\sigma = e^{2\eta}|dz|^2$ and $\tau =e^{2\lambda}|dz|^2$ as
 \begin{align*}
 d_{\H^3} \left( \mathrm{Ep}_{\sigma}(z), \mathrm{Ep}_{\tau}(z) \right)
 &= 2 \mathrm{arctanh} \left(\sqrt{ \frac{(e^\eta - e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}{(e^\eta + e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}} \right)
@@ -1068,7 +1091,7 @@ The covering is trivial.
 
 \begin{proof}
 Note that the cardinality of the fibers of $F: X \times [0,\delta] \to F(X \times [0,\delta])$ are constant since everything is connected. 
-Also note that $F( X \times (0,\delta]) \subset X \times (0,1)$ and $F: X \times \{0\} \to X \times \{0\}$ is the identity. In particular $F^{-1}(\{(w,0)\}) = \{(w,0)\}$. 
+Also note that $F( X \times (0,\delta]) \subset X \times (0,1)$ and $F: X \times \{0\} \to X \times \{0\}$ is the identity, implying $F^{-1}(\{(w,0)\}) = \{(w,0)\}$. 
 Hence, $F: X \times [0,\delta] \to F(X \times [0,\delta])$ is injective. 
 \end{proof}
 
@@ -1107,7 +1130,7 @@ That is, we use
 \]
 where $P^\infty(X)$ is the set of smooth positive functions on $X$ and $\mathrm{Diff}_0^\infty(X)$ is the group of smooth diffeomorphisms isotopic to the identity (see \cite{tromba1992} for details). 
 The smooth topology, however, is difficult to work with directly. 
-So, we work in the Sobolev setting tensors and functions.
+So, we work in the Sobolev setting for tensors and functions.
 
 
 
@@ -1318,12 +1341,12 @@ In the proof of existence of solutions we will see that these conformal metrics 
 
 Finding a metric $\sigma$ whose Epstein surface has constant Gaussian curvature $k$ is finding a metric $\sigma$ that solves $K(I(\sigma)) = k$, which from Lemma \ref{curvature-epstein} is solving
 \[
-\frac{4K(\sigma)}{(1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2} = k.
+\frac{4K(\sigma)}{(1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}} = k.
 \]
 For now we will focus on solving
 \begin{equation}
 \label{k-surface-equation}
-4K(\sigma) = k \left((1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2 \right),
+4K(\sigma) = k \left((1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2} \right),
 \end{equation}
 as we will see that for small enough $k$, $K(I(\sigma)) = k$.
 
@@ -1440,7 +1463,7 @@ This means that $\gamma(k)$ solves the scaled equation (\ref{scaled-equation}) a
 \]
 defined for $k \in (-\delta,0)$, solves the $k$-surface equation (\ref{k-surface-equation}). 
 
-Finally, we must show that $(1-K(\sigma))^2 - \frac{16}{\sigma^2} |B(\sigma)|^2$ in (\ref{k-surface-equation}) is everywhere nonzero so that (\ref{k-surface-equation}) is equivalent to the desired Guassian curvature condition.
+Finally, we must show that $(1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}$ in (\ref{k-surface-equation}) is everywhere nonzero so that (\ref{k-surface-equation}) is equivalent to the desired Guassian curvature condition.
 But this follows from Nehari's Theorem (see \cite[Theorem 1.3]{lehto-1987}, or the original paper \cite{nehari-1949}), which gives an a priori bound on $|B(h)|^2/h^2$ (recall $B(h)$ is the Schwarzian derivative of an injective holomorphic map), implying that $|B(\sigma_k)|^2/\sigma_k^2 \to 0$ as $k \to 0$. 
 Hence by shrinking $\delta$ if necessary to make $k$ small enough, this expression is nonzero and so we may rearrange $(\ref{k-surface-equation})$ to get that $\sigma_k$ produces a $k$-surface: $K(I(\sigma_k)) = k$.
 \end{proof}
@@ -1542,7 +1565,7 @@ The proof of existence of solutions will show that these conformal metrics satis
 Recall from Lemma \ref{curvature-epstein} that the mean curvature of $\mathrm{Ep}_\sigma: X \to M$ is given by 
 \[
 H(\mathrm{Ep}_\sigma)
-= \frac{K(\sigma)^2 - 1 - 16 \frac{|B(\sigma)|^2}{\sigma^2}}{(1-K(\sigma))^2 - 16 \frac{|B(\sigma)|^2}{\sigma^2}},
+= \frac{K(\sigma)^2 - 1 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}}{(K(\sigma) - 1)^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}},
 \]
 which, again, is an equation on the compact Riemann surface $X$.
 To find a metric whose Epstein surface has constant mean curvature $-\sqrt{1+k}$ we must solve the equation $H(\mathrm{Ep}_\sigma) = -\sqrt{1+k}$, which simplifies to
@@ -1550,7 +1573,7 @@ To find a metric whose Epstein surface has constant mean curvature $-\sqrt{1+k}$
 \label{mean-curvature-equation}
 1-K(\sigma)^2 - \sqrt{1+k}(1-K(\sigma))^2 + (1 + \sqrt{1+k})\frac{16}{\sigma^2}|B(\sigma)|^2 = 0.
 \end{equation}
-As in the $k$-surfaces case it suffices to solve (\ref{mean-curvature-equation}) since $(K(\sigma) - 1)^2 - \frac{16}{\sigma^2}|B(\sigma)|^2$ will eventually be nonzero.
+As in the $k$-surfaces case it suffices to solve (\ref{mean-curvature-equation}) since $(K(\sigma) - 1)^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}$ will eventually be nonzero.
 Furthermore, we scale the equation by assuming $\sigma_k$ solves (\ref{mean-curvature-equation}) and defining $\tau_k = f(k) \sigma_k$ for $f(k) = \frac{1-\sqrt{1+k}}{1+\sqrt{1+k}}$ the function defined above. 
 If $\sigma_k$ solves (\ref{mean-curvature-equation}) then $\tau = \tau_k$ solves $G(k,\tau) = 0$ for $G: U \times \mathrm{Conf}^\infty(X) \to C^\infty(X)$ defined by 
 \[
@@ -1620,8 +1643,8 @@ We may ask
 \item What are the tangent vectors at $\epsilon = 0$, and are they related to the Schwarzian derivative of $\sigma_0$? 
 \end{itemize}
 
-Preliminary calculations show that yes, $[I(\sigma(\epsilon))]$ and $[\two(\sigma(\epsilon))]$ converge to $[\sigma_0] = [h]$.
-Moreover, we should still have $\dot{[\two(\sigma(\epsilon))]} = 0$.
+Preliminary calculations suggest that yes, $[I(\sigma(\epsilon))]$ and $[\two(\sigma(\epsilon))]$ converge to $[\sigma_0] = [h]$.
+Moreover, we expect that it is still the case that $\dot{[\two(\sigma(\epsilon))]} = 0$.
 It also appears that $\dot{[I(\sigma(\epsilon))]}$ is indeed related to $\mathrm{Re}(B(\sigma_0))$. 
 However, $B(\sigma_0)$ need not be holomorphic, i.e., if $\sigma_0$ does not have constant curvature, so the tangent vector should be the real part of the holomorphic part of $B(\sigma_0)$. 
 It would be nice to find a more explicit description of the holomorphic part of a quadratic differential, and to make these computations precise.  
@@ -1706,7 +1729,7 @@ Id_{n-1} & 0 & 0 \\
 \end{align*}
 and the point $p = (0, \ldots, 0 , 3/4,5/4)^t$.
 
-We hope to use this description of the Epstein map to get closed formulas for the induced metric on the Epstein surface, perhaps in terms of the Schwarzian tensor of Osgood and Stowe \cite{osgood-stowe1992}.
+A natural next step would be to use this description of the Epstein map to get closed formulas for the induced metric on the Epstein surface and its curvature, perhaps in terms of the Schwarzian tensor of Osgood and Stowe \cite{osgood-stowe1992}, analogous to Equations 3.2 and 3.3 from \cite{dumas2017} and the curvature equations given above in Section \ref{epstein-geometry} .
 We also hope to investigate constant curvature hypersurfaces similarly to our work done in the previous sections using these explicit formulas. 
 
 
