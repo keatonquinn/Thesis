@@ -1,0 +1,69 @@
+\section{Complex projective structures}
+
+
+A complex projective structure on a surface $S$ is a geometric structure with group $\mathrm{PSL}_2 \C$ and topological space $\CP^1$.
+That is, it is a maximal atlas of charts to $\CP^1$ whose transition functions are the restrictions of M\"obius transformations.
+The surface $S$ together with a complex projective structure we will call a complex projective surface, or just a projective surface for short. 
+In particular, a projective surface does not refer to a submanifold of $\CP^n$.
+Since M\"obius transformations are holomorphic, a projective structure also induces a complex structure on the surface $S$.
+We now describe a parametrization of the set of all projective structures with the same underlying complex structure using the space of quadratic differentials on $S$ that are holomorphic with respect to the fixed underlying complex structure. 
+See \cite{thurston1986} and \cite{dumas2009} for more details.
+
+
+Suppose $U$ is an open subset of the complex plane $\C$ and suppose $f: U \to \C$ is a locally injective holomorphic function.
+For each $z \in U$, there is a unique M\"obius transformation $M_f(z) \in \mathrm{PSL}_2\C$ that agrees with $f$ at $z$ to second order:
+\[
+f(w) = M_f(z) \cdot w + o( (w-z)^2).
+\]
+This defines a map $M_f: U \to \mathrm{PSL}_2\C$ called the osculating M\"obius transformation of $f$.
+Intuitively, the derivative of $M_f$ is a measure of how far $f$ is from being M\"obius.
+
+More precisely, the differential $d M_f: TU \to T \mathrm{PSL}_2\C$ takes values in the tangent bundle of $\mathrm{PSL}_2\C$, which is trivialized by left multiplication. 
+By composing with left multiplication we can consider the Darboux derivative of $M_f$, a 1-form on $U$ with values in $\mathrm{Lie}(\mathrm{PSL}_2\C) = \mathfrak{sl}_2 \C$. See \cite{sharpe1997} for details.
+An explicit computation gives
+\[
+M_f(z)^{-1} d(M_f)_z = \frac{1}{2} \left( \left( \frac{f''(z)}{f'(z)} \right)' - \frac{1}{2} \left( \frac{f''(z)}{f'(z)} \right)^2 \right)
+\begin{pmatrix}
+-z & z^2 \\
+-1 & z 
+\end{pmatrix}
+dz.
+\]
+The coefficient of the matrix in the Darboux derivative transforms as a quadratic differential. 
+Hence, the Schwarzian Derivative of a locally injective holomorphic function is defined as 
+\[
+S(f)(z) = \left( \left( \frac{f''(z)}{f'(z)} \right)' - \frac{1}{2} \left( \frac{f''(z)}{f'(z)} \right)^2 \right) dz^2.
+\]
+We see from its appearance in the Darboux derivative that $f$ is locally a M\"obius transformation if and only if $S(f) = 0$.
+Furthermore, a computation shows the Schwarzian chain rule is given by
+\[
+S(f \circ g) = g^* S(f) + S(g).
+\]
+
+
+A complex projective structure on a surface allows us to extend the Schwarzian derivative to holomorphic functions defined on the surface.
+Indeed, suppose $z: U \to \C$ is a projective chart on $S$, we can define the Schwarzian of $f:S \to \C$ on $U$ by $z^*S(f \circ z^{-1})$.
+When $w$ is another projective chart overlapping with $z$, we have
+\begin{align*}
+z^*S(f \circ z^{-1})
+&= z^* S(f \circ w^{-1} \circ (w \circ z^{-1})) \\
+&= w^*S(f \circ w^{-1}) + z^*S(w \circ z^{-1}).
+\end{align*}
+And since $z$ and $w$ are two compatible projective charts, the second term on the right vanishes, and the local Schwarzian derivative of $f$ patches together to a global holomorphic quadratic differential.
+For a map $f: Z \to W$ from one projective surface to another, we may define its Schwarzian derivative in charts and show in the same manner that they patch together to a global object on $Z$.
+
+So, the Schwarzian derivative of a map between projective surfaces is a holomorphic quadratic differential that we think of as measuring how far the map is from being a projective transformation between the surfaces. 
+If we restrict ourselves to projective structures $Z$ and $W$ with the same underlying complex structure $X$, we can consider the identity map $Id: Z \to W$ and take its Schwarzian as a measure of how compatible the two atlases are. 
+The the difference of the two projective structures is defined as this measure of compatability
+\[
+Z - W := S(Id).
+\]
+Indeed, if $Z$ and $W$ are the same projective structure, then the identity map is a projective transformation and its Schwarzian derivative is zero.
+By fixing a projective structure $Z_0$ on $X$, we see the set of projective structures with the same underlying complex structure $X$ is an affine space modeled on $Q(X)$, the map given by $Z \mapsto Z-Z_0 \in Q(X)$.
+
+There is a convenient choice for $Z_0$. 
+Since $X$ is a compact Riemann surface of genus at least 2, there is a unique hyperbolic metric in its conformal class and hence we can present $X$ as $\H/\Gamma_F$, a quotient of the upper half plane by a Fuchsian group $\Gamma_F$. 
+This hyperbolic structure is also a complex projective structure $Z_F$ that is called the standard Fuchsian projective structure on $X$. 
+Under this identification the identity map between $Z$ and $Z_F$ lifts to a Riemann map between $\tilde{X}$ and  $\H$ and we may take its Schwarzian derivative to obtain a holomorphic quadratic differential $\tilde{\phi}$ on $\tilde{X}$. 
+This quadratic differential is $\Gamma$ invariant since it is the Schwarzian of a lift of a map $Z \to Z_F$. 
+The quadratic differential induced by this $\tilde{\phi}$ is the desired 

@@ -1,0 +1,35 @@
+\section{Solutions to the $k$-surface equation}
+\label{k-surface-solutions}
+
+We will use the Implicit Function Theorem in the Banach space setting to obtain solutions to $F(k,\tau) = 0$ and so we first work with $\mathrm{Conf}^s(X) = \{ p h \ |\ p \in H^s(X,\R^+)\}$, where $H^s(X,\R^+)$ is the Sobolev space of functions on $X$ taking positive values.
+With the norm $\|\tau\|_s := \| \tau/h\|_s$, the set $\mathrm{Conf}^s(X)$ is naturally identified with an open subset of the Banach space $H^s(X) = H^{s}(X,\R)$.
+As stated above, we work with Sobolev spaces of a fixed regularity $s > 3$.
+Recall the function $F$ is defined on $U \times \mathrm{Conf}^\infty(X)$ and maps to $C^\infty(X)$. 
+Extend $F$ to a function $U \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ so that $F$ is then defined on an open subset of a Banach space. 
+
+We still have $F(0,h) = 0$ and we can now get solutions near $0$ as well.
+
+
+
+\begin{thm}
+\label{weak-solutions}
+There is a neighborhood $V$ of $0$ such that for each $k \in V$, there exists a unique $\tau \in \mathrm{Conf}^s(X)$ such that $F(k,\tau) = 0$.
+\end{thm}
+
+\begin{proof} 
+Note that since the constituent parts of $F$ are smooth on $U$, $F$ is smooth. 
+Furthermore, $D_2F_{(0,h)} : H^s(X) \to H^{s-2}(X)$ is an isomorphism, where $D_2F$ is the partial derivative of $F$ with respect to its second argument. 
+Indeed, a direct computation of the derivative of $F$ at $(0,h)$ yields 
+\[
+DF_{(0,h)}(\dot{k},\dot{\tau}) = 4 \, D K_h(\dot{\tau}).
+\]
+Note that $D_1F_{(0,h)} = 0$ and that $D_2F_{(0,h)} = 4 \, DK_h$. 
+The differential of the curvature function $D K_h$ is given by a formula of Lichnerowicz: 
+\[
+ 4\, DK_h(\dot{\tau}) = -2(\Delta_h - Id)\frac{\dot{\tau}}{h},
+\]
+which is an isomorphism $H^s(X) \to H^{s-2}(X)$ (see \cite[Page 33]{tromba1992}).
+
+Consequently, by the Banach Implicit Function Theorem (see \cite[Theorem 17.6]{gilbarg-trudinger2001}) there exists a neighborhood $V$ of $0$ and a curve $\gamma : V \to \mathrm{Conf}^s(X)$ with $\gamma(0) = h$ and $F(k, \gamma(k)) = 0$. 
+Moreover, these are the only solutions to $F(k,\tau) = 0$ in $V$, and $\gamma$ is smooth since $F$ is.
+\end{proof}

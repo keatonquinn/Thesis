@@ -1,0 +1,58 @@
+\section{The $k$-surface equation}
+\label{k-surface-equation}
+
+We now prove that $k$-surfaces form an asymptotically Poincar\'e family of surfaces. 
+To do this we derive an equation for a conformal metric that implies its Epstein surface is a $k$-surface and we show this equation has a unique smooth solution for each $k$ near zero. 
+In the proof of existence of solutions we will see that these conformal metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}. 
+
+
+
+Finding a metric $\sigma$ whose Epstein surface has constant Gaussian curvature $k$ is finding a metric $\sigma$ that solves $K(I(\sigma)) = k$, which from Lemma \ref{curvature-epstein} is solving
+\[
+\frac{4K(\sigma)}{(1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}} = k.
+\]
+For now we will focus on solving
+\begin{equation}
+\label{k-surface-equation}
+4K(\sigma) = k \left((1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2} \right),
+\end{equation}
+as we will see that for small enough $k$, $K(I(\sigma)) = k$.
+
+We are interested in obtaining solutions to (\ref{k-surface-equation}) for $k$ near zero. 
+This is hampered by the fact that there are no solutions to (\ref{k-surface-equation}) when $k = 0$. 
+Indeed we would be asking for $K(\sigma)=0$, which is impossible on a surface with genus bigger than 1. 
+In an attempt to obtain better asymptotics we consider the case when $\Gamma$ is Fuchsian. 
+Here we have explicit solutions to the $k$-surface equation (\ref{k-surface-equation}).
+Indeed, the $k$-surfaces are the Poincar\'e family. 
+Working in the universal covers, $\mathrm{Ep}_h : \Omega \to \H^3$ gives a totally geodesic copy of $\H^2$ in $\H^3$ with constant curvature $-1$. 
+For $-1<k<0$  the $k$-surfaces are given by equidistant copies of this $\H^2$. 
+The conformal metric whose Epstein surface is the $k$-surface is then $c(k)h$ for some function of $k$ satisfying $K(I(c(k)h)) = k$. 
+Since $B(g_{\CP^1},c(k)h) = 0$ we get the defining equation of $c$ as $4K(c(k)h) = k(1 - K(c(k)h))^2$.
+More explicitly $c$ is given by
+\[
+c(k) = \frac{1+\sqrt{1+k}}{1-\sqrt{1+k}}.
+\]
+
+
+Suppose we have solution metrics $\sigma_k$  on $X$ that give Epstein surfaces with constant Gaussian curvature $k$. 
+As we just saw, in the Fuchsian case we have $\sigma_k = c(k) h$.  
+In the general quasi-Fuchsian case, define $f(k)$ by 
+\[
+f(k) = c(k)^{-1} = \frac{1-\sqrt{1+k}}{1+\sqrt{1+k}}
+\] 
+and $\tau_k$ by $\tau_k = f(k)\sigma_k$, so that in the Fuchsian case the metric $\tau_k$ is the hyperbolic metric for all $k$. 
+Since $\sigma_k$ solves (\ref{k-surface-equation}), by substitution and some simplification we get that $\tau = \tau_k$ solves the equation 
+\begin{equation}
+\label{scaled-equation}
+(2+k)(1+K(\tau))^2 + 2\sqrt{1+k}\left(1-K(\tau)^2\right) + 16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2} = 0.
+\end{equation}
+
+
+In the limiting case $k=0$ we see that the hyperbolic metric $h$ on $X$ solves (\ref{scaled-equation}). 
+Solutions actually exists in a neighborhood of $(k,\tau) = (0,h)$ as we will show.
+To apply PDE theory we define the function $F : U \times \mathrm{Conf}^\infty(X) \to C^\infty(X)$ given by 
+\[
+F(k,\tau) = (2+k)(1+K(\tau))^2 + 2\sqrt{1+k}\left(1-K(\tau)^2 \right) +16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2}.
+\]
+Here, $U$ is an open interval around $0$ small enough not to contain $-1$ so that $F$ is smooth on its domain. 
+Points $(k,\tau)$ where $F(k,\tau) = 0$ are solutions to the scaled equation (\ref{scaled-equation}); we have already found $F(0,h) = 0$.

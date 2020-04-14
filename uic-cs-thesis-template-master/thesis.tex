@@ -1,0 +1,62 @@
+% No need to change the first 4 lines of this file
+\documentclass{uicthesi}
+\input{sections/other/__preamble}
+\input{sections/other/__commands}
+
+
+
+\begin{document}
+
+% The title of the thesis
+\title{Limits of Foliations in Quasi-Fuchsian Manifolds
+%\begin{center} {\sf \color{red} DRAFT VERSION 4 --- {\today} } \end{center}
+}
+
+
+% Your full name
+\author{Keaton Quinn}
+
+% Mention all degrees you hold currently
+\pdegrees{B.S., Michigan State University, 2014}
+
+% Probably no need to edit this
+\degree{Doctor of Philosophy in Mathematics}
+
+% Add your committee members, one per line, mentioning external universities
+% where relevant
+\committee{David Dumas, Chair and Advisor \\
+Daniel Groves \\
+Julius Ross \\
+Laura Schaposnik \\
+Benson Farb, University of Chicago}
+
+% No need to make any changes to the next 10 lines
+\maketitle
+\copyrightpage
+%\input{sections/other/_1_dedication}
+\input{sections/other/_2_acknowledgement}
+%\input{sections/other/_3_contribution_of_authors}
+\tableofcontents
+%\listoftables
+%\listoffigures
+\printglossary[type=\acronymtype,title=LIST OF ABBREVIATIONS,style=clong]
+\input{sections/other/_4_summary}
+
+% This is where you write the paper.  I've included a sample chapter
+% below, to suggest a possible organization.  Just add references to the
+% rest of your paper here.
+\input{sections/chapter_1/0_index}
+\input{sections/chapter_2/0_index}
+\input{sections/chapter_3/0_index}
+\input{sections/chapter_4/0_index}
+\input{sections/chapter_5/0_index}
+\input{sections/chapter_6/0_index}
+
+% No need to make any changes to this file below this line.
+\newpage
+\bibformb
+\bibliography{thesis}
+%\bibliographystyle{alpha}
+\newpage
+\input{sections/other/_5_vita}
+\end{document}

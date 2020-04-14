@@ -1,0 +1,65 @@
+\section{Constant mean curvature surfaces}
+
+
+As another application of our asymptotically Poincar\'e families, we obtain results regarding the asymptotic behavior of the constant mean curvature family constructed by Mazzeo and Pacard in \cite{mazzeo-pacard2011}. 
+More specifically, we prove that there exists an asymptotically Poincar\'e family of surfaces $S_k$ for $k$ near zero, such that the mean curvature of the surface $S_k$ is $-\sqrt{1+k}$. 
+This is done similarly to the previous section: we derive an equation for a conformal metric that implies its Epstein surface has mean curvature $-\sqrt{1+k}$ and we show this equation has a unique smooth solution for each $k$ near zero. 
+The proof of existence of solutions will show that these conformal metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}.
+
+
+Recall from Lemma \ref{curvature-epstein} that the mean curvature of $\mathrm{Ep}_\sigma: X \to M$ is given by 
+\[
+H(\mathrm{Ep}_\sigma)
+= \frac{K(\sigma)^2 - 1 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}}{(K(\sigma) - 1)^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}},
+\]
+which, again, is an equation on the compact Riemann surface $X$.
+To find a metric whose Epstein surface has constant mean curvature $-\sqrt{1+k}$ we must solve the equation $H(\mathrm{Ep}_\sigma) = -\sqrt{1+k}$, which simplifies to
+\begin{equation}
+\label{mean-curvature-equation}
+1-K(\sigma)^2 - \sqrt{1+k}(1-K(\sigma))^2 + (1 + \sqrt{1+k})\frac{16}{\sigma^2}|B(\sigma)|^2 = 0.
+\end{equation}
+As in the $k$-surfaces case it suffices to solve (\ref{mean-curvature-equation}) since $(K(\sigma) - 1)^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}$ will eventually be nonzero.
+Furthermore, we scale the equation by assuming $\sigma_k$ solves (\ref{mean-curvature-equation}) and defining $\tau_k = f(k) \sigma_k$ for $f(k) = \frac{1-\sqrt{1+k}}{1+\sqrt{1+k}}$ the function defined above. 
+If $\sigma_k$ solves (\ref{mean-curvature-equation}) then $\tau = \tau_k$ solves $G(k,\tau) = 0$ for $G: U \times \mathrm{Conf}^\infty(X) \to C^\infty(X)$ defined by 
+\[
+G(k,\tau) = 1+\sqrt{1+k} + 2\sqrt{1+k}K(\tau) + (-1 + \sqrt{1+k})(K(\tau)^2 - \frac{16}{\tau^2}|B(\tau)|^2).
+\]
+Here $U$ is a small enough open set around zero not containing $-1$ so that $G$ is smooth on its domain.
+To find solutions to (\ref{mean-curvature-equation}) we find solutions to $G(k,\tau) = 0$ and then scale them by $f(k)^{-1}$. 
+Notice that $G(0,h) = 0$ is a solution. 
+
+\begin{thm}
+There exists a neighborhood $W$ of 0 so that for each $k \in W$, there exists a unique $\tau \in \mathrm{Conf}^\infty(X)$ so that $G(k,\tau) = 0$.
+\end{thm}
+
+\begin{proof}
+Extend $G$ to a map $U \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ for $s > 3$. 
+When $k = 0$ we have the hyperbolic metric $h$ as solution $G(0,h) = 0$. 
+The map $G$ is smooth. 
+The derivative of $G$ at $(0,h)$ is given by 
+\[
+dG_{(0,h))}(\dot{k},\dot{\tau}) = -4 \frac{|\phi|^2}{h^2} \dot{k} + 2 D K_h(\dot{\tau}).
+\]
+Notice that $D_2 G_{(0,h)} = D K_h$, which---as in the proof of Theorem \ref{weak-solutions}---is an isomorphism $H^s(X) \to H^{s-2}(X)$.
+Hence, by the Banach Implicit Function Theorem there exists an open set $W$ and a smooth curve $\gamma: W \to \mathrm{Conf}^{s}(X)$ such that $G(k,\gamma(k)) = k$. 
+Moreover, these are the only solutions to $G(k,\tau) = 0$ in $W$.
+
+The same regularity arguments apply here as in the $k$-surface case and imply the existence of an $\delta > 0$ so that when $k \in (-\delta,\delta)$, each metric $\gamma(k)$ is smooth and the family $\gamma$ varies smoothly in $k$ in the $C^\infty$ topology. 
+\end{proof}
+
+
+This implies that the mean curvature surfaces form an asymptotically Poincar\'e family of surfaces. 
+
+\begin{cor}
+There exists an $\delta > 0$ so that for $k \in (-\delta, 0)$ the family of surfaces $S_k$ where $S_k$ has constant mean curvature $-\sqrt{1+k}$ forms an asymptotically Poincar\'e family of surfaces. 
+\end{cor}
+
+\begin{proof}
+Since $\gamma(k)$ solves $G(k,\gamma(k)) = 0$ for $k \in (-\delta,\delta)$, the metric $\gamma(k)$ solves the scaled mean curvature equation. 
+So, defining $\sigma_k = \frac{1 + \sqrt{1+k}}{1 - \sqrt{1+k}} \ \gamma(k)$ for $k \in (-\delta,0)$, we see that $\sigma_k$ solves the mean curvature equation (\ref{mean-curvature-equation}), which implies that $\mathrm{Ep}_{\sigma_k}$ has constant mean curvature $-\sqrt{1+k}$.
+
+The same arguments as in Corollary \ref{k-surfaces-cor} show that these metrics satisfy the hypothesis of Proposition \ref{asym-family-prop}.
+So, the surfaces $S_k = \mathrm{Ep}_{\sigma_{k}}(X)$ form an asymptotically Poincar\'e family of surfaces. 
+\end{proof}
+
+Consequently, we obtain Theorem \ref{cmc-intro}.

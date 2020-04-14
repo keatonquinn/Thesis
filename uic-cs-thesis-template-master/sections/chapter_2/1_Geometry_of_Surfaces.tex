@@ -1,0 +1,85 @@
+\section{The geometry of surfaces}
+
+
+Let $S$ be a closed, oriented, smooth surface. 
+Let $g$ be a Riemannian metric on $S$.
+The non-degeneracy of $g$ at each point allows us to identity $TS$ with $T^*S$ via the map that sends $v \in T_pS$ to $g_p(\cdot  , v) \in T_p^*S$ and this extends to an identification of vector fields and 1-forms. 
+We will abuse notation and write $g: TS \to T^*S$ for this map and $g^{-1}: T^*S \to TS$ for its inverse. 
+The Riemannian metric $g$ induces a (pointwise) norm on vector fields in the familiar way: $|X| = g(X,X)^{1/2}$. 
+It induces metrics and norms on all tensor products of $TS$ and $T^*S$. It also distinguishes a volume form $d\mathrm{Vol}(g)$ on $S$ that evaluates to $+1$ on all oriented orthonormal frames. 
+The integral of a smooth function $f$ is defined by $\int_S f \ d\mathrm{Vol}(g)$.
+
+
+The Levi-Civita connection $\nabla$ of $g$ is the unique torsion-free, metric connection on $TS$. 
+The connection $\nabla$ also extends to connections on $T^*S$ and all tensor products constructed from the tangent bundle.  
+We will denote all of them by $\nabla$.
+If $\omega$ is a $q$-form with values in $TS$ then the exterior covariant derivative of $\omega$ is 
+\[
+d^\nabla \omega = \mathrm{Alt}(\nabla \omega).
+\]
+The Riemann curvature endomorphism of $\nabla$ is given by  
+\[
+R(X,Y)Z 
+= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z,
+\]
+for vector fields $X$,$Y$, and $Z$, and is the obstruction to $(S,g)$ being locally isometric to Euclidean space. 
+The Riemann curvature tensor is 
+\[
+Rm(X,Y,Z,W) = g(R(X,Y)Z,W).
+\]
+and the Gaussian curvature of $S$ at a point $p$ is the function $K(g)$ defined by 
+\[
+K(g)(p) = \frac{Rm(v,w,w,v)}{|v|^2|w|^2 - g(v,w)}
+\]
+where $v,w$ is any basis for $T_pS$.
+Suppose $(M,\tilde{g})$ is Riemannian manifold. 
+The sectional curvature of $\tilde{g}$ is a function on 2-planes in the tangent bundle, i.e., a map $sec: \mathrm{Gr}_2(TM) \to \R$ whose value on a plane $\Pi \leq T_pM$ is the Gaussian curvature at $p$ of the image of $\Pi$ in $M$ under the exponential map. 
+It may be computed with the above formula with $v$ and $w$ now a basis for $\Pi$.
+
+
+Suppose now that $M$ is 3-dimensional. 
+When $f: S \to M$ is an immersion, the pullback tensor $I = f^*\tilde{g}$ is a Riemannian metric on $S$ called the first fundamental form. 
+Moreover, since $f$ is an immersion we have an embedding of $TS$ in the pullback bundle $f^*TM$ on $S$.
+Using the metric $\tilde{g}$, the normal bundle $NS$ of $S$ may be defined as the orthogonal complement of $TS$ in $f^*TM$, and this induces a splitting $f^*TM \cong TS \oplus NS$. 
+In our setting the normal bundle is a line bundle and a nowhere zero section is called a normal vector field on $S$. 
+For the rest of this section we assume there is a smooth, unit normal vector field $n$ on $S$. 
+
+
+
+
+Let $\widetilde{\nabla}$ be the Levi-Civita connection of $\tilde{g}$ on $M$.
+By extending vector fields $X$ and $Y$ on $S$ to a neighborhood of $S$ in $M$, we may take the covariant derivative $\widetilde{\nabla}_X Y$.
+This resulting vector field is not necessarily tangent to $S$ and so we may decompose it into its tangential part $(\widetilde{\nabla}_X Y)^\top$ and its normal part $(\widetilde{\nabla}_X Y)^\perp$.
+The Gauss Formula tells us $(\widetilde{\nabla}_X Y)^\top = \nabla_X Y$ and since the normal bundle is spanned by $n$ we have $(\widetilde{\nabla}_X Y)^\perp = \two(X,Y)n$ for a symmetric 2-tensor field $\two$.
+This $\two$ is called the second fundamental form and depends on $n$.
+
+ 
+The Gauss Equation relates the Gaussian curvature $K$ of $S$ to the sectional curvature of the ambient manifold $M$ via the second fundamental form.
+Since $\two$ is symmetric and since $I$ is non-degenerate, we may form the shape operator $I^{-1}\two: TM \to TM$.
+The Gauss Equation then states
+\[
+K(I) = sec(TS) + \det(I^{-1}\two).
+\]
+If $M$ has constant sectional curvature, then the second fundamental form satisfies the Codazzi Equation $d^\nabla (I^{-1} \two) = 0$. 
+Together the Gauss and Codazzi Equations form the integrability conditions for simply connected surfaces in constant curvature 3-manifolds:
+
+
+\begin{thm}[Bonnet, Fundamental Theorem of Surface Theory]
+Suppose $S$ is a simply connected surface, $I$ a Riemannian metric on $S$, and $\two$ a 2-tensor on $S$ such that $I$ and $\two$ satisfy the Gauss-Codazzi equations
+\begin{align*}
+K(I) &= \kappa + \det(I^{-1}\two) \\
+d^\nabla (I^{-1}\two) &= 0.
+\end{align*}
+Then there is an isometric immersion $S \to \mathbb{M}_\kappa^3$ into the simply connected 3-manifold $\mathbb{M}^3_{\kappa}$ of constant sectional curvature $\kappa$, such that the second fundamental form of the immersion is $\two$. And this immersion is unique up to composition with an isometry of $\mathbb{M}_\kappa^3$.
+\end{thm}
+
+Since our main interest is the hyperbolic setting $\mathbb{M}_\kappa^3 = \H^3$, we note that the Gauss Equation in this case reads
+\[
+K(I) = -1 + \det(I^{-1}\two).
+\]
+The Gauss-Bonnet Theorem implies that if $S$ has genus at least 2 (so that $\chi(S) < 0$), then there is no metric with curvature identically 0 or $+1$ on $S$.
+We also record here the definition of mean curvature. 
+As opposed to the Gaussian curvature, this depends on the immersion $f: S \to M$ and cannot be defined entirely in terms of $I$; it is given by 
+\[
+H(f) = \frac{1}{2} \mathrm{tr}(I^{-1}\two).
+\]

@@ -1,0 +1,66 @@
+\section{The Teichm\"uller space of a surface}
+
+
+A complex structure on the topological surface $S$ is a maximal atlas of charts to $\C$ whose transition functions are holomorphic. 
+The surface $S$ with a complex structure is called a Riemann surface and is a 1-dimensional complex manifold. 
+Two Riemann surfaces $X$ and $Y$ with the same underlying smooth manifold $S$ will be called equivalent if there is an $f \in \mathrm{Diff}_0(S)$ that is a biholomorphim $f: X \to Y$. 
+
+The space of equivalence classes of Riemann surface structures on $S$ is called the Teichm\"uller space of $S$ and is denoted by $\mathcal{T}(S)$. 
+This space is itself a complex manifold with complex dimension $3\cdot \text{genus}(S) - 3$. 
+The cotangent space $T^*_{[X]}\mathcal{T}(S)$ is naturally identified with the space of all symmetric 2-tensors $\phi$ on $S$ which, in a holomorphic chart $z$ on $X$, may be written as $\phi = q \, dz^2$ for $q$ a holomorphic function (on the domain of $z$). 
+Such tensors are called holomorphic quadratic differentials and we denote the space of them by $Q(X)$. 
+
+Given a Riemann surface $X$, there are distinguished Riemannian metrics on $S$---called conformal metrics---defined by the property that in complex chart $z$  they may be written as $\sigma = e^{2\eta} |dz|^2$, for $\eta$ a smooth function. 
+We will denote the space of conformal metrics on $X$ by $\mathrm{Conf}(X)$. 
+A Riemann surface that is simply connected and biholomoprhic to a proper subset of $\C$ has a unique hyperbolic metric, called the Poincar\'e metric of $\Omega$, that is conformal. 
+The universal cover $\tilde{X}$ of a Riemann surface $X$ with genus at least 2 is such a Riemann surface. 
+Its Poincar\'e metric is invariant under the action of $\pi_1(X)$ (by uniqueness) and so induces a hyperbolic metric on $X$. Hence, for a fixed $X$ of genus at least 2, there exists a unique hyperbolic conformal metric which we will usually denote by $h$. 
+We therefore assume from now on that the genus of $S$ is greater than or equal to 2. 
+
+A definition of Teichm\"uller space may be given solely in terms of conformal metrics. 
+Indeed, any other conformal metric can be written as $\sigma = e^{2u}h$ for $u$ a smooth function on $X$. 
+This is to say, conformal metrics are those that are conformally equivalent to $h$. 
+This leads us to consider the action of smooth positive functions on the set of Riemannian metrics on $S$, i.e., $P(S)$ acting on $\mathrm{Met}(S)$. 
+The action of $\mathrm{Diff}_0(S)$ on $\mathrm{Met}(S)$ may be packaged together with that of $P(S)$ as the action of the semi-direct product $\mathrm{Diff}_0(S) \ltimes P(S)$. 
+As a set, the quotient space is another model of Teichm\"uller space
+\[
+\mathrm{Met}(S)/(\mathrm{Diff}_0(S) \ltimes P(S)) = \mathcal{T}(S).
+\]
+
+This set-theoretic model can be improved to a model of Teichm\"uller space as a quotient manifold. To do so it is necessary to impose some regularity hypothesis on the space of symmetric 2-tensors that makes them into a Hilbert space. While this is done in Section \ref{sobolev} (following \cite{tromba1992}) here we will simply assume this regularity has been imposed.  
+
+The set $\mathrm{Met}(S)$ is an open cone in the vector space of symmetric 2-tensors on $S$ and hence is a manifold (of infinite dimension). 
+The tangent space to $\mathrm{Met}(S)$ at a metric $g$ is then naturally identified with this vector space. 
+Given two tensors $\sigma_1$ and $\sigma_2$ in $T_g \mathrm{Met}(S)$, we may turn them into endomorphisms $g^{-1}\sigma_1$ and $g^{-1}\sigma_2$ and take their Frobenius inner product $\mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2)$, which is a function on $S$. 
+Using integration we can define a Riemannian metric on $\mathrm{Met}(S)$ by 
+\[
+\left< \sigma_1, \sigma_2 \right>_g = \int_S \mathrm{tr}( g^{-1}\sigma_1 \circ g^{-1}\sigma_2) \ d\mathrm{Vol}(g)
+\]
+(this metric is related to the Weil-Petersson metric on $\mathcal{T}(S)$, see \cite{tromba1992}, but we will not use this). By our regularity assumptions, for each $g$ the inner product $\left< \cdot, \cdot \right>_g$ turns $T_g\mathrm{Met}(S)$ into a Hilbert space. 
+
+Using this metric we may decompose the tangent space to $\mathrm{Met}(S)$ at a point as the direct sum of the tangent space to the $\mathrm{Diff}_0(S) \ltimes P(S)$-orbit and its orthogonal complement. 
+We have
+\[
+T_g \mathrm{Met}(S) = \{ \dot{g} \ | \ \mathrm{tr}_g(\dot{g}) = 0 = \mathrm{div}_g(\dot{g})\} \oplus \{ \mathcal{L}_X g + fg \ | \ f \in C^\infty(S) \text{ and } X \in \Gamma(TS) \}.
+\]
+Here $\mathrm{div}_g(\dot{g})$ is the divergence of $\dot{g}$ given by $\mathrm{tr}_g(\nabla \dot{g})$. 
+The right summand is tangent to the group orbit of $g$. 
+The left summand is its orthogonal complement and consists of trace-free and divergence-free symmetric 2-tensors, which are referred to as transverse-traceless tensors. 
+Since they are orthogonal to the group orbit, they may be identified with the tangent space to the quotient
+\[
+T_{[g]} \mathcal{T}(S) = T_g \mathrm{Met}(S)/T_g(\mathrm{Diff}_0(S) \ltimes P(S) \cdot g) \cong \{ \dot{g} \ | \ \mathrm{tr}_g(\dot{g}) = 0 = \mathrm{div}_g(\dot{g})\},
+\]
+and the derivative of the projection $\pi: \mathrm{Met}(S) \to \mathcal{T}(S)$ at $g$ is given by the orthogonal projection onto these transverse-traceless tensors. 
+
+There is an equivalent description of transverse-traceless tensors that, for us, will be more useful than their definition. 
+It turns out (see \cite{tromba1992}), the trace-free condition implies that they are the real part of quadratic differentials and the divergence-free condition says the quadratic differential is holomorphic (with respect to the complex structure for which $g$ is conformal). 
+We have an isomorphism described by the following lemma.
+
+\begin{lem}[\cite{tromba1992}] \label{tangent-teich}
+Let $X$ the a Riemann surface and $g$ a conformal metric on $X$. 
+If $\phi$ is a holomorphic quadratic differential, then $\mathrm{Re}(\phi)$ is a $g$-transverse-traceless tensor. 
+That is 
+\[
+T_{[g]}\mathcal{T}(S) = \{\mathrm{Re}(\phi) \ | \ \phi \in Q(X) \}.
+\]
+\end{lem}

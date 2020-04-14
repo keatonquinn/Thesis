@@ -1,0 +1,85 @@
+In \cite{epstein1984} Epstein describes a way of taking geometric data on the ideal boundary of hyperbolic space and obtaining a strictly convex surface in hyperbolic space. 
+In the case of dimension 3, these geometric data take the form of conformal metrics on $\partial^\infty \H^3 = \CP^1$, and given such a metric $\sigma$ on a domain $\Omega \subset \CP^1$ he constructs a map $\mathrm{Ep}_\sigma: \Omega \to \H^3$ whose image is called an Epstein surface.
+This Epstein map enjoys an equivariance property with respect to the action of $\mathrm{PSL}_2\C$ which allows one to define Epstein surfaces on quotients by subgroups $\Gamma < \mathrm{PSL}_2\C$.
+We are concerned with Epstein surfaces in quasi-Fuchsian manifolds, which are certain hyperbolic structures on $S \times (0,1)$ for $S$ an oriented closed surface of genus at least 2. 
+
+Each end of a quasi-Fuchsian manifold is compactified by a copy of $S$, which is called the surface at infinity (for the end), and each such surface at infinity inherits a complex projective structure $Z$ and hence a conformal structure $X$. 
+Applying the Epstein construction in this setting, we obtain a map that takes a conformal metric $\sigma$ on $X$ and returns a surface in the quasi-Fuchsian manifold.
+When $h$ is the unique hyperbolic metric on $X$, the corresponding Epstein surface we call the Poincar\'e surface of $X$. 
+The Epstein surface for the multiple $\rho_t = e^{2t}h$ may be obtained by parallel flowing the Poincar\'e surface in the normal direction a distance $t$. 
+The Poincar\'e surface with its parallel copies form a family we call the Poincar\'e family and, after restricting to sufficiently large $t$, we obtain a foliation of the end of the quasi-Fuchsian manifold. 
+
+The Poincar\'e family has been used by several other others to study the geometry of projective structures and hyperbolic 3-manifolds. 
+For example, in \cite{anderson1998} Anderson used them when developing a bound on Thurson's projective metric in terms of the Kobayashi metic. 
+Bromberg used this family in \cite{bromberg2004} when studying hyperbolic cone manifolds. 
+And Krasnov and Schlenker gave an alternative definition of the renormalized volume using the Poincar\'e family in \cite{krasnov-schlenker2008} for the case of convex co-compact hyperbolic 3-manifolds. 
+
+After re-parametrizing by $\epsilon = e^{-2t}$, the conformal metrics $\rho_\epsilon$ inducing the Poincar\'e family have the property that $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$. 
+Analogously, in this thesis we study families of Epstein surfaces for conformal metrics $\sigma(\epsilon)$ such that there is a scaling function $f$ which satisfies $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ (see Definition \ref{asym-def} in Section \ref{asym-def-section} for the precise conditions). 
+These families are, in a sense, $C^\infty$-asymptotic to the Poincar\'e family and so we name them \emph{Asymptotically Poincar\'e Families}. 
+These families also form foliations of the end of the quasi-Fuchsian manifold  (Corollary \ref{foliation}) and the goal of this thesis is to study the behavior of these foliations as $ \epsilon \to 0$, which corresponds to the surfaces leaving the end of the manifold. 
+
+The first fundamental form (i.e., the induced metric) $I_\epsilon$ of the Epstein surface for $\sigma(\epsilon)$ is a Riemannian metric on $X \cong S$ and so its conformal class $[I_\epsilon]$ may be considered as a point in $\mathcal{T}(S)$, the Teichm\"uller space of $S$. 
+Since Epstein surfaces are strictly convex, the second fundamental form $\two_\epsilon$ is negative definite (negative for the normal vector field that points towards $X$), and so $-\two_\epsilon$ is a Riemannian metric, giving another point $[\two_\epsilon]$ in $\mathcal{T}(S)$.
+Our main theorem relates the infinitesimal behavior of $[I_\epsilon]$ and $[\two_\epsilon]$ to the projective structure on the surface at infinity.
+Indeed, let $\phi$ be the holomorphic quadratic differential on $X$ that parametrizes the induced complex projective structure $Z$.
+Then we have the following result. 
+
+\begin{bigthm}
+\label{main-thm-intro}
+In a quasi-Fuchsian manifold let $S_\epsilon$, for $\epsilon \in (0,1)$, be an asymptotically Poincar\'e family in an end with Riemann surface at infinity $X$.
+If $I_\epsilon$ and $\two_\epsilon$ are the corresponding first and second fundamental forms then 
+\[
+[I_\epsilon] \to [h] 
+\quad \text{ and } \quad 
+[\two_\epsilon] \to [h]
+\quad \text{ as } \quad \epsilon \to 0
+\] 
+and the tangent vector to $[\two_\epsilon]$ at $[h]$ vanishes while the tangent vector to $[I_\epsilon]$ is determined by the holomorphic quadratic differential $\phi$ that measures the difference between the induced projective structure and the Fuchsian projective structure on $X$.
+That is,
+\[
+\dot{[I_\epsilon]} = c \, \mathrm{Re}(\phi) \quad \text{and } \quad \dot{[\two_\epsilon]} = 0
+\]
+for a constant $c$ depending on the family.
+\end{bigthm} 
+We apply Theorem \ref{main-thm-intro} to foliations by constant curvature surfaces to characterize their behavior. 
+Indeed, in the case of constant Gaussian curvature, Theorem \ref{main-thm-intro} answers a conjecture of Labourie.
+In \cite{labourie1991} Labourie proves that an end of a quasi-Fuchsian manifold admits a unique foliation by $k$-surfaces: surfaces $S_k$, for $k$ in $(-1,0)$, such that the Gaussian curvature of $S_k$ is identically $k$. 
+In \cite{labourie1992}, Labourie notes how $k$-surfaces may be interpreted as a path in Teichm\"uller space and he asks what the tangent vectors to the paths $[I_k]$ and $[\two_k]$ are at $k=0$. 
+He conjectures in that they are related to the holomorphic quadratic differential at infinity $\phi$.
+We show in Section \ref{regularity} that these $S_k$ form an asymptotically Poincar\'e family of surfaces.
+Theorem \ref{main-thm-intro} then proves his conjecture and gives the relationship explicitly.
+Hence we obtain:
+
+\begin{bigthm} \label{k-surfaces-intro}
+Let $I_k$ and $\two_k$ be the first and second fundamental forms of the $k$-surface $S_k$. 
+Let $\phi$ be the holomorphic quadratic differential at infinity. 
+Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"uller space are given by 
+\[
+  \dot{[I_k]}= - \mathrm{Re}(\phi) \quad \text{and } \quad \dot{[\two_k]} = 0.
+\]
+\end{bigthm}
+
+Theorem \ref{main-thm-intro} can also be applied to the work of Mazzeo and Pacard in the setting of constant mean curvature surfaces.
+In \cite{mazzeo-pacard2011} they show that an end of a quasi-Fuchsian manifold admits a unique foliation by surfaces of constant mean curvature. 
+We prove that this family of surfaces forms an asymptotically Poincar\'e family of surfaces by constructing, for each negative $k$ near zero, an Epstein surface whose mean curvature is identically $-\sqrt{1+k}$.
+Since asymptotically Poincar\'e surfaces foliate an end of $M$, by the uniqueness result of \cite{mazzeo-pacard2011} these surfaces are those shown to exist by Mazzeo and Pacard.
+Therefore, Theorem \ref{main-thm-intro} describes the behavior of this family in Teichm\"uller space.  
+
+\begin{bigthm} \label{cmc-intro}
+Let $I_k$ and $\two_k$ be the first and second fundamental forms of the Epstein surface with constant mean curvature $-\sqrt{1+k}$.
+Let $\phi$ be the holomorphic quadratic differential at infinity. 
+Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"uller space are given by 
+\[
+  \dot{[I_k]}= - \mathrm{Re}(\phi) \quad \text{and } \quad \dot{[\two_k]} = 0.
+\]
+\end{bigthm}
+
+The rest of this thesis is organized as follows. 
+Chapter \ref{preliminaries} consists of the relevant preliminary material needed for these results. 
+It constitutes a reminder on the Riemannian, complex, and complex projective geometry of surfaces and their relationship with quasi-Fuchsian manifolds, as well as sets the choice of definitions we will be using for these objects. 
+Chapter \ref{epstein-surfaces} develops the theory of Epstein surfaces.
+It walks through their construction and highlights their useful properties. 
+Chapter \ref{main-results-chapter} defines our asymptotically Poincar\'e surfaces and gives the main results, including Theorem \ref{main-thm-intro}.
+In Chapter \ref{applications} we apply these results to the $k$-surfaces of Labourie (Theorem \ref{k-surfaces-intro}) and the constant mean curvature surfaces of Mazzeo and Pacard (Theorem \ref{cmc-intro}). 
+And the final chapter consists of questions that are natural extensions of this work as well as what progress has been made.

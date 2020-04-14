@@ -1,0 +1,43 @@
+\section{Quasi-Fuchsian manifolds}
+\label{quasi-fuchsian}
+
+A quasi-Fuchsian structure on $S \times (0,1)$ is a complete hyperbolic metric $g$ such that there exists a non-empty, compact, geodesically convex subset. 
+We will call $S \times (0,1)$ with a quasi-Fuchsian metric $g$ a quasi-Fuchsian manifold and say two quasi-Fuchsian manifolds $M = (S \times (0,1), g_1)$ and $N = (S \times (0,1), g_2)$ are equivalent if there exists an $f \in \mathrm{Diff}_0(S \times(0,1))$ that is an isometry $f: M \to N$.
+The space of equivalence classes of quasi-Fuchsian structures on $S \times (0,1)$ will be denoted by $\mathcal{QF}(S)$
+
+The smallest non-empty, compact, geodesically convex subset of $M$ is called the convex core. 
+After choosing an isometry $\tilde{M} \cong \H^3$, the fundamental group $\pi_1(M) \cong \pi_1(S)$ considered as the group of deck transformations becomes a discrete subgroup $\Gamma < \mathrm{PSL}_2\C$ acting properly discontinuously on $\H^3$. 
+A group $\Gamma$ obtained in this way is called a quasi-Fuchsian group.
+The action of $\mathrm{PSL}_2\C$ on $\H^3$ extends to an action on $\CP^1$ by M\"obius transformation. 
+The limit set $\Lambda$ of a quasi-Fuchsian group $\Gamma$ is the smallest non-empty, closed, $\Gamma$-invariant subset of $\CP^1$ and, in this setting, is a Jordan Curve. 
+The convex hull of $\Lambda$ in $\H^3$ is also $\Gamma$-invariant and its quotient in $M$ is the convex core. 
+The complement of $\Lambda$ in $\CP^1$ is called the domain of discontinuity and consists of two domains $\Omega_\pm$, each $\Gamma$-invariant. 
+The quotients $\Omega_\pm /\Gamma$ are called the surfaces at infinity of $M$ and we have $(\H^3 \cup \Omega_+ \cup \Omega_-)/\Gamma$ is diffeomorphic to $S \times [0,1]$.
+
+
+The following description applies to both ends of $M$ and so we focus on one, calling the corresponding component of the domain of discontinuity $\Omega$. 
+Since $\Omega$ is a connected open subset of $\CP^1$, it is a Riemann surface. 
+Since $\Gamma$ acts on $\Omega$ by M\"obius transformations, which are holomorphic, the quotient $\Omega/\Gamma$ (i.e., the surface at infinity) inherits a Riemann surface structure. 
+This Riemann surface can be considered as a point $X \in \mathcal{T}(S)$ using any diffeomorphism $\Omega/\Gamma \to S$ that induces the given isomorphism $\pi_1(\Omega/\Gamma) = \Gamma \to \pi_1(S)$.
+Any such diffeomorphism we will say is in the preferred homotopy class.
+Hence, given a quasi-Fuchsian manifold, we obtain two Riemann surfaces as its surfaces at infinity. 
+Bers showed that this procedure is invertible. 
+
+\begin{thm}[Bers' Simultaneous Uniformization \cite{bers1960}]
+Given two Riemann surfaces $X$ and $Y$ orientation-preserving diffeomorphic to $S$, there exists an isomorphism $\rho: \pi_1(S) \to \Gamma < \mathrm{PSL}_2\C$ such that $\H^3/\Gamma$ is a quasi-Fuchsian manifold with surfaces at infinity $\Omega_+/\Gamma = X$ and $\Omega_- / \Gamma = \bar{Y}$.
+Here $\bar{Y}$ is the complex conjugate of $Y$ and it has underlying oriented smooth surface is $\bar{S}$, i.e., $S$ with the opposite orientation.
+
+Moreover, the space of equivalence classes of quasi-Fuchsian structures on $S \times (0,1)$ is isomorphic to the product of two copies of Teichm\"uller space
+\[
+\mathcal{QF}(S) \cong \mathcal{T}(S) \times \mathcal{T}(\bar{S}).
+\]
+\end{thm}
+
+\noindent (The presence of the complex conjugate is due to the surfaces at infinity having opposite orientation.)
+
+The description of $X$ as the quotient of an open set $\Omega$ in $\CP^1$ by a group of M\"obius transformations gives it a complex projective structure. 
+We denote this projective structure on $X$ by $Z_M$. 
+We therefore have a holomorphic quadratic differential $\phi$ on $X$ parametrizing this structure $\phi = Z_M - Z_F$. 
+Recall that $\phi$ is induced by the Schwarzian derivative of the Riemann map $\Omega \to \H$. 
+It may also be computed as $2B(g_{\CP^1},h)$, for $h$ the Poincar\'e metric of $\Omega$, as described above. 
+This $\phi$ is called the holomorphic quadratic differential at infinity (for the given end of $M$).

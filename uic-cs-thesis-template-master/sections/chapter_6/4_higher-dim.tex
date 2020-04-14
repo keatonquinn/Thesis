@@ -1,0 +1,46 @@
+\subsection{The Epstein-frame in higher dimensions}
+
+
+Epstein's construction in \cite{epstein1984} works in $\H^n$ for $n > 3$ as well, where his formula gives a map into the ball model $\mathbb{B}^n$.
+We have computed a formula for the Epstein surface into the hyperboloid model of hyperbolic space as a submanifold of $\R^{n+1}$.
+It is given by 
+\[
+\mathrm{Ep}_\sigma(x) = 
+\def\arraystretch{}
+\begin{pmatrix}
+\frac{1}{2}\left( e^\eta + e^{-\eta} | \nabla \eta |^2 \right)x + e^{-\eta} \nabla \eta \\
+\frac{1}{4} \left(e^\eta + e^{-\eta} | \nabla \eta |^2 \right)( | x |^2 - 1) + e^{-\eta}(1 + x \cdot \nabla\eta) \\
+\frac{1}{4} \left(e^\eta + e^{-\eta} | \nabla \eta |^2 \right)( | x |^2 + 1) + e^{-\eta}(1 + x \cdot \nabla\eta)
+\end{pmatrix}
+\]
+where the dot product is the Euclidean inner product of $\R^{n+1}$ and the gradient is with respect to this metric.
+So far, this has only been verified $n = 3$ and 4.
+
+It is possible to express this Epstein map as the orbit of a point in $\H^n$ by an $O(n,1)$-frame similar to the one given above from \cite{dumas2017} in the $n=3$ case where it is more convenient to work with $\mathrm{Isom}^+(\H^3) \cong \mathrm{PSL}_2\C$.
+In our case we have $\mathrm{Ep}_\sigma(x) = \widetilde{\mathrm{Ep}}_\sigma(x)p$ for the frame $\widetilde{\mathrm{Ep}}_\sigma: \Omega \to O(n,1)$ given by 
+$\widetilde{\mathrm{Ep}}_\sigma(x) = A(x) B_\sigma(x) C_\sigma(x)$, where 
+\begin{align*}
+A(x) &= \def\arraystretch{}\begin{pmatrix}
+Id_{n-1} & -x & x \\
+x^t & 1- \frac{1}{2}|x|^2 & \frac{1}{2} |x|^2 \\
+x^t & -\frac{1}{2}|x|^2 & 1 + \frac{1}{2} |x|^2
+\end{pmatrix} \\ 
+B_\sigma(x) &= 
+\def\arraystretch{}
+\begin{pmatrix}
+Id_{n-1} & \frac{1}{2} \nabla\eta  & \frac{1}{2}\nabla\eta \\
+-\frac{1}{2} \nabla\eta^t & 1-\frac{1}{8} |\nabla\eta|^2 & -\frac{1}{8} |\nabla\eta|^2 \\
+\frac{1}{2}\nabla\eta^t & \frac{1}{8} |\nabla\eta|^2 & 1 + \frac{1}{8} |\nabla\eta|^2 
+\end{pmatrix} \\
+C_\sigma(x) &= 
+\def\arraystretch{}
+\begin{pmatrix}
+Id_{n-1} & 0 & 0 \\
+0 & \cosh(\eta) & -\sinh(\eta) \\
+0 & -\sinh(\eta) & \cosh(\eta) 
+\end{pmatrix}
+\end{align*}
+and the point $p = (0, \ldots, 0 , 3/4,5/4)^t$.
+
+A natural next step would be to use this description of the Epstein map to get closed formulas for the induced metric on the Epstein surface and its curvature, perhaps in terms of the Schwarzian tensor of Osgood and Stowe \cite{osgood-stowe1992}, analogous to Equations 3.2 and 3.3 from \cite{dumas2017} and the curvature equations given above in Section \ref{epstein-geometry} .
+We also hope to investigate constant curvature hypersurfaces similarly to our work done in the previous sections using these explicit formulas. 

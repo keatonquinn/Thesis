@@ -1,0 +1,39 @@
+\section{The visual metric construction}
+
+
+A natural trivialization of the unit tangent bundle of hyperbolic space $U\H^3$ is given as
+\[
+U\H^3 \to \H^3 \times \CP^1
+\quad \text{ by } \quad
+(p,v) \mapsto (p, \lim_{t \to \infty} \exp_p (tv) ).
+\]
+That is we map $(p,v)$ to the ideal endpoint of the geodesic ray through $p$ in the direction $v$. 
+Restricting to a point $p$ and using the diffeomorphism $U_p\H^3 \to \CP^1$, we can push forward to $\CP^1$ the induced metric on $U_p\H^3$ considered as a submanifold of $T_p\H^3$ with metric given by the inner product $g_{\H^3}(p)$. 
+The resulting metric $V_p$ on $\CP^1$ is called the visual metric from $p$.
+As an example, the visual metric from the origin in the ball model $V_0$ is just the spherical metric $\overset{\circ}{\sigma}$ on $S^2$ (which is identified with $\CP^1$ in this model). 
+In general, if $M \in \mathrm{PSL}_2\C$ is an isometry taking $0$ to the point $p$, then $V_p = M_*V_0$. 
+
+As the spherical metric belongs to the conformal class of $\CP^1$, we have that $V_0$ is a conformal metric. 
+Since M\"obius transformations are biholomorphisms of $\CP^1$, each $V_p$ is also a conformal metric. 
+If we work in the ball model of hyperbolic space $\H^3 \cong \mathbb{B}^3$ we can actually be explicit regarding the conformal factor between $V_p$ and $\overset{\circ}{\sigma}$ using the affine parameter of a horosphere. 
+If $H$ is a horosphere, then its affine parameter is the signed hyperbolic distance from $0 \in \H^3$ to $H$, positive if $0$ is outside $H$ and negative if inside. 
+Then for $p \in \H^3$ there is a unique horosphere based at $z \in \CP^1$ that contains $p$. 
+Denote by $[p,z]$ the affine parameter of this horosphere. 
+Then
+\[
+V_p(z) = e^{2[p,z]}\overset{\circ}{\sigma}(z).
+\]
+
+We now describe the Visual Metric Construction (see \cite{anderson1998}). 
+This is a process that, given a strictly convex surface $S$ in $\H^3$, gives a domain $\Omega$ in $\CP^1$ and a conformal metric $\sigma$ on $\Omega$.
+The idea is this: Given $S$, we have its image under the Gauss map on $\CP^1$. 
+That is, given a unit normal vector field $n$ on $S$ for which $S$ is strictly convex, define
+\[
+\mathcal{G}:S \to \CP^1 \text{ by } \mathcal{G}(p) = \lim_{t \to \infty} \exp_p(t n(p)).
+\]
+The strict convexity of $S$ guarantees the map $\mathcal{G}$ is a local homeomorphism. 
+We assume now that it is actually a homeomorphism.
+The image surface also comes equipped with a metric $\sigma$ by defining $\sigma(\mathcal{G}(p)) = V_p(\mathcal{G}(p))$. 
+Since for each $p$ the visual metric from $p$ is a conformal metric on $\CP^1$, we have $\sigma$ itself is a conformal metric. 
+
+Epstein in \cite{epstein1984} describes an inverse process to the visual metric construction, which we describe below.

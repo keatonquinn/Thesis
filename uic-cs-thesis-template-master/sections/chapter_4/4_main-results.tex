@@ -1,0 +1,117 @@
+\section{Main results}
+
+
+
+
+
+So, we work in the Sobolev setting of functions $H^s(X)$ and tensors $\mathrm{Met}^s(X)$ and $\mathrm{Conf}^s(X)$.
+Since $K$ and $B$ are smooth functions of $\sigma$ and its derivatives we have that they both extend to functions on Sobolev classes of metrics.
+Hence if $\sigma \in \mathrm{Conf}^s(X)$ then $I(\sigma)$ and $-\two(\sigma)$ belongs to $\mathrm{Met}^{s-2}(X)$.
+We will obtain results with these extensions and then argue our results are independent of the chosen $s$. 
+
+
+
+\begin{prop}
+\label{thm-in-sobolev}
+Suppose $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces. 
+Let $\gamma : [0,1) \to \mathrm{Met}^s(X)$ be the extension of $f\sigma$ thought of as taking values in a class of Sobolev metrics for a fixed $s > 3$. 
+Then the first and second fundamental forms $I \circ \sigma: (0,1) \to \mathrm{Met}^{s-2}(X)$ and  $\two \circ \sigma: (0,1) \to \mathrm{Met}^{s-2}(X)$ satisfy
+\[
+I_\epsilon := 4 f'(0) \epsilon I(\sigma(\epsilon)) \to h
+\quad \text{ and } \quad
+\two_\epsilon :=  - 4 f'(0) \epsilon \two(\sigma(\epsilon)) \to h
+\quad \text{ as } \epsilon \to 0.
+\]
+Moreover, $I_\epsilon$ and $\two_\epsilon$ are differentiable at $\epsilon = 0$ and their tangent vectors are given by 
+\[
+\dot{I_\epsilon} = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)
+\quad \text{ and } \quad
+\dot{\two_\epsilon} = \dot{\gamma}
+\]
+\end{prop}
+
+\begin{proof}
+We have that $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ is continuous and differentiable at $\epsilon = 0$. 
+Therefore, as $\mathrm{Met}^\infty(X) = \cap_{s > 3} \mathrm{Met}^s(X)$ we also have that $\gamma$ is continuous to $\mathrm{Met}^s$ and differentiable at $\epsilon = 0$. 
+
+Then, we have $I(\sigma(\epsilon)) = I(\frac{1}{f(\epsilon)} \gamma(\epsilon))$ is equal to 
+\[
+4 f(\epsilon) \frac{|B(\gamma(\epsilon))|^2}{\gamma(\epsilon)} + \frac{1}{4 f(\epsilon)}(1 - f(\epsilon) K(\gamma(\epsilon)))^2 \gamma(\epsilon) + 2(1 - f(\epsilon)K(\gamma(\epsilon)))\mathrm{Re}(B(\gamma(\epsilon))),
+\]
+which is a smooth tensor independent of $s$. 
+Since $f:[0,1) \to \R$ and $\gamma:[0,1) \to \mathrm{Met}^s(X)$ are differentiable at 0 and since $K: \mathrm{Met}^s(X) \to H^{s-2}(X)$ and $B: \mathrm{Conf}^s(X) \to \Gamma^{s-2}(\Sigma^{2}(X))$ are differentiable at the hyperbolic metric $h$, we can write 
+\begin{align*}
+f(\epsilon) = \epsilon f'(0) + O(\epsilon^2), \quad
+K(\gamma(\epsilon)) = -1 + O(\epsilon), \quad 
+B(\gamma(\epsilon)) = \frac{1}{2} \phi + O(\epsilon).
+\end{align*}
+
+Substitution and some simplification gives 
+\[
+I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \frac{1}{2} h + \mathrm{Re}(\phi) + O(\epsilon).
+\]
+Consequently, 
+\[
+I_\epsilon =  h + \epsilon(\dot{\gamma} + 2 f'(0)h + 4 f'(0) \mathrm{Re}(\phi)) + O(\epsilon^2).
+\]
+The same reasoning will give 
+\[
+\two_\epsilon = h + \epsilon \dot{\gamma} + O(\epsilon^2).
+\]
+The result then follows.
+\end{proof}
+
+
+We now prove our main result, Theorem \ref{main-thm-intro} from the Introduction. 
+Recall that $[\two]$ denotes the point in Teichm\"uller space corresponding to the conformal class of $-\two$.
+
+
+\begin{thm}\label{main-result}
+Let $S_\epsilon$ for $\epsilon \in (0,1)$ be an asymptotically Poincar\'e family of surfaces with metrics at infinity $\sigma(\epsilon)$. 
+If $h$ is the hyperbolic metric of $X$ and $\phi$  the holomorphic quadratic differential at infinity, then in Teichm\"uller space $\mathcal{T}(X)$ we have 
+\[
+[I(\sigma(\epsilon))] \to [h]
+\quad \text{ and } \quad
+[\two(\sigma(\epsilon))] \to [h]
+\quad \text{ as } \epsilon \to 0.
+\]
+Moreover, the tangent vectors in $T_{[h]} \mathcal{T}(X)$ are given by 
+\[
+\dot{[I(\sigma(\epsilon))]}  = 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{[\two(\sigma(\epsilon))]} = 0.
+\]
+\end{thm}
+
+\begin{proof}
+Using the notation from  Proposition \ref{thm-in-sobolev}, for each $s > 3$ we have that $I_\epsilon$ and $\two_\epsilon$, which are paths through smooth tensors, converge in $\mathrm{Met}^s(X)$ to the hyperbolic metric $h$. 
+Since $\mathrm{Met}^\infty(X)  = \cap \mathrm{Met}^s(X)$ we know that $I_\epsilon$ and $\two_\epsilon$ converge to $h$ in $\mathrm{Met}^\infty(X)$. 
+Moreover, since the projection $\mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ is continuous, and since $[I(\sigma(\epsilon))] = [I_\epsilon]$ and $[\two(\sigma(\epsilon))] = [\two_\epsilon]$, we have that
+\[
+[I(\sigma(\epsilon))] \to [h]
+\quad \text{ and } \quad 
+[\two(\sigma(\epsilon))] \to [h]
+\quad \text{ as } \epsilon \to 0.
+\]
+Since both paths converge to $[h]$ at $\epsilon = 0$ we can extend them to continuous paths $[0,1) \to \mathcal{T}(S)$. 
+Since $[I(\sigma(\epsilon))]$ and  $[\two(\sigma(\epsilon))]$ agree with $[I_\epsilon]$ and $[\two_\epsilon]$, respectively, we also have they are differentiable at $\epsilon = 0$.
+
+From Proposition \ref{thm-in-sobolev} we know that 
+\[
+\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{\two_\epsilon} = \dot{\gamma}.
+\]
+Since $\phi$ is holomorphic, $4 f'(0) \mathrm{Re}(\phi)$ is trace-free and divergence-free. 
+On the other hand, $2 f'(0) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
+Hence, the derivative of the projection at $h$ removes this term.
+Similarly, $\gamma$ is a path in the group orbit of $h$ and so $\dot{\gamma}$ projects to 0. 
+We then have
+\begin{align*}
+\dot{[I(\sigma(\epsilon))]}
+= \dot{[I_\epsilon]}
+= d \pi_h (\dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)) 
+= 4 f'(0) \mathrm{Re}(\phi)
+\end{align*}
+and
+\[
+\dot{[\two(\sigma(\epsilon))]} = \dot{\two_\epsilon} = d \pi_h (\dot{\gamma}) = 0,
+\]
+as claimed.
+\end{proof}

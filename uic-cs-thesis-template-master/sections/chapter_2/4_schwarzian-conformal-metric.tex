@@ -1,0 +1,43 @@
+\section{Schwarzian derivatives of conformal metrics}
+
+
+Osgood and Stowe in \cite{osgood-stowe1992} define a tensor generalizing the Schwarzian derivative in the setting of conformal changes to Riemannian metrics. 
+For two metrics related by $\sigma_2 = e^{2u} \sigma_1$ on a manifold of dimension $n$, they define the Schwarzian tensor as the trace-free part of $\mathrm{Hess}(u) - du \otimes du$, i.e., as
+\[
+\mathrm{Hess}(u) - du \otimes du - \frac{1}{n}\left( \Delta u - \| \nabla u \|^2\right)\sigma_1,
+\]
+with all relevant quantities taken with respect to $\sigma_1$. 
+Following \cite{dumas2017}, in the Riemann surface setting $(n=2)$, we define the Schwarzian derivative of the conformal metric $\sigma_2$ with respect to the conformal metric $\sigma_1$, $B(\sigma_1,\sigma_2)$, as the $(2,0)$ part of Osgood and Stowe's Schwarzian tensor: $B(\sigma_1,\sigma_2) = \left(\mathrm{Hess}(u) - du \otimes du\right)_{(2,0)}$. 
+In a coordinate chart $z$  write $\sigma_i = e^{2\eta_i} |dz|^2$, then the Schwarzian derivative is the quadratic differential 
+ \[
+ B(\sigma_1,\sigma_2) = \left( (\eta_2)_{zz} - (\eta_2)_z^2 - (\eta_1)_{zz} + (\eta_1)_z^2 \right) dz^2.
+ \]
+As opposed to the Schwarzian derivative of a function, this need not be holomorphic. 
+However, when $f$ is locally injective and holomorphic we have
+ \[
+ \mathcal{S}(f) = 2B(|dz|^2,f^*|dz|^2).
+ \]
+ 
+ 
+We also have a cocycle property $B(\sigma_1,\sigma_3) = B(\sigma_1,\sigma_2) + B(\sigma_2,\sigma_3)$ and naturality $f^*B(\sigma_1,\sigma_2) = B(f^*\sigma_1,f^*\sigma_2)$ (again, for $f$ holomorphic). 
+When $\sigma$ is a conformal metric on a domain in $\C$ and $B(|dz|^2,\sigma) = 0$, there exists a constant $a > 0$ and $A \in \text{SL}(2,\C)$ such that $aA^*\sigma$ is the restriction of either the hyperbolic metric on the unit disk, the Euclidean metric on $\C$, or the spherical metric on $\CP^1$. 
+Such metrics $\sigma$ are called a M\"obius flat metrics and the notation $g_{\CP^1}$ will denote any choice of M\"obius flat metric, indicating the specific choice does not matter. 
+Working in an affine coordinate chart $z$ for $\CP^1$, the cocycle property gives us that the Schwarzian derivative of $\sigma = e^{2\eta}|dz|^2$ relative to any M\"obius flat metric may be computed by
+ \[
+ B(g_{\CP^1},\sigma) = (\eta_{zz} - \eta_{z}^2 )dz^2.
+ \]
+
+
+Suppose we have a complex projective surface $Z$ whose underlying complex structure is $X$. 
+Then we may compute the holomorphic quadratic differential $\phi = Z - Z_F$ corresponding to $Z$ using the Schwarzian derivative of conformal metrics (see \cite{dumas2007}). 
+Indeed, we know $\phi$ is induced by $\tilde{\phi} = S(f)$, the quadratic differential on $\tilde{X}$ that is the Schwarzian of the Riemann map $\tilde{X} \to \H$. 
+Then, noting that the Poincar\'e metric $h$ of $\tilde{X}$ is the pullback of the standard Poincar\'e metric $\rho$ on $\H$ by $f$, we can compute
+\begin{align*}
+\tilde{\phi}
+= S(f)
+= 2B(|dz|^2,f^*|dz|^2)
+&= 2B(|dz|^2,f^*\rho) + 2B(f^*\rho,f^*|dz|^2) \\
+&= 2B(|dz|^2,h) + 2f^*B(\rho,|dz|^2)
+= 2B(g_{\CP^1},h).
+\end{align*}
+That is, $\phi$ is induced by the Schwarzian derivative of the Poincar\'e metric of $\tilde{X}$ relative to any M\"obius flat metric $g_{\CP^1}$.

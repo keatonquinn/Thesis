@@ -1,0 +1,44 @@
+\section{Sobolev spaces on manifolds}
+\label{sobolev}
+
+
+
+The Sobolev setting is useful because they form Banach spaces, which enjoy the standard tools of analysis. Most notably, the familiar inverse and implicit function theorem are available in this setting.  
+
+To define the relevant Sobolev spaces on the closed surface $S$ we need to fix a background Riemannian metric, the natural choice being the hyperbolic metric $h$. 
+Let $\nabla$ be its Levi-Civita connection. 
+Both $h$ and $\nabla$ extend to metrics and connections on all the tensor bundles on $S$ made from $TS$ and $T^*S$. 
+Hence all tensor bundles have a norm induced by $h$. 
+Let $\mathscr{T}^{(k,l)}(S)$ be the space of smooth $(k,l)$-tensor fields on $S$. 
+The space $W^{s,p}(\mathscr{T}^{(k,l)}(S))$ will denote the space of Sobolev tensors. 
+It is the completion of $\mathscr{T}^{(k,l)}(S)$ under the norm
+\[
+\|T\|_{s,p} = \left( \sum_{j = 0}^s \int_S | \nabla^j T|^p \ dVol(h) \right)^{1/p}.
+\]
+Here $\nabla^j$ is the iterated covariant derivative ($j$-times). 
+
+Compactness of $S$ is vital here as it guarantees this norm is finite. 
+These Sobolev spaces are Banach spaces and when $p = 2$ they are Hilbert spaces. 
+We will denote them by $H^s(\mathscr{T}^{(k,l)}(S))$ (note: this is not cohomology). 
+The spaces in which we will be most interested are the Sobolev spaces of real-valued functions $H^s(S,\R)$, metrics $\mathrm{Met}^s(S)$, and conformal metrics $\mathrm{Conf}^s(X)$.
+
+Sobolev functions (or tensors) that satisfy an equation in the sense of distributions are called weak solutions to the equation. 
+On $S$, where the dimension is 2, the Sobolev Embedding Theorem on smooth surfaces guarantees that weak solutions in $H^s$ for $s \geq 3$ are actually strong solutions, being $C^{2,\alpha}$-regular \cite{aubin1982}. 
+We will therefore assume $s \geq 3$ from now on. 
+We also note that $C^\infty = \cap_s H^s$.
+
+
+In this Sobolev setting the space of symmetric 2-tensors is a Hilbert space. Hence, the tangent space to $\mathrm{Met}^s(X)$ at $g$ may is a be decomposed as the orthogonal sum
+\[
+T_g \mathrm{Met}^s(X) = \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \} \oplus \{\mathcal{L}_X g + fg \ |\ f \in H^s \text{ and } X \in \Gamma(TX) \},
+\] 
+where $\mathrm{div}_g(\dot{g})$ is the divergence of the 1-1 tensor $g^{-1}\dot{g}$. 
+The second summand is tangent to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $g$ and the first summand is the transverse traceless tensors consisting of elements that are smooth, trace-free, and divergence-free (see \cite{fischer-marsden1975} for more details). 
+Since the transverse traceless tensors are orthogonal to the group orbit they may be identified with the tangent space $T_{[g]} \left( \mathrm{Met}^s(X)/ \mathrm{Diff}_0^s(X) \rtimes P^s(X) \right)$ to the quotient at $[g]$. 
+Moreover transverse traceless tensors are a set of smooth tensors that are $L^2$ orthogonal to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit \textit{for any} $s$. 
+Consequently, they may be identified with the tangent space to the quotient $\mathrm{Met}^\infty(X)/(\mathrm{Diff}_0^\infty(X) \rtimes P^\infty(X))$. 
+That is, they may be naturally identified with the tangent space to Teichm\"uller space at $[g]$:
+\[
+T_{[g]} \mathcal{T}(X) = \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \}.
+\]
+Under this identification, the action of the derivative of the projection $\pi: \mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ at $g$ is given by orthogonal projection onto the transverse traceless tensors $T_g \mathrm{Met}^\infty(X) \to \{\dot{g} \ | \ \mathrm{tr}_g (\dot{g}) = 0 = \mathrm{div}_g(\dot{g}) \}$.

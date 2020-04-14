@@ -1,0 +1,135 @@
+\section{The Epstein map}
+
+
+As an inverse to the visual metric construction above, the Epstein map takes a domain $\Omega$ in $\CP^1$ and a conformal metric $\sigma$ on $\Omega$ and describes a strictly convex surface $f: \Omega \to \H^3$. 
+This surface has the property that $V_{f(z)}(z) = \sigma(z)$ and this property can be used to derive a formula for the surface. 
+Specifically, expanding upon this last condition and using the affine parameter discussed above, we see that 
+\[
+\sigma(z) = V_{f(z)}(z) = e^{2 [f(z),z]} \overset{\circ}{\sigma}(z),
+\]
+or that $f(z)$ lies on the horosphere based at $z$ with affine parameter
+\[
+[f(z),z] = \frac{1}{2} \log \left( \frac{\sigma(z)}{\overset{\circ}{\sigma}(z)} \right) =: \rho(z).
+\]
+Hence, we know which horosphere based at $z$ that $f(z)$ must lie on. 
+
+There is a convenient choice of normal vector field. 
+At $f(z)$, the geodesic in the direction $n(f(z))$ must end at $z$ in order for $f$ to be an inverse to the visual metric construction. 
+The normal vectors to a horosphere pointing to its base have this property, so we define $n(f(z))$ to be the normal vector to the horosphere based at $z$ with affine parameter $\rho(z)$. 
+Since $n$ must be normal to the image surface $S = f(\Omega)$, this identifies the tangent spaces to the sought-after $S$ with the tangent spaces to the horospheres. 
+And this identifies the surface $S$ with the envelope of the family of horospheres
+\[
+\mathcal{H}(\Omega,\sigma) = \{ \text{Horosphere based at $z$ with parameter $\rho(z)$} \ | \ z \in \Omega \}.
+\]
+
+
+In \cite{epstein1984}, Epstein derives an equation for such an envelope. 
+Working in the ball model and taking $z$ both as a point in $\CP^1 \cong S^2$ as well as a unit vector in $\R^3$, he shows the desired map is 
+\[
+\mathrm{Ep}_\sigma(z) = \frac{|\overset{\circ}{\nabla}\rho(z)|^2 + e^{2\rho(z)} - 1}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} z + \frac{2}{|\overset{\circ}{\nabla}\rho(z)|^2 + (e^{\rho(z)}+1)^2} \overset{\circ}{\nabla}\rho(z),
+\]
+where $\overset{\circ}{\nabla}\rho$ is the gradient of $\rho$ with respect to the spherical metric on $S^2$. 
+This construction leads to the following theorem. 
+
+
+\begin{thm}[Epstein \cite{epstein1984}]
+Let $\Omega$ be a domain in $\CP^1$  and $\sigma$ a $C^k$ conformal metric on $\Omega$, then there exists a unique $C^{k-1}$ map $\mathrm{Ep}_\sigma : \Omega \to \H^3$, called the Epstein map of $\Omega$ for the metric $\sigma$, such that for all $z \in \Omega$,
+\[
+V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z).
+\]
+Moreover, the image of a point $z$ depends only on the 1-jet of $\sigma$ at $z$.
+\label{epstein-map-def}
+\end{thm}
+
+Epstein's original construction uses the ball model of hyperbolic space to define the Epstein map. 
+In \cite{dumas2017}, Dumas gives a model independent definition of the map using an $\text{SL}_2\C$-frame field. 
+It proceeds as follows. 
+Choose an affine coordinate chart $z$ on $\CP^1$ that distinguishes a point $0 \in \Omega$ and $\infty \notin \Omega$. 
+Then, on the geodesic in $\H^3$ with ideal endpoints $0$ and $\infty$, there exists a unique point $p$ such that the visual metric from $p$ at $0$ is the Euclidean metric of this affine chart, $V_p(0) = |dz|^2$. 
+The Epstein map is an $\mathrm{SL}_2\C$-frame orbit of this point.     
+
+
+\begin{prop}[\cite{dumas2017}]
+On a domain $\Omega$ in $\CP^1$ write $\sigma = e^{2\eta}|dz|^2$. Define the $\mathrm{SL}_2,\C$-frame field $\widetilde{\mathrm{Ep}}_\sigma: \Omega \to \mathrm{SL}_2\C$ by 
+\[
+\widetilde{\mathrm{Ep}}_\sigma(z) =
+\begin{pmatrix}
+1 & z \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+\eta_z & 1
+\end{pmatrix}
+\begin{pmatrix}
+e^{-\eta/2} & 0 \\
+0 & e^{\eta/2}
+\end{pmatrix},
+\]
+then the Epstein map is given by 
+\[
+\mathrm{Ep}_\sigma(z) = \widetilde{\mathrm{Ep}}_\sigma(z) \cdot p.
+\]
+\end{prop}
+
+ 
+
+Even though we call the image an Epstein surface, the Epstein map need not be an immersion. 
+Indeed, if $\sigma$ is itself a visual metric then the Epstein map for $\sigma$ is constant. 
+However, the lift of $\mathrm{Ep}_\sigma$ from $\Omega$ to the unit tangent bundle of hyperbolic space given by 
+\[
+\widehat{\mathrm{Ep}}_\sigma(z) = (\text{Ep}_\sigma(z),z) 
+\] 
+is an immersion (here we are using the trivialization $U\H^3 \cong \H^3 \times \CP^1$ defined above). 
+This lift can be thought of as providing a unit ``normal'' vector field for the Epstein surface even when the Epstein map is not an immersion. 
+Indeed, this lift agrees with a unit normal vector field when the surface is immersed and so we will simply refer to it as the normal field from now on. 
+
+Because the Epstein map is unique, it is natural with respect to the action of $\mathrm{SL}_2\C$ in the following sense. 
+Suppose $M \in \mathrm{SL}_2\C$, then the following diagram commutes:
+\[
+\begin{tikzpicture}[scale=0.9]
+\node (1) at (0,2) {$(\Omega,\sigma)$};
+\node (2) at (3,2) {$(M(\Omega),M_*\sigma)$};
+\node (3) at (0,0) {$\H^3$};
+\node (4) at (3,0) {$\H^3$};
+
+
+\draw[->] (1) to node [above] {$M$} (2);
+\draw[->] (1) to node [left] {$\mathrm{Ep}$} (3);
+\draw[->] (3) to node [above] {$M$} (4);
+\draw[->] (2) to node [right] {$\mathrm{Ep}$} (4);
+\end{tikzpicture}
+\]
+That is, $\mathrm{Ep}_{M_*\sigma}(M(z)) = M( \mathrm{Ep}_{\sigma}(z))$. 
+This is because both $M \circ \mathrm{Ep}_\sigma$ and $\mathrm{Ep}_{M_*\sigma} \circ M$ as maps on $\Omega$ satisfy the visual metric condition from Theorem \ref{epstein-map-def} (see \cite{anderson1998} for more details ).
+
+This allows us to define Epstein maps on certain quotients. 
+Suppose in general that $\Gamma$ is a subgroup of $\mathrm{SL}_2\C$ acting freely and properly discontinuously on $\H^3 \cup \CP^1$ leaving a domain $\Omega$ invariant. 
+Then $\Omega/\Gamma$ inherits a Riemann surface structure. 
+Call this structure $X$ and let $\sigma$ be a conformal metric  on $X$.
+Lift this to $\tilde{\sigma}$ on $\Omega$, which is $\Gamma$-invariant. 
+Then $\mathrm{Ep}_{\tilde{\sigma}}: \Omega \to \H^3$ is $\Gamma$-equivariant and therefore descends to a map $\mathrm{Ep}_\sigma : X \to \H^3/ \Gamma$. 
+In particular, when $\Gamma$ is a quasi-Fuchsian group and $\Omega$ a component of the domain of discontinuity, each conformal metric $\sigma$ on the surface at infinity $X$ gives rise to a map from $X$ into the quasi-Fuchsian manifold $M$.
+
+Uniqueness also shows us that the surfaces parallel to an Epstein surface are themselves Epstein surfaces. 
+More specifically, let $g^t : U \H^3 \to \H^3$ denote the time-$t$ geodesic flow projected down to $\H^3$.
+Thus for a unit tangent vector $v$ on $\H^3$ we have $g^t(v) = \exp_p(tv)$.
+Using the lift of an Epstein surface to $U\H^3$ described above, each Epstein surface gives rise to a family of surfaces by applying the geodesic flow (and projecting to $\H^3$). 
+That is, we have the flowed surfaces $g^t \circ \widehat{\mathrm{Ep}}_\sigma(\Omega)$. 
+These surfaces are themselves Epstein surfaces corresponding to scalar multiples of $\sigma$. 
+Indeed, since the parallel flow of a horosphere is a horosphere, we know $[g^t(\widehat{\mathrm{Ep}}_\sigma(z)),z] = [\mathrm{Ep}_\sigma(z),z] + t$. 
+This shows us
+\[
+V_{g^t(\widehat{\mathrm{Ep}}_\sigma(z))}(z) = e^{2[g^t(\widehat{\mathrm{Ep}}_\sigma(z)),z]}\overset{\circ}{\sigma}(z) = e^{2t}e^{2[\mathrm{Ep}_\sigma(z),z]}\overset{\circ}{\sigma}(z) = e^{2t}\sigma(z).
+\]
+But the unique map that satisfies this equality is $\mathrm{Ep}_{e^{2t}\sigma}$. 
+In summary, we have the following lemma, attributed to Thurston (unpublished work) by Epstein in \cite{epstein1984}.
+\begin{lem}
+\label{epstein-flow}
+Let $\Omega$ be a domain in $\CP^1$ and $\sigma$ a conformal metric on $\Omega$.
+Then 
+\[
+g^t \circ \widehat{\mathrm{Ep}}_\sigma  = \mathrm{Ep}_{e^{2t} \sigma}.
+\]
+That is, flowing the Epstein surface for $\sigma$ for time $t$ in the normal direction corresponds to taking the Epstein surface for the metric $e^{2t}\sigma$.
+\end{lem}

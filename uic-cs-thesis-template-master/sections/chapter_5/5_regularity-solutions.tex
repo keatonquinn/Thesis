@@ -1,0 +1,114 @@
+\section{Regularity of solutions}
+\label{regularity}
+
+
+Theorem \ref{weak-solutions} furnishes weak solutions $\gamma(k)$ that vary smoothly as a map $V \to \mathrm{Conf}^s(X)$. 
+The Sobolev Embedding Theorem immediately strengthens the regularity of the individual $\gamma(k)$ to at least $C^{2,\alpha}$, for each $k$ (see \cite{aubin1982}), and so we have strong solutions $F(k,\gamma(k)) = 0$.
+
+ 
+A nonlinear equation $A(u) = 0$ is said to be elliptic at $u$ if the derivative of $A$ at $u$, $DA_u$, is an elliptic linear operator. 
+When $A$ is smooth, solutions $u$ where $A$ is elliptic are also smooth \cite[Lemma 17.16]{gilbarg-trudinger2001}. 
+In our case, since $D_2F_{(0,h)} = -2(\Delta_h - Id)$ is an elliptic operator we have $F(0, \tau) = 0$ is elliptic at $\tau = h$. 
+Moreover, ellipticity is an open condition in $\R \times C^2(X)$, so there exists an open interval $(-\delta,\delta)$ such that the linearization $D_2F(k,\gamma(k))$ is elliptic for all $k \in (-\delta,\delta)$.
+This has two consequences.
+First, it shows the solutions given by Theorem \ref{weak-solutions} are individually smooth conformal metrics.
+We conclude the following theorem.
+
+\begin{thm}
+\label{k-surfaces-existence}
+There exists an $\delta > 0$ such that for all $-\delta < k < 0$ there exists a unique smooth metric $\sigma_k$ whose Epstein surface is a $k$-surface.
+\end{thm}
+
+\begin{proof}
+We have a curve $\gamma$ defined on an interval $(-\delta, \delta)$ such that the smooth metric $\gamma(k)$ satisfies $F(k,\gamma(k)) = 0$. 
+This means that $\gamma(k)$ solves the scaled equation (\ref{scaled-equation}) and so 
+\[
+\sigma_k = f(k)^{-1} \gamma(k) =  \frac{1 + \sqrt{1+k}}{1 - \sqrt{1+k}} \, \gamma(k),
+\]
+defined for $k \in (-\delta,0)$, solves the $k$-surface equation (\ref{k-surface-equation}). 
+
+Finally, we must show that $(1-K(\sigma))^2 - 16|B(g_{\CP^1},\sigma)|^2\sigma^{-2}$ in (\ref{k-surface-equation}) is everywhere nonzero so that (\ref{k-surface-equation}) is equivalent to the desired Guassian curvature condition.
+But this follows from Nehari's Theorem (see \cite[Theorem 1.3]{lehto-1987}, or the original paper \cite{nehari-1949}), which gives an a priori bound on $|B(h)|^2/h^2$ (recall $B(h)$ is the Schwarzian derivative of an injective holomorphic map), implying that $|B(\sigma_k)|^2/\sigma_k^2 \to 0$ as $k \to 0$. 
+Hence by shrinking $\delta$ if necessary to make $k$ small enough, this expression is nonzero and so we may rearrange $(\ref{k-surface-equation})$ to get that $\sigma_k$ produces a $k$-surface: $K(I(\sigma_k)) = k$.
+\end{proof}
+
+Second, ellipticity also implies the family $\gamma(k)$ varies smoothly in $k$ in the $C^\infty$ topology. 
+
+\begin{prop}
+There exists a neighborhood $U$ of $0$ and a smooth path $\gamma: U \to \mathrm{Conf}^\infty(X)$ such that $F(k,\gamma(k)) = 0$ for all $k \in U$. 
+\end{prop}
+
+\begin{proof}
+Since $\mathrm{Conf}^\infty(X) = \cap \mathrm{Conf}^s(X)$, it suffices to show there exits a neighborhood $U$ of 0 and a function $\gamma: U \to \mathrm{Conf}^\infty(X)$ such that for all sufficiently large $s$, the function $\gamma: U \to \mathrm{Conf}^s(X)$ is a smooth path.
+
+To this end, apply The Implicit Function Theorem to the smooth function $F: (-1,1) \times \mathrm{Conf}^s(X) \to H^{s-2}(X)$ at $(0,h)$ to get a solution interval $U_s$ around $0$ and a unique smooth path $\gamma_s: U_s \to \mathrm{Conf}^s(X)$ such that $F(k, \gamma_s(k))=0$ for all $k \in U_s$. 
+The partial derivative $D_2F(0,h)$ is elliptic, so there exists a neighborhood $U'$ of 0 such that for all $k \in U'$, $D_2F(k,\gamma_s(k))$ is elliptic. 
+Define $U = U_s \cap U'$.
+
+Fix $t > s$. 
+The partial derivative $D_2F(0,h): H^t(X) \to H^{t-2}(X)$ is still an isomorphism and so the Implicit Function Theorem may be applied again to get a solution interval and path. 
+Let $U_t$ be the maximal interval around $0$ such that a solution path $\gamma_t: U_t \to \mathrm{Conf}^t(X)$ exists and is smooth, and such that $D_2F(k,\gamma_t(k))$ is elliptic. 
+We have $U_t \subset U$ with $\gamma_t = \gamma_s$ on $U_t$ by uniqueness. 
+We want $U_t = U$. 
+
+Assume towards a contradiction that $U_t$ is a proper subset of $U$ and that the supremum of $U_t$ is an element of $U$, call it $k$. 
+Then \textit{if} we can show $D_2F(k,\gamma_s(k)) : H^t(X) \to H^{t-2}(X)$ is an isomorphism, then we may apply the Implicit Function Theorem to get an interval $V$ around $k$ and a smooth curve $\alpha: V \to \mathrm{Conf}^t(X)$ that agrees with $\gamma_t$ to the left of $k$. 
+By uniqueness we may extend $\gamma_t$ using $\alpha$ to $U_t \cup V$. 
+This contradicts maximality of $U_t$. 
+Hence the supremum of $U_t$ does not belong to $U$. 
+A similar argument can be made regarding the infimum of $U_t$ to show it does not belong to U. 
+Hence, since both $U_t$ and $U$ are intervals, we must have $U_t = U$.
+Again, this is provided we can show $D_2F(k,\gamma_s(k)) : H^t(X) \to H^{t-2}(X)$ is an isomorphism.
+We do this now. 
+
+Since $k \in U$ we know $D_2F(k,\gamma_s(k))$ is an elliptic operator. 
+Hence it is a Fredholm operator from $H^t(X) \to H^{t-2}(X)$. 
+If a Fredholm operator has trivial kernel and index 0, then it is an isomorphism. 
+Note that the index of a family of Fredholm operators is constant on connected components of the domain of the parameter of the family \cite[Section 3.7]{lawson-michelsohn1989}. 
+Since $U$ is connected, the index of $D_2F(k,\gamma_s(k))$ is the same as the index of $D_2F(0,h)$. 
+The latter is an isomorphism and so has index 0. 
+Thus $D_2F(k,\gamma_s(k))$ has index zero. 
+To show it has trivial kernel, suppose there exists a function $f \in H^t(X)$ such that $D_2F(k,\gamma_s(X))f = 0$. 
+Then since $f \in H^s(X)$ we also have $f$ is in the kernel of the map $D_2F(k,\gamma_s(k)): H^s(X) \to H^{s-2}(X)$. 
+But $k$ is in $U$ so $D_2F(k,\gamma_s(k))$ is an isomorphism from $H^s(X) \to H^{s-2}(X)$. 
+Thus, we get $D_2F(k,\gamma_s(k))$ has trivial kernel and index 0 as a map $H^t(X) \to H^{t-2}(X)$ and therefore it is an isomorphism. 
+
+\end{proof}
+
+
+\begin{cor}
+\label{k-surfaces-parallel}
+The family of $k$-surfaces forms an asymptotically Poincar\'e family of surfaces. 
+\label{k-surfaces-cor}
+\end{cor}
+
+\begin{proof}
+We show that $\tilde{\sigma}(\epsilon) = \sigma_{-\epsilon}$ satisfies the hypotheses of Proposition \ref{asym-family-prop}. 
+Since $\mathrm{Conf}^\infty(X) = \cap \mathrm{Conf}^s(X)$ and since $\gamma$ is smooth on $(-\delta,\delta)$ into $\mathrm{Conf}^s(X)$ for all $s > 3$, we have the $\gamma$ is smooth into $\mathrm{Conf}^\infty(X)$.
+Now, define $\tilde{f}(\epsilon) = f(- \epsilon)$ and $\tilde{\gamma}(\epsilon) = \gamma(-\epsilon)$ for $\epsilon \in (0,\delta)$. 
+Then the Corollary follows from Proposition \ref{asym-family-prop} since $\tilde{f}$ is smooth on $[0,\delta)$ with derivative $\tilde{f}'(0) = 1/4$, since $\tilde{\gamma}$ is differentiable, and since $\tilde{f}(\epsilon) \tilde{\sigma}(\epsilon) = \tilde{\gamma}(\epsilon) = \gamma(k) \to h$ as $\epsilon \to 0$.
+\end{proof}
+
+
+Our Theorem \ref{k-surfaces-existence} is another proof of the existence of these $k$-surfaces, for $k$ close to zero. 
+By the uniqueness result of Theorem 1.10 in \cite{labourie1992}, given an end of $M$ and $k \in (-1,0)$, there exists a unique immersed incompressible $k$-surface. 
+Since Epstein surfaces are incompressible, the $k$-surfaces produced by our Theorem \ref{k-surfaces-existence} are the $k$-surfaces Labourie obtains. 
+Our approach here is more concrete than the methods used by Labourie. 
+In return for sacrificing the generality of Labourie's pseudoholomorphic methods, a proof of Labourie's conjecture follows easily. 
+Corollary \ref{k-surfaces-parallel} gives that, for $k$ near zero, these $k$-surfaces form an asymptotically Poincar\'e family, and so by Theorem \ref{main-result} we know how the tangent vectors to the families relate to the holomorphic quadratic differential at infinity. 
+
+\begin{thm} \label{labourie-conjecture-proof}
+Let $I_k$ and $\two_k$ be the first and second fundamental forms of the $k$-surface. 
+Let $\phi$ be the holomorphic quadratic differential at infinity of $M$. 
+Then, as $k \to 0$, Then, as $k \to 0$, the tangent vectors to $[I_k]$ and $[\two_k]$ in Teichm\"uller space are given by 
+\[
+\dot{[I_k]} = - \mathrm{Re}(\phi) \quad \text{and } \quad   \dot{[\two_k]} = 0.
+\]
+\end{thm}
+
+\begin{proof}
+We take $\epsilon = -k$. 
+The derivative $f'(0) = -1/4$ can be computed directly. 
+Theorem \ref{main-result} now gives the theorem.
+\end{proof}
+This is Theorem \ref{k-surfaces-intro} from the Introduction.

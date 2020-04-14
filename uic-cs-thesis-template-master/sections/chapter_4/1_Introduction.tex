@@ -1,0 +1,101 @@
+Previously, we have discussed Epstein surfaces for domains and for quotients. 
+Generalizing this, we say a surface $i : S \to M$ is an Epstein surface of $X$ if there exists a $\Gamma$-invariant conformal metric $\tilde{\sigma}$ on $\Omega$ and a diffeomorphism $\varphi : X \to S$ in the preferred homotopy class (see Section \ref{quasi-fuchsian}) such that the diagram 
+\[
+\begin{tikzpicture}[scale=0.7]
+\node (1) at (0,2) {$\Omega$};
+\node (2) at (3,2) {$\H^3$};
+\node (3) at (0,0) {$S$};
+\node (4) at (3,0) {$M$};
+
+
+\draw[->] (1) to node [above] {$\mathrm{Ep}_{\tilde{\sigma}}$} (2);
+\draw[->] (1) to node [left] {$\varphi \circ \pi_X$} (3);
+\draw[->] (3) to node [above] {$i$} (4);
+\draw[->] (2) to node [right] {$\pi_M$} (4);
+
+\end{tikzpicture}
+\]
+commutes. 
+Here the $\pi_X$ and $\pi_M$ are the respective quotient maps $\Omega \to X$ and $\H^3 \to M$.
+When $S$ is an Epstein surface of $X$, the conformal metric $\tilde{\sigma}$ induces a conformal metric $\sigma$ on $X$ that we call the conformal metric at infinity. 
+We have $\mathrm{Ep}_{\sigma} = \varphi \circ i$. 
+The Epstein surface $S$ will then refer to the embedded image of $\mathrm{Ep}_{\sigma}: X \to M$. 
+
+Since $X$ is a closed surface of genus at least 2, it possesses a unique hyperbolic conformal metric $h$. 
+Hence, there is a distinguished Epstein surface in $M$. 
+
+\begin{defn}
+The Poincar\'e surface of $X$ is the Epstein induced by the Poincar\'e metric of $\Omega$. 
+Since the Poincar\'e metric induces the hyperbolic metric $h$ on $X$, the Poincar\'e surface of $X$ is the Epstein surface $\mathrm{Ep}_h: X \to M$.
+\end{defn}
+
+
+Again, we call this a surface but it need not be immersed. 
+In fact, we can identify cases when it is not. 
+When $\sigma = h$ we know $K(h) = -1$ and $B(h) = \frac{1}{2}\phi$. 
+Then using the formula for determinant of $I(h)$ given in Section \ref{epstein-geometry}, we compute
+\[
+\det(I(h)) = 16 \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
+\]
+And so we see $\mathrm{Ep}_h$ is not an immersion at points in $X$ where $\frac{|\phi|}{h} =1$. 
+However, by parallel flowing of the Poincar\'e surface we eventually obtain an immersed (embedded, actually) surface, which we now discuss. 
+
+
+The Poincar\'e surface together with its parallel copies forms a family of surfaces we call the Poincar\'e Family. 
+Recall from Lemma \ref{epstein-flow} that the parallel copies are given as the Epstein surfaces $\mathrm{Ep}_{e^{2t}h}: X \to M$ for $t \geq 0$. 
+This family of surfaces has been a useful tool for studying the geometry of hyperbolic 3-manifolds, see e.g., \cite{anderson1998}, \cite{bromberg2004}, \cite{krasnov-schlenker2008}, and \cite{bridgeman-brock-bromberg2019}.
+The surfaces in the Poincar\'e family are eventually embedded as was shown by Anderson \cite{anderson1998} who obtained a specific bound on $t$ that implied embededness. 
+We omit the proof here as we will show a more general result in Proposition \ref{asym-family-prop}. 
+Although we will show a bound for $t$ after which the Epstein surface for $e^{2t}\sigma$ is immersed. 
+Denote by $\|B(\sigma)\|_\sigma$ and $\|K(\sigma)\|$ the supremums over $X$ of the functions $|B(\sigma)|/\sigma$ and $K(\sigma)$, then we have the following.
+
+\begin{lem}\label{parallel-family-immersed}
+Let $\sigma$ be a conformal metric on $X$. 
+If 
+\[
+t > \log  \sqrt{ 4 \|B(\sigma)\|_\sigma + \|K(\sigma)\|},
+\]
+then $\mathrm{Ep}_\sigma: X \to M$ is an immersion.
+\end{lem}
+
+\begin{proof}
+If $t$ satisfies this bound then we have
+\[
+e^{2t} > 4 \|B(\sigma)\|_\sigma + \|K(\sigma)\| > 4 \frac{|B(\sigma)|}{\sigma} + K(\sigma)
+\]
+Rearranging and simplifying, this implies that 
+\[
+(e^{2t} - K(\sigma))^2 - 16\frac{|B(\sigma)|^2}{\sigma^2} > 0.
+\]
+It then follows that $\det(I(e^{2t}\sigma)) > 0$ so that $I(e^{2t}\sigma)$ is positive definite. 
+\end{proof}
+
+In the Poincar\'e case the this becomes $t > \log \sqrt{2\|\phi\|_h + 1}$, which is the bound obtained by \cite{anderson1998}, although we do not get embeddedness from this lemma. 
+
+So, the Poincar\'e family is the family of Epstein surfaces for the conformal metrics at infinity $\rho_t = e^{2t}h$ and for $t$ sufficiently large these surfaces are embedded. 
+We now discuss their asymptotic behavior. 
+In order to consider derivatives more easily, let us reparametrize the Poincar\'e family using $\epsilon = e^{-2t}$, so that $\rho_\epsilon = h/\epsilon$. 
+We are interested in the behavior as $\epsilon \to 0$. 
+
+Using the formula for the first fundamental form of an Epstein surface we can compute
+\[
+I(\rho_\epsilon) = \frac{1}{4\epsilon} h + \frac{1}{2} h + \mathrm{Re}(\phi) + \epsilon \left( \frac{1}{4} h + \mathrm{Re}(\phi) + \frac{|\phi|^2}{h} \right).
+\]
+We can therefore consider the Poincar\'e family as a path in the space of metrics $\mathrm{Met}(S)$. 
+The following arguments are formal; they will be made precise in the next section. 
+We see the family of first fundamental forms diverges as $\epsilon \to 0$. 
+However, rescaling gives
+\[
+4\epsilon I(\rho_\epsilon) = h + 4\epsilon \left( \frac{1}{2}h + \mathrm{Re}(\phi) \right) + O(\epsilon^2).
+\]
+And so, if we project to the quotient, we can consider the Poincar\'e family as a path in Teichm\"uller space that converges: $[I(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$. 
+Moreover, differentiating at $0$ yields
+\[
+\left. \frac{d}{d\epsilon} \right|_{\epsilon = 0} \ 4\epsilon I(\rho_\epsilon) = 2h + 4 \mathrm{Re}(\phi).
+\]
+Since $2 h $ is pure-trace (with respect to $h$) and since $\mathrm{Re}(\phi)$ is an $h$-transverse-traceless tensor by Lemma \ref{tangent-teich}, we see the tangent vector to this path in Teichm\"uller space at $[h]$ is $\dot{[I(\rho_\epsilon)]} = d \pi_h (2h + 4 \mathrm{Re}(\phi)) = 4 \mathrm{Re}(\phi)$. Similar computations apply to $\two(\rho_\epsilon)$ and show that $[\two(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$ with tangent vector given by $\dot{[\two(\rho_\epsilon)]} = 0$. 
+
+Summarizing: The Poincar\'e family has the property that the surfaces form a parallel family foliating the end of $M$ such that the paths $[I(\rho_\epsilon)] \to [h]$ and $[\two(\rho_\epsilon)] \to [h]$ in Teichm\"uller space as $\epsilon \to 0$, and $\dot{[I(\rho_\epsilon)]} = 4 \mathrm{Re}(\phi)$ and $\dot{[\two(\rho_\epsilon)]} = 0$. 
+It turns out the only thing needed about the the Poincar\'e family to obtain these results is that there is a function $f$ so that $f(\epsilon)\rho_\epsilon \to h$ as $\epsilon \to 0$. 
+The function here is the identity $f(\epsilon) = \epsilon$. 
+In the next section we introduce a generalization of the Poincar\'e family and discuss the corresponding results that are true for this generalization.

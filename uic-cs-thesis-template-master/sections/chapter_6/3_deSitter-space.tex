@@ -1,0 +1,29 @@
+\section{Extension to de Sitter space}
+
+There is a duality between hyperbolic space and de Sitter space, see \cite{schlenker2002}, which we now briefly discuss. 
+Hyperbolic space may be modeled as the hyperboloid in Minkowski space $\R^{3,1}$ as the collection of points $x = (x_1,x_2,x_3,x_4)$ satisfying $\left< x , x \right> = x_1^2 + x_2^2 + x_3^2 - x_4^2 = -1$ and $x_4 > 0$. 
+The tangent space to $\H^3$ at a point $x$ consists of all $v \in \R^{3,1}$ such that $\left<x,v\right> = 0$.
+The de Sitter space $dS^3$ is the locus of points in Minkowski space with $\left<x,x\right> = + 1$ and the tangent space at $x$ is similarly the orthogonal complement of $x$.
+The de Sitter space with the induced metric is a 3-dimensional Lorentzian manifold of constant sectional curvature $+1$. 
+
+Given a point $x \in dS^3$, the tangent space $T_xdS^3$ is a hyperplane in $\R^{3,1}$ and its intersection with $\H^3$ is called the dual of $x$.
+Given a smooth, oriented, strictly convex surface $S$ in $\H^3$, the dual surface $S^*$ is defined as the set of points in $dS^3$ whose duals are tangent to $S$.
+This dual surface is space-like and convex, and if we denote by $I,\two, I\!\!I\!\!I$ and $I^*,\two^*,I\!\!I\!\!I^*$ the first, second, and third fundamental forms of $S$ and $S^*$, respectively, we have $I^* = I\!\!I\!\!I$ and $\two^* = \two$ and $I\!\!I\!\!I^* = I$ (see \cite{labourie1992}).
+
+This correspondence extends to a duality between hyperbolic ends of 3-manifolds and certain de Sitter space-time 3-manifolds (see \cite{mess2007}).
+Therefore, fix a quasi-Fuchsian manifold and an end $E$.
+Let $E^*$ be the corresponding de Sitter space-time.
+The $k$-surface $S_k$ in $E$ has a dual surface $S_k^*$ in $E^*$ which also has constant Gaussian curvature, as shown by a computation. 
+One can show, see \cite{labourie1992}, that the induced metric $I_k^*$ on $S_k^*$ also satisfies$[I_k^*] \to [h]$ in $\mathcal{T}(S)$ as $k \to 0$. 
+Hence the paths $[I_k]$ and $[I_k^*]$ meet at $[h]$ when $k = 0$. 
+
+A preliminary calculation shows that $\dot{[I_k^*]} = +\mathrm{Re}(\phi)$, and so if one forms the concatenated path $\gamma : (-1,1) \to \mathcal{T}(S)$ by 
+\[
+\gamma(t) = 
+\begin{cases}
+[I_t^*]  & -1 < t \leq 0 \\
+[I_{-t}] & 0 \leq t < 1
+\end{cases}
+\]
+then $\gamma'(0) = \mathrm{Re}(\phi)$, so that this path is differentiable. 
+We conjecture that it is smooth. 

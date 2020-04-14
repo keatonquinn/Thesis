@@ -1,0 +1,205 @@
+\section{Asymptotically Poincar\'e families}
+\label{asym-def-section}
+
+
+The key property of the Poincar\'e family we wish to generalize is that $f(\epsilon)\rho_\epsilon \to h$ for $f(\epsilon) = \epsilon$ as $\epsilon \to 0$. 
+We consider, then, families of Epstein surfaces whose conformal metrics at infinity $\sigma(\epsilon)$ satisfy $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ where now $f$ is any positive smooth function with the same behavior to first order at $0$, i.e., that $f(0) = 0$, and $f'(0) \neq 0$. 
+As we will soon make arguments regarding the regularity of the tensors we consider, we will add regularity designations to our spaces, e.g., the space of smooth metrics on $X$ will be denoted by $\mathrm{Met}^\infty(X)$ and the space of smooth conformal metics will be $\mathrm{Conf}^\infty(X)$.
+
+
+
+\begin{defn}
+\label{asym-def}
+Let $S_\epsilon$ for $\epsilon$ in $(0,1)$ be a family of embedded Epstein surfaces with conformal metrics at infinity $\sigma(\epsilon)$. 
+We call this family \textit{asymptotically Poincar\'e} if 
+\begin{enumerate}
+    \item there exists a scaling function $f:[0,1) \to [0,\infty)$ so that the path 
+    \[
+f\sigma:(0,1) \to \mathrm{Met}^\infty(X)
+\]
+is differentiable and converges to the hyperbolic metric on $X$ as $\epsilon \to 0$, that is, $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$,
+    \item the function $f$ is smooth and has simple zero at 0, and
+    \item the continuous extension $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ of $f \sigma$ is differentiable.
+\end{enumerate}
+
+\end{defn}
+
+
+The surfaces in the Poincar\'e family are parallel to one another. The surfaces in an asymptotically Poincar\'e family are asymptotically parallel in the sense of the following lemma. 
+ 
+
+
+
+
+\begin{lem}\label{asym-parallel-lemma}
+Suppose $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces. 
+Let $t > 0$. 
+If $g^t$ is the geodesic flow operator defined above, then  
+\[
+d_M \left(g^t (\widehat{\mathrm{Ep}}_{\sigma(\epsilon)}(z)), \mathrm{Ep}_{\sigma(e^{-2t} \epsilon)}(z) \right) \to 0
+\quad \text{ as } \epsilon \to 0
+\]
+uniformly in $z$. 
+That is, the distance between the surface $S_\epsilon$ flowed for time $t$ and the surface $S_{e^{-2t}\epsilon}$ tends towards zero as $\epsilon$ does. 
+\end{lem}
+
+
+\begin{proof}
+We work with the universal covers. 
+In general, a straightforward computation using the $\mathrm{SL}_2\C$-frame definition of the Epstein  map $\Omega \to \H^3$ gives the distance between the image of $z$ under the Epstein map for the metrics $\sigma = e^{2\eta}|dz|^2$ and $\tau =e^{2\lambda}|dz|^2$ as
+\begin{align*}
+d_{\H^3} \left( \mathrm{Ep}_{\sigma}(z), \mathrm{Ep}_{\tau}(z) \right)
+&= 2 \mathrm{arctanh} \left(\sqrt{ \frac{(e^\eta - e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}{(e^\eta + e^{\lambda})^2  + 4|\eta_z - \lambda_z|^2}} \right)
+\end{align*}
+where all functions are evaluated at $z$, which we have suppressed for brevity.
+
+In our case, lift $\sigma(\epsilon)$ to $\tilde{\sigma}(\epsilon)$ and $\gamma(\epsilon) = f(\epsilon)\sigma(\epsilon)$ to $\tilde{\gamma}(\epsilon)$ on $\Omega$. 
+Write $\tilde{\sigma}(\epsilon) = e^{2\eta(\epsilon)}|dz|^2$ and $\tilde{\gamma}(\epsilon) = e^{2\lambda(\epsilon)}|dz|^2$, then $\eta(\epsilon) = \lambda(\epsilon) - (1/2)\log(f(\epsilon))$. 
+Recall from Lemma \ref{epstein-flow} that $g^t \circ \widehat{\mathrm{Ep}}_{\tilde{\sigma}(\epsilon)} = \mathrm{Ep}_{e^{2t}\tilde{\sigma}(\epsilon)}$.
+For ease of notation, let $c = e^{-2t}$. 
+Then we have the distance between $\mathrm{Ep}_{c^{-1} \tilde{\sigma}(\epsilon)}$ and $\mathrm{Ep}_{\tilde{\sigma}(c\epsilon)}$ can be simplified to
+\[
+2 \mathrm{arctanh} \left(\sqrt{ 
+\frac
+{(1 - \sqrt{\frac{c f(\epsilon)}{f(c \epsilon)}}e^{\lambda(c\epsilon) - \lambda(\epsilon)})^2 + 4 c f(\epsilon)e^{-2\lambda(\epsilon)}|\lambda_z(c\epsilon) - \lambda_z(\epsilon)|^2}
+{(1 + \sqrt{\frac{c f(\epsilon)}{f(c \epsilon)}}e^{\lambda(c\epsilon) - \lambda(\epsilon)})^2 + 4 c f(\epsilon)e^{-2\lambda(\epsilon)}|\lambda_z(c\epsilon) - \lambda_z(\epsilon)|^2}
+} \right).
+\] 
+Since $\tilde{\gamma}(\epsilon)$ converges in $\mathrm{Met}^\infty(X)$, the function $\lambda$ has a $C^2$ limit as $\epsilon \to 0$. 
+Therefore, the argument of $\mathrm{arctanh}$ converges to zero uniformly in $z$.
+
+Since the distance between the surfaces in the universal cover is converging to zero, and since the quotient map $\H^3 \to M$ is a local isometry, we get the Lemma. 
+\end{proof}
+
+
+
+We have required that an asymptotically Poincar\'e family consist of embedded surfaces.
+The next proposition gives a useful condition for a family of conformal metrics to give rise to an asymptotically Poincar\'e family of surfaces. 
+
+
+
+
+\begin{prop}
+\label{asym-family-prop}
+Let $\sigma: (0,1) \to \mathrm{Conf}^\infty(X)$ be a family of conformal metrics on $X$. 
+Suppose there exists a smooth function $f:[0,1) \to [0,\infty)$ with simple zero at $0$, such that $f\sigma \to h$ as $\epsilon \to 0$ and such that the extension $\gamma: [0,1) \to \mathrm{Conf}^\infty(X)$ is differentiable.
+Then there exists an $\epsilon_0 >0$ so that for $\epsilon < \epsilon_0$, the Epstein map $\mathrm{Ep}_{\sigma(\epsilon)}$ is an embedding. 
+Hence, the Epstein surfaces $\mathrm{Ep}_{\sigma(\epsilon)}:X \to M$, for $\epsilon < \epsilon_0$, form an asymptotically Poincar\'e family. 
+\end{prop}
+
+\begin{proof} 
+Let $\tilde{\sigma}:(0,1) \to \mathrm{Conf}^\infty(\Omega)$ be the lift of the family $\sigma$. 
+Define the Epstein family map $\mathrm{Ep}_{\tilde{\sigma}}: \Omega \times (0,1) \to \H^3$ by $\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = \mathrm{Ep}_{\tilde{\sigma}(\epsilon)}(z)$. 
+It follows from the $\mathrm{SL}_2\C$-frame definition of the Epstein map that in the upper half space model $\H^3 \cong \C \times \R^+$, the family map is given by 
+\[
+\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = (z,0) + \frac{2}{e^{2\eta} + 4 |\eta_z|^2}\left(2 \eta_{\bar{z}}, e^\eta \right).
+\]
+Writing $\tilde{\sigma}(\epsilon) = e^{2 \eta(z,\epsilon)}|dz|^2$ and $\tilde{\gamma}(\epsilon) = e^{2 \lambda(z,\epsilon)}|dz|^2$, the condition $\tilde{\gamma}(\epsilon) = f(\epsilon)\tilde{\sigma}(\epsilon)$ becomes $\eta(z,\epsilon) = \lambda(z,\epsilon) - (1/2) \log(f(\epsilon))$.
+Note that $\lambda(z,\epsilon) \to \rho(z)$ as $\epsilon \to 0$, uniformly in $z$, where $\rho$ is the log density of the Poincar\'e metric of $\Omega$. 
+Hence we can rewrite $\mathrm{Ep}_{\tilde{\sigma}}$ as 
+\[
+\mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon) = (z,0)  + \frac{2}{e^{2\lambda} + 4 f(\epsilon) |\lambda_z|^2} \left( 2 f(\epsilon) \lambda_{\bar{z}},  \sqrt{f(\epsilon)}e^{\lambda} \right)
+\]
+and see that
+\[
+\lim_{\epsilon \to 0} \mathrm{Ep}_{\tilde{\sigma}} (z,\epsilon) = (z,0).
+\]
+So we may extend $\mathrm{Ep}_{\tilde{\sigma}}$ to a map $\Omega \times [0,1) \to \H^3 \sqcup \Omega$, which is the identity on the boundary $\Omega \times \{0\} \to \Omega$. 
+
+While this map is not differentiable at $\epsilon = 0$ (due to the $\sqrt{f(\epsilon)}$), the map $F: \Omega \times [0,1) \to \H^3 \sqcup \Omega$ given by $F(z,\epsilon) = \mathrm{Ep}_{\tilde{\sigma}}(z,\epsilon^2)$ satisfies $F(z,0) = (z,0)$, is differentiable at $\epsilon = 0$, and has derivative  
+\[
+d F_{(z,0)} = 
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2 \sqrt{f'(0)} e^{-\rho(z)}
+\end{pmatrix}.
+\]
+Since this is invertible, $F$ is a local $C^1$-diffeomorphism at the boundary of $\Omega \times [0,1) \to \H^3 \sqcup \Omega$.
+
+Define $\bar{M} = ( \H^3 \sqcup \Omega ) /\Gamma = M \sqcup X$.
+Then $\bar{M}$ is a smooth manifold with compact boundary $X$. 
+By $\Gamma$-equivariance of $\mathrm{Ep}_{\tilde{\sigma}}$, $F$ descends to a map $X \times[0,1) \to \bar{M}$ that is the identity on the boundary $\partial(X \times [0,1)) \to \partial{\bar{M}} = X$ and that is a local diffeomorphism there. 
+We now show this implies the restriction of $F$ to $X \times [0, \delta)$, for some small enough $\delta$, is a diffeomorphism onto a collar neighborhood of $\partial \bar{M} = X$. 
+
+Given $(z,0)$ there exists neighborhoods $U_{(z,0)}$ and $V_{(z,0)}$ such that $F: U_{(z,0)} \to V_{(z,0)}$ is a diffeomorphism. 
+By compactness of $X$ we may take a finite number $U_i$ and $V_i$ such that $X \times \{0\} \subset \cup U_i$. Call $\cup_i U_i = U$ and $\cup_i V_i = V$. Then $F: U \to V$ is a local diffeomorphism and $X \times \{0\} \subset U, V$. 
+In fact, we have 
+\begin{lem*}
+There exists $\epsilon,\delta > 0$ such that $X \times [0,\delta] \subset U$, and $X \times [0,\epsilon] \subset V$ and such that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$.
+\end{lem*}
+\begin{proof}
+By construction of $U$ there exists a $\delta'$ such that $X \times [0,\delta') \subset U$. So choose $\delta = \delta'/2$. Then $X \times [0, \delta] \subset U$.
+We show that there is an $\epsilon > 0$ so that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$, as if this is true, we may replace $\epsilon$ with $\epsilon/2$ to get $X \times [0,\epsilon] \subset V$.
+
+Now, suppose no such $\epsilon$ exists. 
+Take a sequence $\epsilon_n \to 0$. 
+Then for each $n$ there exists $(w_n, t_n) \in X \times [0, \epsilon_n)$ such that $(w_n,t_n) \notin F(X \times [0,\delta))$. 
+But $t_n < \epsilon_n \to 0$. 
+Moreover, by compactness of $X$ there exists a subsequence (which we still call) $w_n$ that converges to, say, $w \in X$. 
+Then $(w_n,t_n) \to (w,0)$. 
+Since $F$ is a local diffeomorphism, there is a neighborhood $W$ of $(w,0)$, which we may assume is a subset of $X \times [0,\delta)$ by taking intersections if needed, that is diffeomorphic to a neighborhood $F(W)$ of $(w,0)$. 
+Since $(w_n, t_n) \to (w,0)$, for large enough $n$ we get $(w_n,t_n) \in F(W) \subset F(X \times [0,\delta))$. 
+This is a contradiction. 
+Hence, we get an $\epsilon >0$ so that $X \times [0,\epsilon) \subset F(X \times [0,\delta))$.
+\end{proof}
+
+\begin{cor*}
+$X \times [0,\epsilon] \subset F(X \times [0,\delta])$
+\end{cor*}
+
+\begin{lem*}
+$F: X \times [0,\delta] \to F(X \times [0,\delta])$ is a covering. 
+\end{lem*}
+
+\begin{proof}
+$F$ is a local diffeomorphism since $X \times [0,\delta] \subset U$ and $X \times [0,\epsilon] \subset V$ and since $F: U \to V$ is a local diffeomorphism. 
+Since $X \times [0,\delta]$ is compact, $F$ is a proper mapping and proper local diffeomorphisms are coverings. 
+\end{proof}
+
+\begin{lem*}
+The covering is trivial. 
+\end{lem*}
+
+\begin{proof}
+Note that the cardinality of the fibers of $F: X \times [0,\delta] \to F(X \times [0,\delta])$ are constant since everything is connected. 
+Also note that $F( X \times (0,\delta]) \subset X \times (0,1)$ and $F: X \times \{0\} \to X \times \{0\}$ is the identity, implying $F^{-1}(\{(w,0)\}) = \{(w,0)\}$. 
+Hence, $F: X \times [0,\delta] \to F(X \times [0,\delta])$ is injective. 
+\end{proof}
+
+\begin{cor*}
+$F: X \times [0,\delta] \to F(X \times [0,\delta])$ is injective and contains a neighborhood of $X \times \{0\}$.
+\end{cor*}
+
+
+
+Unraveling, we get that $\mathrm{Ep}_{\sigma}$ is a diffeomorphism from a collar neighborhood $X \times (0,\sqrt{\delta})$ to a neighborhood of infinity of $M$.
+In particular, each Epstein surface $\mathrm{Ep}_\sigma(\cdot, \epsilon) = \mathrm{Ep}_{\sigma(\epsilon)}$, for $\epsilon < \sqrt{\delta}$, is an immersion and injective with compact domain $X$. 
+Hence each Epstein surface, for $\epsilon < \sqrt{\delta}$, is embedded.
+To complete the proof take $\epsilon_0 = \sqrt{\delta}$.
+
+\end{proof}
+
+
+The Poincar\'e family foliates the end of $M$ since they are parallel. 
+In the preceding proof, we have the map $F: X \times [0,\delta) \to \bar{M}$ is a diffeomorphism onto its image. 
+Hence we have the following result for asymptotically Poincar\'e families.
+
+\begin{cor}
+\label{foliation}
+If $S_\epsilon$ is an asymptotically Poincar\'e family of surfaces, then there exists an $\epsilon_0 > 0$ such that for $\epsilon < \epsilon_0$ the surfaces $S_\epsilon$ form a foliation of the end of $M$ whose surface at infinity is $X$.
+\qed
+\end{cor}
+
+
+
+We soon turn to our main result, but first recall that the co-orientation on an Epstein surface we are using is that induced by the lift $\widehat{\mathrm{Ep}}_\sigma$, which points towards the surface at infinity $X$.
+This implies that $\two(\sigma)$ is negative definite (for small enough $\epsilon$), and so $-\two(\sigma)$ is a smooth Riemannian metric. 
+Also recall we are using the Riemannian model of Teichm\"uller space. 
+That is, we use 
+\[
+\mathcal{T}(X) = \mathrm{Met}^\infty(X)/  \left( \mathrm{Diff}_0^\infty(X) \ltimes P^\infty(X) \right),
+\]
+where $P^\infty(X)$ is the set of smooth positive functions on $X$ and $\mathrm{Diff}_0^\infty(X)$ is the group of smooth diffeomorphisms isotopic to the identity (see \cite{tromba1992} for details). 
+The smooth topology, however, is difficult to work with directly. 
+So, we work in the Sobolev setting for tensors and functions.
