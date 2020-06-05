@@ -61,6 +61,12 @@
 
 \begin{document}
 
+\makeatletter
+\setbeamertemplate{footline}
+{
+\tikz[overlay]{\node at(12,9.2){\thepage};}
+}
+\makeatother
 
 
 
@@ -262,7 +268,7 @@ V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z). \qed
 \end{thm}
 
 
-\centering\includegraphics[scale=0.06]{Epstein-1.jpg}
+\centering\includegraphics[scale=0.07]{Epstein-1.jpg}
 
 \end{frame}
 
@@ -281,26 +287,7 @@ V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z). \qed
 \end{thm}
 
 
-\centering\includegraphics[scale=0.06]{Epstein-2.jpg}
-
-\end{frame}
-
-
-%%
-
-
-\begin{frame}{Epstein Surfaces}
-
-
-\begin{thm}
-Let $\Omega$ be a domain in $\CP^1$  and $\sigma$ a $C^k$ conformal metric on $\Omega$, then there exists a unique $C^{k-1}$ map $\mathrm{Ep}_\sigma : \Omega \to \H^3$, called the Epstein map of $\Omega$ for the metric $\sigma$, such that for all $z \in \Omega$,
-\[
-V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z). \qed
-\]
-\end{thm}
-
-
-\centering\includegraphics[scale=0.06]{Epstein-3.jpg}
+\centering\includegraphics[scale=0.07]{Epstein-2.jpg}
 
 \end{frame}
 
@@ -319,7 +306,26 @@ V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z). \qed
 \end{thm}
 
 
-\centering\includegraphics[scale=0.06]{Epstein-4.jpg}
+\centering\includegraphics[scale=0.07]{Epstein-3.jpg}
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}{Epstein Surfaces}
+
+
+\begin{thm}
+Let $\Omega$ be a domain in $\CP^1$  and $\sigma$ a $C^k$ conformal metric on $\Omega$, then there exists a unique $C^{k-1}$ map $\mathrm{Ep}_\sigma : \Omega \to \H^3$, called the Epstein map of $\Omega$ for the metric $\sigma$, such that for all $z \in \Omega$,
+\[
+V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z). \qed
+\]
+\end{thm}
+
+
+\centering\includegraphics[scale=0.07]{Epstein-4.jpg}
 
 \end{frame}
 
@@ -596,7 +602,7 @@ The family obtained by parallel flowing $\mathrm{Ep}_h$ we call the Poincar\'e F
 For $t > c = c(\phi, h)$ the surfaces $\mathrm{Ep}_{e^{2t}h}$ are embedded, and so for $t$ sufficiently large, this family forms a foliation of the end of $M$.
 \newline \pause
 
-Notice that after rescaling by $\epsilon = e^{-2t}$, the conformal metrics of Poincar\'e family satisfies $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$.
+Notice that after rescaling by $\epsilon = e^{-2t}$, the conformal metrics $\rho_\epsilon$ of Poincar\'e family satisfies $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$.
 
 
 \end{frame}
@@ -667,7 +673,7 @@ If $h$ is the Poincar\'e metric of $X$ and $\phi$  the holomorphic quadratic dif
 [\two(\sigma(\epsilon))] \to [h]
 \quad \text{ as } \epsilon \to 0.
 \]
-Moreover, the tangent vectors in $T_{[h]} \mathcal{T}(S)$ are given by 
+Moreover, the tangent vectors in $T_{[h]} \mathcal{T}(X)$ are given by 
 \[
 \dot{[I(\sigma(\epsilon))]}  = 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{[\two(\sigma(\epsilon))]} = 0.
 \]
@@ -680,14 +686,127 @@ Moreover, the tangent vectors in $T_{[h]} \mathcal{T}(S)$ are given by
 
 
 \begin{frame}{Proof}
-Denote by $\mathrm{Met}^s(X)$ the set of Riemannian metrics of Sobolev class $H^s$ for a fixed $s > 3$ and note that $\mathrm{Met}^\infty(X) = \cap_{s > 3} \mathrm{Met}^s(X)$. \pause
+
+We model $\mathcal{T}(X)$ as the quotient $\mathrm{Met}^\infty(X)/(\mathrm{Diff}_0^\infty(X) \ltimes P^\infty(X))$ but we will first work with Sobolev tensors. 
 \newline
 
-We are given that $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ is continuous and differentiable at $\epsilon = 0$. 
-Therefore, we also have that $\gamma$ is continuous to $\mathrm{Met}^s(X)$ and differentiable at $\epsilon = 0$. \pause
+Denote by $\mathrm{Met}^s(X)$ the set of Riemannian metrics of Sobolev class $H^s$ for a fixed $s > 3$ and note that $\mathrm{Met}^\infty(X) = \cap_{s > 3} \mathrm{Met}^s(X)$
 \newline
 
-By noting that $\sigma(\epsilon) = f(\epsilon)^{-1}\gamma(\epsilon)$, in $\mathrm{Met}^s(X)$, we can write 
+With these regularity assumptions $T_h\mathrm{Met}^s(X)$ is a Hilbert space.
+
+
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}{Proof}
+$T_h\mathrm{Met}^s(X)$ decomposes as the orthogonal direct sum 
+\[
+\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_V h + u h \ |\ u \in H^s \text{, } V \in \Gamma(TX) \}.
+\] \pause 
+
+\centering\includegraphics[scale=0.09]{Tangent-1.jpg}
+
+\end{frame}
+
+
+%%
+
+
+
+\begin{frame}{Proof}
+$T_h\mathrm{Met}^s(X)$ decomposes as the orthogonal direct sum 
+\[
+\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_V h + u h \ |\ u \in H^s \text{, } V \in \Gamma(TX) \}.
+\]  
+
+\centering\includegraphics[scale=0.09]{Tangent-2.jpg}
+
+\end{frame}
+
+
+%%
+
+
+
+\begin{frame}{Proof}
+$T_h\mathrm{Met}^s(X)$ decomposes as the orthogonal direct sum 
+\[
+\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_V h + u h \ |\ u \in H^s \text{, } V \in \Gamma(TX) \}.
+\]  
+
+\centering\includegraphics[scale=0.09]{Tangent-3.jpg}
+
+\end{frame}
+
+
+%%
+
+
+
+\begin{frame}{Proof}
+$T_h\mathrm{Met}^s(X)$ decomposes as the orthogonal direct sum 
+\[
+\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_V h + u h \ |\ u \in H^s \text{, } V \in \Gamma(TX) \}.
+\]  
+
+\centering\includegraphics[scale=0.09]{Tangent-4.jpg}
+
+\end{frame}
+
+
+%%
+
+
+
+\begin{frame}{Proof}
+$T_h\mathrm{Met}^s(X)$ decomposes as the orthogonal direct sum 
+\[
+\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_V h + u h \ |\ u \in H^s \text{, } V \in \Gamma(TX) \}.
+\]  
+
+\centering\includegraphics[scale=0.09]{Tangent-5.jpg}
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}{Proof}
+The set $\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \}$ is a model for the tangent space to the quotient at $[h]$. 
+\newline
+
+This is true for any $s$, and each such $g$ is a smooth tensor. So this set is identified with the tangent space to Teichm\"uller space.
+\begin{align*}
+T_{[h]}\mathcal{T}(X)
+&= \{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \\
+&= \{ \mathrm{Re}(\psi) \ | \ \psi \text{ a holomorphic quadratic differential on } X \}.
+\end{align*} \pause
+
+The projection $\mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ is continuous and its derivative at $h$ is given by orthogonal projection onto $\{ \mathrm{Re}(\psi) \}$
+
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Proof}
+Returning to our theorem, we are given that $\gamma:[0,1) \to \mathrm{Met}^\infty(X)$ is continuous and differentiable at $\epsilon = 0$. 
+Therefore, we also have that $\gamma$ is continuous to $\mathrm{Met}^s(X)$, for each $s$, and is differentiable at $\epsilon = 0$. \pause
+\newline
+
+In $\mathrm{Met}^s(X)$ we can write 
 \[
 I(\sigma(\epsilon)) =  \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \frac{1}{2} h + \mathrm{Re}(\phi) + O(\epsilon), \pause
 \]
@@ -712,16 +831,18 @@ we can see that $I_\epsilon \to h$ in $\mathrm{Met}^s(X)$ for all $s$, implying 
 
 Moreover, the derivative at $\epsilon = 0$ is 
 \[
-\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi). \pause
+\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi).
 \]
 
-%\vspace{0.5cm}
+\end{frame}
 
-Similar considerations to the second fundamental form give 
-\begin{align*}
-\two_\epsilon &:= 4\epsilon f'(0) \two(\sigma(\epsilon)) =  h + \epsilon \dot{\gamma} + O(\epsilon^2) \\
-\dot{\two_\epsilon} &= \dot{\gamma}.
-\end{align*} 
+
+%%
+
+
+\begin{frame}{Proof}
+
+\centering\includegraphics[scale=0.09]{Teich-1.jpg}
 
 \end{frame}
 
@@ -730,18 +851,8 @@ Similar considerations to the second fundamental form give
 
 
 \begin{frame}{Proof}
-We model $\mathcal{T}(X)$ as the quotient $\mathrm{Met}^\infty(X)/(\mathrm{Diff}_0^\infty(X) \ltimes P^s(X))$. 
 
-But again, we work with Sobolev tensors and functions. With these regularity assumptions $T_h\mathrm{Met}^s(X)$ is a Hilbert space and it decomposes as the orthogonal direct sum 
-\[
-\{ g \ | \ \mathrm{tr}_h (g) = 0 = \mathrm{div}_h(g) \} \oplus \{\mathcal{L}_X h + fh \ |\ f \in H^s \text{, } X \in \Gamma(TX) \}.
-\] \pause 
-The second summand is tangent to the $\mathrm{Diff}^s_0(X) \ltimes P^s(X)$-orbit of $h$ so the first summand is a model for the tangent space to the quotient at $[h]$. This is true for any $s$, so it is identified with the tangent space to Teichm\"uller space. \pause
-\begin{align*}
-T_{[h]}\mathcal{T}(X)
-&= \{ \dot{g} \ | \ \mathrm{tr}_h (\dot{g}) = 0 = \mathrm{div}_h(\dot{g}) \} \\
-&= \{ \mathrm{Re}(\psi) \ | \ \psi \text{ a holomorphic quadratic differential on } X \}.
-\end{align*}
+\centering\includegraphics[scale=0.09]{Teich-2.jpg}
 
 \end{frame}
 
@@ -750,8 +861,37 @@ T_{[h]}\mathcal{T}(X)
 
 
 \begin{frame}{Proof}
-We have that the projection $\mathrm{Met}^\infty(X) \to \mathcal{T}(X)$ is continuous and its derivative at $h$ is given by orthogonal projection onto $\{ \mathrm{Re}(\psi) \}$.
-\newline
+
+\centering\includegraphics[scale=0.09]{Teich-3.jpg}
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}{Proof}
+
+\centering\includegraphics[scale=0.09]{Teich-4.jpg}
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}{Proof}
+
+\centering\includegraphics[scale=0.09]{Teich-5.jpg}
+
+\end{frame}
+
+
+%%
+
+
+\begin{frame}
+
 
 Therefore, as $I_\epsilon \to h$ in $\mathrm{Met}^\infty(X)$ we have that $[I(\sigma(\epsilon))] = [I_\epsilon] \to [h]$ in $\mathcal{T}(X)$. \pause
 
@@ -766,9 +906,7 @@ we see
 \dot{[I(\sigma(\epsilon))]} = 4f'(0)\mathrm{Re}(\phi).
 \] \pause
 
-\vspace{1cm}
-
-The same arguments work for $\two(\sigma(\epsilon))$.
+The same arguments work for $\two(\sigma(\epsilon))$. \qed
 
 \end{frame}
 
