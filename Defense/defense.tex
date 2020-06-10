@@ -169,7 +169,7 @@ We will focus on just one end of $M$. From now on let $X$ denote its surface at 
 %C. Epstein describes a way of taking geometric data on the boundary of $\H^3$ and obtaining a surface in $\H^3$.
 %\newline
 
-\begin{thm}
+\begin{thm}[Epstein 1984, Thurston]
 Let $\Omega$ be a domain in $\CP^1$  and $\sigma$ a $C^k$ conformal metric on $\Omega$, then there exists a unique $C^{k-1}$ map $\mathrm{Ep}_\sigma : \Omega \to \H^3$, called the Epstein map of $\Omega$ for the metric $\sigma$, such that for all $z \in \Omega$,
 \[
 V_{\mathrm{Ep}_\sigma(z)}(z) = \sigma(z).
@@ -261,13 +261,23 @@ Flowing $\mathrm{Ep}_\sigma$ for time $t$ in the normal direction gives a parall
 
 
 
-We call the unique hyperbolic conformal metric $h$ on $X$ the Poincar\'e metric and its Epstein surface $\mathrm{Ep}_h: X \to M$ the Poincar\'e surface of $X$. 
-\newline \pause
+\uncover<1->{We call the unique hyperbolic conformal metric $h$ on $X$ the Poincar\'e metric and its Epstein surface $\mathrm{Ep}_h: X \to M$ the Poincar\'e surface of $X$.}
+\vspace{0.3cm}
 
-The family obtained by parallel flowing $\mathrm{Ep}_h$ we call the Poincar\'e Family, and this family is given as $(\mathrm{Ep}_{e^{2t}h})_{t\geq 0}$.
-\newline \pause
+\uncover<2->{The family obtained by parallel flowing $\mathrm{Ep}_h$ we call the Poincar\'e Family, and this family is given as $(\mathrm{Ep}_{e^{2t}h})_{t\geq 0}$.}
 
-For $t > c = c(\phi, h)$, the surfaces $\mathrm{Ep}_{e^{2t}h}$ are embedded, and so for $t$ sufficiently large, this family forms a foliation of the end of $M$.
+\vspace{-0.2cm}
+
+\begin{center}
+\includegraphics<1|handout:0>[scale=0.1]{Poincare-1.jpg}%
+\includegraphics<2->[scale=0.1]{Poincare-2.jpg}%
+\end{center}
+
+\vspace{-0.5cm}
+
+\uncover<3>{For $t > c = c(\phi, h)$, the surfaces $\mathrm{Ep}_{e^{2t}h}$ are embedded, and so for $t$ sufficiently large, this family forms a foliation of the end of $M$.}
+
+
 
 
 \end{frame}
@@ -656,7 +666,7 @@ Since there are no solutions for $k = 0$ we rescale the equation by considering 
 
 If $\sigma$ solves \eqref{k-surface-eqn} then $\tau = f(k)\sigma$ solves 
 \begin{multline*}
-(2+k)(1+K(\tau))^2  \\ + 2\sqrt{1+k}\left(1-K(\tau)^2 \right) +16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2} = 0
+(2+k)(1+K(\tau))^2 + 2\sqrt{1+k}\left(1-K(\tau)^2 \right) \\ +16\left(2\sqrt{1+k} - 2 - k  \right)\frac{|B(\tau)|^2}{\tau^2} = 0
 \end{multline*}or 
 \[
 F(k,\tau) = 0.
