@@ -65,16 +65,18 @@
 \usepackage{hyperref}
 \hypersetup{
 pdfauthor={Keaton Quinn},
-pdftitle={Asymptotically Poincar\'e surfaces in quasi-Fuchsian manifolds},
-colorlinks=true,linkcolor=verydarkblue,
-citecolor=verydarkblue,urlcolor=verydarkblue
+pdftitle={Limits of foliations in quasi-Fuchsian manifolds},
+colorlinks=true,
+linkcolor=verydarkblue,
+citecolor=verydarkblue,
+urlcolor=verydarkblue
 }
 
 
 
 \begin{document}
 
-\title{Limits of foliations \\ in quasi-Fuchsian manifolds}
+\title[Limits of foliations in quasi-Fuchsian manifolds]{Limits of foliations \\ in quasi-Fuchsian manifolds}
 
 \author{Keaton Quinn}
 
@@ -112,11 +114,11 @@ I would also like to thank the mathematics graduate students for making the Univ
 I am grateful for GGTDS, grateful to Sam Dodds for our many rambling mathematical musings, and thankful to Hunter Chase for commiserating with me. 
 Special thanks go to Charles Alley, J\=anis Lazovskis, and Nathan Lopez for their friendship and support, for our weekly research seminar, and for their inspiration.
 In particular, I thank Charles for keeping me grounded in reality, I thank Nathan for his companionship, and I thank J\=anis for putting up with me as a roommate for five years. 
-Thanks also go to the administrative staff of the Department of Mathematics, Statistics, and Computer Science for keeping everything running. This includes but is not limited to Maureen Madden, Lisa Jones, and Eloy Reyes.
+Thanks also go to the administrative staff of the Department of Mathematics, Statistics, and Computer Science for keeping everything running. This includes but is not limited to Lisa Jones, Maureen Madden, and Eloy Reyes.
 
 I thank Hanni Nichols for inspiring me to pursue mathematics, for prodding me towards graduate school, for reassuring me, for believing in me, and for her friendship.
 I also thank my family, Keith Quinn, Sandra Quinn, Taylor Quinn and Rom\'an Rampinini, who have been nothing but supportive. 
-And finally, thank you to Irving Daniel Sandoval Gonzalez, who has been so inspiring, motivating, supportive, and understanding, and who helped me make it to the end.
+And finally, I thank Irving Daniel Sandoval Gonzalez for being so inspiring, motivating, supportive, and understanding, and for helping me make it to the end.
 
 
 
@@ -132,7 +134,7 @@ We are concerned with Epstein surfaces in quasi-Fuchsian manifolds, which are ce
 Each end of a quasi-Fuchsian manifold is compactified by a copy of $S$, which is called the surface at infinity (for the end), and each such surface at infinity inherits a complex projective structure $Z$ and hence a conformal structure $X$. 
 Applying the Epstein construction in this setting, we obtain a map that takes a conformal metric $\sigma$ on $X$ and returns a surface in the quasi-Fuchsian manifold.
 When $h$ is the unique hyperbolic metric on $X$, the corresponding Epstein surface we call the Poincar\'e surface of $X$. 
-The Epstein surface for the multiple $\rho_t = e^{2t}h$ may be obtained by parallel flowing the Poincar\'e surface in the normal direction a distance $t$. 
+The Epstein surface for the multiple $e^{2t}h$ may be obtained by parallel flowing the Poincar\'e surface in the normal direction a distance $t$. 
 The Poincar\'e surface with its parallel copies form a family we call the Poincar\'e family and, after restricting to sufficiently large $t$, we obtain a foliation of the end of the quasi-Fuchsian manifold. 
 
 The Poincar\'e family has been used by several other others to study the geometry of projective structures and hyperbolic 3-manifolds. 
@@ -140,9 +142,9 @@ For example, in \cite{anderson1998} Anderson used them when developing a bound o
 Bromberg used this family in \cite{bromberg2004} when studying hyperbolic cone manifolds. 
 And Krasnov and Schlenker gave an alternative definition of the renormalized volume using the Poincar\'e family in \cite{krasnov-schlenker2008} for the case of convex co-compact hyperbolic 3-manifolds. 
 
-After re-parametrizing by $\epsilon = e^{-2t}$, the conformal metrics $\rho_\epsilon$ inducing the Poincar\'e family have the property that $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$. 
+After re-parametrizing by $\epsilon = e^{-2t}$, the conformal metrics $\rho_\epsilon$ inducing the Poincar\'e family have the property that $\epsilon \rho_\epsilon \to h$ as $\epsilon \to 0$ (in fact $\epsilon \rho_\epsilon = h$, for all $\epsilon$). 
 Analogously, in this thesis we study families of Epstein surfaces for conformal metrics $\sigma(\epsilon)$ such that there is a scaling function $f$ which satisfies $f(\epsilon)\sigma(\epsilon) \to h$ as $\epsilon \to 0$ (see Definition \ref{asym-def} in Section \ref{asym-def-section} for the precise conditions). 
-These families are, in a sense, $C^\infty$-asymptotic to the Poincar\'e family and so we name them \emph{Asymptotically Poincar\'e Families}. 
+These families are, in this sense, $C^\infty$-asymptotic to the Poincar\'e family and so we name them \emph{Asymptotically Poincar\'e Families}. 
 These families also form foliations of the end of the quasi-Fuchsian manifold  (Corollary \ref{foliation}) and the goal of this thesis is to study the behavior of these foliations as $ \epsilon \to 0$, which corresponds to the surfaces leaving the end of the manifold. 
 
 The first fundamental form (i.e., the induced metric) $I_\epsilon$ of the Epstein surface for $\sigma(\epsilon)$ is a Riemannian metric on $X \cong S$ and so its conformal class $[I_\epsilon]$ may be considered as a point in $\mathcal{T}(S)$, the Teichm\"uller space of $S$. 
@@ -845,7 +847,7 @@ Generalizing this, we say a surface $i : S \to M$ is an Epstein surface of $X$ i
 commutes. 
 Here the $\pi_X$ and $\pi_M$ are the respective quotient maps $\Omega \to X$ and $\H^3 \to M$.
 When $S$ is an Epstein surface of $X$, the conformal metric $\tilde{\sigma}$ induces a conformal metric $\sigma$ on $X$ that we call the conformal metric at infinity. 
-We have $\mathrm{Ep}_{\sigma} = \varphi \circ i$. 
+We have $\mathrm{Ep}_{\sigma} = i \circ \varphi$. 
 The Epstein surface $S$ will then refer to the embedded image of $\mathrm{Ep}_{\sigma}: X \to M$. 
 
 Since $X$ is a closed surface of genus at least 2, it possesses a unique hyperbolic conformal metric $h$. 
@@ -899,7 +901,7 @@ It then follows that $\det(I(e^{2t}\sigma)) > 0$ so that $I(e^{2t}\sigma)$ is po
 
 In the Poincar\'e case the this becomes $t > \log \sqrt{2\|\phi\|_h + 1}$, which is the bound obtained by \cite{anderson1998}, although we do not get embeddedness from this lemma. 
 
-So, the Poincar\'e family is the family of Epstein surfaces for the conformal metrics at infinity $\rho_t = e^{2t}h$ and for $t$ sufficiently large these surfaces are embedded. 
+So, the Poincar\'e family is the family of Epstein surfaces for the conformal metrics at infinity $e^{2t}h$ and for $t$ sufficiently large these surfaces are embedded. 
 We now discuss their asymptotic behavior. 
 In order to consider derivatives more easily, let us reparametrize the Poincar\'e family using $\epsilon = e^{-2t}$, so that $\rho_\epsilon = h/\epsilon$. 
 We are interested in the behavior as $\epsilon \to 0$. 
