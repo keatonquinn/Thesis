@@ -35,7 +35,7 @@ In fact, we can identify cases when it is not.
 When $\sigma = h$ we know $K(h) = -1$ and $B(h) = \frac{1}{2}\phi$. 
 Then using the formula for determinant of $I(h)$ given in Section \ref{epstein-geometry}, we compute
 \[
-\det(I(h)) = 16 \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
+\det(I(h)) =  \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
 \]
 And so we see $\mathrm{Ep}_h$ is not an immersion at points in $X$ where $\frac{|\phi|}{h} =1$. 
 However, by parallel flowing of the Poincar\'e surface we eventually obtain an immersed (embedded, actually) surface, which we now discuss. 
@@ -86,7 +86,7 @@ The following arguments are formal; they will be made precise in the next sectio
 We see the family of first fundamental forms diverges as $\epsilon \to 0$. 
 However, rescaling gives
 \[
-4\epsilon I(\rho_\epsilon) = h + 4\epsilon \left( \frac{1}{2}h + \mathrm{Re}(\phi) \right) + O(\epsilon^2).
+4\epsilon I(\rho_\epsilon) = h + \epsilon \left( 2 h + 4\mathrm{Re}(\phi) \right) + O(\epsilon^2).
 \]
 And so, if we project to the quotient, we can consider the Poincar\'e family as a path in Teichm\"uller space that converges: $[I(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$. 
 Moreover, differentiating at $0$ yields

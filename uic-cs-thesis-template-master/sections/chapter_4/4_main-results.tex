@@ -24,9 +24,9 @@ I_\epsilon := 4 f'(0) \epsilon I(\sigma(\epsilon)) \to h
 \]
 Moreover, $I_\epsilon$ and $\two_\epsilon$ are differentiable at $\epsilon = 0$ and their tangent vectors are given by 
 \[
-\dot{I_\epsilon} = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)
+\dot{I_\epsilon} = \dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi)
 \quad \text{ and } \quad
-\dot{\two_\epsilon} = \dot{\gamma}
+\dot{\two_\epsilon} = \dot{\gamma} - \frac{1}{2}\frac{f''(0)}{f'(0)}h.
 \]
 \end{prop}
 
@@ -41,22 +41,23 @@ Then, we have $I(\sigma(\epsilon)) = I(\frac{1}{f(\epsilon)} \gamma(\epsilon))$ 
 which is a smooth tensor independent of $s$. 
 Since $f:[0,1) \to \R$ and $\gamma:[0,1) \to \mathrm{Met}^s(X)$ are differentiable at 0 and since $K: \mathrm{Met}^s(X) \to H^{s-2}(X)$ and $B: \mathrm{Conf}^s(X) \to \Gamma^{s-2}(\Sigma^{2}(X))$ are differentiable at the hyperbolic metric $h$, we can write 
 \begin{align*}
-f(\epsilon) = \epsilon f'(0) + O(\epsilon^2), \quad
+f(\epsilon) = \epsilon f'(0) + \frac{1}{2}\epsilon^2 f''(0) + O(\epsilon^3), \quad
 K(\gamma(\epsilon)) = -1 + O(\epsilon), \quad 
 B(\gamma(\epsilon)) = \frac{1}{2} \phi + O(\epsilon).
 \end{align*}
 
 Substitution and some simplification gives 
 \[
-I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \frac{1}{2} h + \mathrm{Re}(\phi) + O(\epsilon).
+I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \left(\frac{1}{2} - \frac{1}{8}\frac{f''(0)}{f'
+(0)^2}\right) h + \mathrm{Re}(\phi) + O(\epsilon).
 \]
 Consequently, 
 \[
-I_\epsilon =  h + \epsilon(\dot{\gamma} + 2 f'(0)h + 4 f'(0) \mathrm{Re}(\phi)) + O(\epsilon^2).
+I_\epsilon =  h + \epsilon \left(\dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi) \right) + O(\epsilon^2).
 \]
 The same reasoning will give 
 \[
-\two_\epsilon = h + \epsilon \dot{\gamma} + O(\epsilon^2).
+\two_\epsilon = h + \epsilon \left( \dot{\gamma} - \frac{1}{2}\frac{f''(0)}{f'(0)} h \right) + O(\epsilon^2).
 \]
 The result then follows.
 \end{proof}
@@ -96,22 +97,24 @@ Since $[I(\sigma(\epsilon))]$ and  $[\two(\sigma(\epsilon))]$ agree with $[I_\ep
 
 From Proposition \ref{thm-in-sobolev} we know that 
 \[
-\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{\two_\epsilon} = \dot{\gamma}.
+\dot{I_\epsilon}  = \dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi)
+\quad \text{ and }\quad 
+\dot{\two_\epsilon} = \dot{\gamma} - \frac{1}{2}\frac{f''(0)}{f'(0)} h.
 \]
 Since $\phi$ is holomorphic, $4 f'(0) \mathrm{Re}(\phi)$ is trace-free and divergence-free. 
-On the other hand, $2 f'(0) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
+On the other hand, $(2 f'(0) - (1/2)f''(0)/f'(0)) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
 Hence, the derivative of the projection at $h$ removes this term.
 Similarly, $\gamma$ is a path in the group orbit of $h$ and so $\dot{\gamma}$ projects to 0. 
 We then have
 \begin{align*}
 \dot{[I(\sigma(\epsilon))]}
 = \dot{[I_\epsilon]}
-= d \pi_h (\dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)) 
+= d \pi_h \left(\dot{\gamma} + (2 f'(0) - (1/2)f''(0)/f'(0)) h + 4 f'(0) \mathrm{Re}(\phi) \right) 
 = 4 f'(0) \mathrm{Re}(\phi)
 \end{align*}
 and
 \[
-\dot{[\two(\sigma(\epsilon))]} = \dot{\two_\epsilon} = d \pi_h (\dot{\gamma}) = 0,
+\dot{[\two(\sigma(\epsilon))]} = \dot{[\two_\epsilon]} = d \pi_h (\dot{\gamma}- (1/2)f''(0)/f'(0)) h) = 0,
 \]
 as claimed.
 \end{proof}

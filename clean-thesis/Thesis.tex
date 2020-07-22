@@ -86,7 +86,7 @@ urlcolor=verydarkblue
 
 \begin{abstract}
 We study the asymptotic behavior of certain foliations of ends of quasi-Fuchsian manifolds. 
-We introduce a class of such foliations, which we call asymptotically Poincar\'e familes as they are asymptotic to a family of surfaces determined naturally by the Poincar\'e metric on the Riemann surface at infinity.
+We introduce a class of such foliations, which we call asymptotically Poincar\'e families as they are asymptotic to a family of surfaces determined naturally by the Poincar\'e metric on the Riemann surface at infinity.
 We prove the limiting behavior of any asymptotically Poincar\'e family is completely determined by the geometry of the quasi-Fuchsian manifold $M$ and the conformal structure on the ideal boundary of $M$. 
 Specifically, the conformal classes of the first and second fundamental forms $[I_\epsilon]$ and $[\two_\epsilon]$ of the surfaces in an asymptotically Poincar\'e family converge in Teichm\"uller space as $\epsilon \to 0$ to the conformal structure of the surface at infinity of the end of $M$.
 At $\epsilon  = 0$, the tangent vectors satisfy $\dot{[I_\epsilon]} = c \mathrm{Re}(\phi)$ and $\dot{[\two_\epsilon]} = 0$ where $\phi$ is the holomorphic quadratic differential of the complex projective structure at infinity and $c$ a constant that depends on the foliation. 
@@ -772,7 +772,7 @@ Here $K(\sigma)$ is the Gaussian curvature of $\sigma$ and $B(g_{\CP^1},\sigma)$
 We note that when the Epstein surface is embedded, its second fundamental form is negative definite due to our convenient choice of normal vector field.
 Writing $\det(g)$ for the determinant of the matrix representation of $g$ relative to some local frame for the tangent bundle, the metrics on $\sigma$ and $I(\sigma)$ on $S$ have determinants related by
 \[
-\det(I(\sigma)) = \left( (1-K(\sigma))^2 - 16 |B(g_{\CP^1},\sigma)|^2\sigma^{-2} \right)^2 \det(\sigma).
+\det(I(\sigma)) = \frac{1}{16}\left( (1-K(\sigma))^2 - 16 |B(g_{\CP^1},\sigma)|^2\sigma^{-2} \right)^2 \det(\sigma).
 \]
 This equation is independent of the frame and has in intrinsic meaning, namely it describes the ratio of volume forms of these two metrics. 
 We can compute the Gaussian curvature by $K(I(\sigma)) = -1 + \det(I(\sigma)^{-1}\two(\sigma))$ and the mean curvature by $H(\mathrm{Ep}_\sigma) = \frac{1}{2}\mathrm{tr}(I(\sigma)^{-1}\two(\sigma))$. 
@@ -864,7 +864,7 @@ In fact, we can identify cases when it is not.
 When $\sigma = h$ we know $K(h) = -1$ and $B(h) = \frac{1}{2}\phi$. 
 Then using the formula for determinant of $I(h)$ given in Section \ref{epstein-geometry}, we compute
 \[
-\det(I(h)) = 16 \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
+\det(I(h)) = \left( 1 - \frac{|\phi|^2}{h^2} \right)^2 \det(h).
 \]
 And so we see $\mathrm{Ep}_h$ is not an immersion at points in $X$ where $\frac{|\phi|}{h} =1$. 
 However, by parallel flowing of the Poincar\'e surface we eventually obtain an immersed (embedded, actually) surface, which we now discuss. 
@@ -915,7 +915,7 @@ The following arguments are formal; they will be made precise in the next sectio
 We see the family of first fundamental forms diverges as $\epsilon \to 0$. 
 However, rescaling gives
 \[
-4\epsilon I(\rho_\epsilon) = h + 4\epsilon \left( \frac{1}{2}h + \mathrm{Re}(\phi) \right) + O(\epsilon^2).
+4\epsilon I(\rho_\epsilon) = h + \epsilon \left( 2 h + 4\mathrm{Re}(\phi) \right) + O(\epsilon^2).
 \]
 And so, if we project to the quotient, we can consider the Poincar\'e family as a path in Teichm\"uller space that converges: $[I(\rho_\epsilon)] \to [h]$ as $\epsilon \to 0$. 
 Moreover, differentiating at $0$ yields
@@ -1213,9 +1213,9 @@ I_\epsilon := 4 f'(0) \epsilon I(\sigma(\epsilon)) \to h
 \]
 Moreover, $I_\epsilon$ and $\two_\epsilon$ are differentiable at $\epsilon = 0$ and their tangent vectors are given by 
 \[
-\dot{I_\epsilon} = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)
+\dot{I_\epsilon} = \dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi)
 \quad \text{ and } \quad
-\dot{\two_\epsilon} = \dot{\gamma}
+\dot{\two_\epsilon} = \dot{\gamma}  - \frac{1}{2}\frac{f''(0)}{f'(0)}h.
 \]
 \end{prop}
 
@@ -1230,22 +1230,23 @@ Then, we have $I(\sigma(\epsilon)) = I(\frac{1}{f(\epsilon)} \gamma(\epsilon))$ 
 which is a smooth tensor independent of $s$. 
 Since $f:[0,1) \to \R$ and $\gamma:[0,1) \to \mathrm{Met}^s(X)$ are differentiable at 0 and since $K: \mathrm{Met}^s(X) \to H^{s-2}(X)$ and $B: \mathrm{Conf}^s(X) \to \Gamma^{s-2}(\Sigma^{2}(X))$ are differentiable at the hyperbolic metric $h$, we can write 
 \begin{align*}
-f(\epsilon) = \epsilon f'(0) + O(\epsilon^2), \quad
-K(\gamma(\epsilon)) = -1 + O(\epsilon), \quad 
+f(\epsilon) = \epsilon f'(0) + \frac{1}{2}\epsilon^2 f''(0) + O(\epsilon^3), \ 
+K(\gamma(\epsilon)) = -1 + O(\epsilon), \
 B(\gamma(\epsilon)) = \frac{1}{2} \phi + O(\epsilon).
 \end{align*}
 
 Substitution and some simplification gives 
 \[
-I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \frac{1}{2} h + \mathrm{Re}(\phi) + O(\epsilon).
+I(\sigma(\epsilon)) = \frac{1}{4\epsilon f'(0)} h + \frac{1}{4 f'(0)} \dot{\gamma} + \left(\frac{1}{2} - \frac{1}{8}\frac{f''(0)}{f'
+(0)^2}\right) h + \mathrm{Re}(\phi) + O(\epsilon).
 \]
 Consequently, 
 \[
-I_\epsilon =  h + \epsilon(\dot{\gamma} + 2 f'(0)h + 4 f'(0) \mathrm{Re}(\phi)) + O(\epsilon^2).
+I_\epsilon =  h + \epsilon \left(\dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi) \right) + O(\epsilon^2)
 \]
 The same reasoning will give 
 \[
-\two_\epsilon = h + \epsilon \dot{\gamma} + O(\epsilon^2).
+\two_\epsilon = h + \epsilon \left( \dot{\gamma} - \frac{1}{2}\frac{f''(0)}{f'(0)} h \right) + O(\epsilon^2).
 \]
 The result then follows.
 \end{proof}
@@ -1285,22 +1286,24 @@ Since $[I(\sigma(\epsilon))]$ and  $[\two(\sigma(\epsilon))]$ agree with $[I_\ep
 
 From Proposition \ref{thm-in-sobolev} we know that 
 \[
-\dot{I_\epsilon}  = \dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi) \quad \text{ and } \quad \dot{\two_\epsilon} = \dot{\gamma}.
+\dot{I_\epsilon}  = \dot{\gamma} + \left(2 f'(0) - \frac{1}{2}\frac{f''(0)}{f'(0)} \right) h + 4 f'(0) \mathrm{Re}(\phi) 
+\quad \text{ and } \quad 
+\dot{\two_\epsilon} = \dot{\gamma} - \frac{1}{2}\frac{f''(0)}{f'(0)} h.
 \]
 Since $\phi$ is holomorphic, $4 f'(0) \mathrm{Re}(\phi)$ is trace-free and divergence-free. 
-On the other hand, $2 f'(0) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
+On the other hand, $(2 f'(0) - (1/2)f''(0)/f'(0)) h$ is pure trace and so belongs to the $\mathrm{Diff}_0^s(X) \rtimes P^s(X)$ orbit of $h$. Furthermore, for any $s$ it belongs to the group orbit of $h$. 
 Hence, the derivative of the projection at $h$ removes this term.
 Similarly, $\gamma$ is a path in the group orbit of $h$ and so $\dot{\gamma}$ projects to 0. 
 We then have
 \begin{align*}
 \dot{[I(\sigma(\epsilon))]}
 = \dot{[I_\epsilon]}
-= d \pi_h (\dot{\gamma} + 2 f'(0) h + 4 f'(0) \mathrm{Re}(\phi)) 
-= 4 f'(0) \mathrm{Re}(\phi)
+&= d \pi_h \left(\dot{\gamma} + (2 f'(0) - (1/2)f''(0)/f'(0)) h + 4 f'(0) \mathrm{Re}(\phi) \right)  \\
+&= 4 f'(0) \mathrm{Re}(\phi)
 \end{align*}
 and
 \[
-\dot{[\two(\sigma(\epsilon))]} = \dot{\two_\epsilon} = d \pi_h (\dot{\gamma}) = 0,
+\dot{[\two(\sigma(\epsilon))]} = \dot{[\two_\epsilon]} = d \pi_h (\dot{\gamma}- (1/2)f''(0)/f'(0)) h) = 0,
 \]
 as claimed.
 \end{proof}
@@ -1607,20 +1610,20 @@ When $k = 0$ we have the hyperbolic metric $h$ as solution $G(0,h) = 0$.
 The map $G$ is smooth. 
 The derivative of $G$ at $(0,h)$ is given by 
 \[
-dG_{(0,h))}(\dot{k},\dot{\tau}) = -4 \frac{|\phi|^2}{h^2} \dot{k} + 2 D K_h(\dot{\tau}).
+dG_{(0,h))}(\dot{k},\dot{\tau}) = -2 \frac{|\phi|^2}{h^2} \dot{k} + 2 D K_h(\dot{\tau}).
 \]
-Notice that $D_2 G_{(0,h)} = D K_h$, which---as in the proof of Theorem \ref{weak-solutions}---is an isomorphism $H^s(X) \to H^{s-2}(X)$.
+Notice that $D_2 G_{(0,h)} = 2 D K_h$, which---as in the proof of Theorem \ref{weak-solutions}---is an isomorphism $H^s(X) \to H^{s-2}(X)$.
 Hence, by the Banach Implicit Function Theorem there exists an open set $W$ and a smooth curve $\gamma: W \to \mathrm{Conf}^{s}(X)$ such that $G(k,\gamma(k)) = k$. 
 Moreover, these are the only solutions to $G(k,\tau) = 0$ in $W$.
 
-The same regularity arguments apply here as in the $k$-surface case and imply the existence of an $\delta > 0$ so that when $k \in (-\delta,\delta)$, each metric $\gamma(k)$ is smooth and the family $\gamma$ varies smoothly in $k$ in the $C^\infty$ topology. 
+The same regularity arguments apply here as in the $k$-surface case and imply the existence of a $\delta > 0$ so that when $k \in (-\delta,\delta)$, each metric $\gamma(k)$ is smooth and the family $\gamma$ varies smoothly in $k$ in the $C^\infty$ topology. 
 \end{proof}
 
 
 This implies that the mean curvature surfaces form an asymptotically Poincar\'e family of surfaces. 
 
 \begin{cor}
-There exists an $\delta > 0$ so that for $k \in (-\delta, 0)$ the family of surfaces $S_k$ where $S_k$ has constant mean curvature $-\sqrt{1+k}$ forms an asymptotically Poincar\'e family of surfaces. 
+There exists a $\delta > 0$ so that for $k \in (-\delta, 0)$ the family of surfaces $S_k$ where $S_k$ has constant mean curvature $-\sqrt{1+k}$ forms an asymptotically Poincar\'e family of surfaces. 
 \end{cor}
 
 \begin{proof}
@@ -1685,7 +1688,7 @@ This correspondence extends to a duality between hyperbolic ends of 3-manifolds 
 Therefore, fix a quasi-Fuchsian manifold and an end $E$.
 Let $E^*$ be the corresponding de Sitter space-time.
 The $k$-surface $S_k$ in $E$ has a dual surface $S_k^*$ in $E^*$ which also has constant Gaussian curvature, as shown by a computation. 
-One can show, see \cite{labourie1992}, that the induced metric $I_k^*$ on $S_k^*$ also satisfies$[I_k^*] \to [h]$ in $\mathcal{T}(S)$ as $k \to 0$. 
+One can show, see \cite{labourie1992}, that the induced metric $I_k^*$ on $S_k^*$ also satisfies $[I_k^*] \to [h]$ in $\mathcal{T}(S)$ as $k \to 0$. 
 Hence the paths $[I_k]$ and $[I_k^*]$ meet at $[h]$ when $k = 0$. 
 
 A preliminary calculation shows that $\dot{[I_k^*]} = +\mathrm{Re}(\phi)$, and so if one forms the concatenated path $\gamma : (-1,1) \to \mathcal{T}(S)$ by 
